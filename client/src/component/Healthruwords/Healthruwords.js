@@ -3,10 +3,7 @@ import axios from 'axios';
 import "./Healthruwords.css"
 
 class Heal extends Component {
-    constructor() {
-      super();
-     
-    };
+   
     state={
       quote: "",
       id: ""

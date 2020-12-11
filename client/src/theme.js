@@ -9,7 +9,7 @@ const theme = createMuiTheme({
           'cursive',
         ]},
   palette: {
-    primary: { main: pink[500] },
+    primary: { main: pink[300] },
     secondary: { main: grey[700] },
     type: 'light',
   },

@@ -6,10 +6,10 @@ import Navbar from './components/navbar';
 import Register from './pages/Passport/register'
 import BottomAppBar from '../src/component/nav/BottomAppBar'
 import FaceDetectionPage from './pages/FaceDetectionPage/FaceDetectionPage';
-import HomeLandingPage from "./pages/LandingPage"
 import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
-import JournalEntries from './component/journal/JournalEntry'
+import JournalEntries from './pages/JournalEntriesPage/JournalEntriesPage'
 import Home from './pages/Passport/home';
+import LandingPage from './component/LandingPage';
 
 class App extends Component {
   constructor() {
@@ -62,7 +62,7 @@ class App extends Component {
     return (
       <Router>
       <div className='App'>
-        <BottomAppBar/>
+        
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         {/* greet user if logged in: */}
         {this.state.loggedIn && <p>Welcome, {this.state.username}!</p>}
@@ -78,7 +78,7 @@ class App extends Component {
         <FaceDetectionPage />
         </Route>
         <Route exact path={["/home"]}>
-        <HomeLandingPage />
+        <LandingPage />
         </Route>
         <Route exact path={"/createjournal"}>
         <CreateJournalPage />

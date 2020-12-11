@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     CardContent, 
@@ -12,6 +12,7 @@ import {
     Typography,
 } from '@material-ui/core';
 import theme from '../../theme'
+import JournalItems from './JournalItems';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         maxWidth: 345,
+        marginTop: '30%',
     },
     media: {
         height: 0,
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function JournalList() {
     const classes = useStyles();
-    const [spacing, setSpacing] = React.useState(2);
+    const [spacing] = React.useState(2);
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -58,31 +60,32 @@ export default function JournalList() {
                                     </CardActionArea>
                                 </Grid>
                             </CardContent>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}>
-                                    <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
-                                        Journal Entries
-                                    </Typography>
-                                </Paper>
-                            </Grid>
-                            <Grid container className={classes.root} spacing={2}>
+                            <CardContent>
                                 <Grid item xs={12}>
-                                    <Grid container justify="center" spacing={spacing}>
-                                        {[0, 1, 2].map((value) => (
-                                            <Grid key={value} item>
-                                            <Paper className={classes.paper} />
-                                            </Grid>
-                                        ))}
-                                    </Grid>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Paper className={classes.control}>
-                                        <Grid container>
-                                            
-                                        </Grid>
+                                    <Paper className={classes.paper}>
+                                        <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
+                                            Journal Entries
+                                        </Typography>
                                     </Paper>
                                 </Grid>
-                            </Grid>
+                            </CardContent>
+                            <CardContent>
+                                <Grid item xs={12}>
+                                </Grid>
+                            </CardContent>
+                            <CardContent>
+                                <Paper className={classes.paper}>
+                                    <Grid container className={classes.root} spacing={2}>
+                                        <Grid item xs={12}>
+                                            <Grid container justify="center" spacing={spacing}>
+                                            <JournalItems/>
+                                            <JournalItems/>
+                                            <JournalItems/>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+                                </Paper>
+                            </CardContent>
                         </Card>
                     </Grid>
                 </Grid>

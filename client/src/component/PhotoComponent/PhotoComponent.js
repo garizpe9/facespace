@@ -27,3 +27,4 @@ class PhotoComponent extends React.Component {
 }
 
 export default PhotoComponent;
+

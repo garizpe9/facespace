@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-
 import { CameraComponent } from "../CameraComponent/CameraComponent";
 import CanvasComponent from "../CanvasComponent/CanvasComponent";
 import styled from "styled-components";
@@ -8,7 +7,6 @@ import {
      detectSingleFace, TinyFaceDetectorOptions,
 } from "face-api.js";
 import ModalComponent from "../ModalComponent/ModalComponent"
-import { authorize } from "passport";
 
 
 const ContainerComponent = styled.div`
@@ -77,7 +75,6 @@ const FaceDetectionComponent = () => {
     useEffect(() => {
         initModels();
     }, []);
-
 
     return (
         <ContainerComponent

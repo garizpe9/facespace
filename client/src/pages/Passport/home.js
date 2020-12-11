@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Home() {
-    useStyles();
+    const classes = useStyles();
     return(
         <ThemeProvider theme={theme}>        
             <CssBaseline />

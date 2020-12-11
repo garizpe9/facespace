@@ -56,7 +56,7 @@ class LoginForm extends Component {
                     })
                     // update the state to redirect to home
                     this.setState({
-                        redirectTo: '/'
+                        redirectTo: '/home'
                     })
                 }
             }).catch(error => {
@@ -104,7 +104,7 @@ class LoginForm extends Component {
                                                     </Typography>
                                                     <Button
                                                         controlId="loginBtn"
-                                                        onClick={this.handleSubm}
+                                                        onClick={this.handleSubmit}
                                                         variant="primary"
                                                         size="large"
                                                         type="submit">

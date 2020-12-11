@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import LoginForm from './pages/Passport/login';
 import Navbar from './components/navbar';
 import Register from './pages/Passport/register'
-import BottomAppBar from '../src/component/nav/BottomAppBar'
 import FaceDetectionPage from './pages/FaceDetectionPage/FaceDetectionPage';
 import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
 import JournalEntries from './pages/JournalEntriesPage/JournalEntriesPage'

@@ -9,6 +9,7 @@ import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
 import JournalEntries from './pages/JournalEntriesPage/JournalEntriesPage'
 import Home from './pages/Passport/home';
 import LandingPage from './component/LandingPage';
+import BottomAppBar from './component/nav/BottomAppBar';
 
 class App extends Component {
   constructor() {
@@ -61,11 +62,6 @@ class App extends Component {
     return (
       <Router>
       <div className='App'>
-        
-        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-        {/* greet user if logged in: */}
-        {this.state.loggedIn && <p>Welcome, {this.state.username}!</p>}
-        {/* Routes to different components */}
         <Route exact path='/' component={Home} />
         <Route
           path='/login'
@@ -85,10 +81,8 @@ class App extends Component {
         <Route exact path={"/journalentries"}>
           <JournalEntries />
         </Route>
-        <Route exact path={"/createjournal"}>
-          <CreateJournalPage />
-            </Route>
         </Switch>
+        <BottomAppBar/>
       </div>
       </Router>
     );

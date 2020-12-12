@@ -5,6 +5,8 @@ import BottomAppBar from './nav/BottomAppBar'
 import Header from './HeaderComponent/Header'
 import CreateJournal from "./journal/CreateJournal";
 import { Grid } from '@material-ui/core';
+import PlayerApp from './PlayerComponent/PlayerApp';
+import Mood from './MoodComponent/Mood';
 
 class LandingPage extends Component {
   render() {
@@ -14,10 +16,13 @@ class LandingPage extends Component {
           <Header/>
           <Grid container spacing={3}>
             <Grid item xs>
-              <MediaCard />
+              <MediaCard>
+              <PlayerApp/>
+              </MediaCard>
             </Grid>
             <Grid item xs={8}>
               <CreateJournal/>
+              <Mood/>
             </Grid>
           </Grid >
           <BottomAppBar/>

@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import CarouselComponent from '../../component/Carousel/CarouselComponent'
+import BottomAppBar from '../../component/nav/BottomAppBar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,6 +49,7 @@ function Home() {
                     <CarouselComponent/>
                 </Grid>
             </Container>
+            <BottomAppBar/>
         </ThemeProvider>
     )
 }    

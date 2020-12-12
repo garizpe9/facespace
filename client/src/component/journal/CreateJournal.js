@@ -13,7 +13,23 @@ import theme from '../../theme';
 
 const useStyles = makeStyles((theme) => ({
     card: {
-        paddingBottom: 0,
+        paddingBottom: 0,        
+        boxShadow: '5px 5px 5px lightblue',
+    },
+    borderBottom: {
+        borderColor: 'success.main' 
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.secondary,
+    },
+    font: {
+        color: 'darkblue',
+        fontFamily: [
+          'Shrikhand',
+          'cursive',
+        ], 
     },
 }));
 
@@ -22,19 +38,19 @@ export default function CreateJournal() {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-            <div className={classes.root}>
+            <div>
                 <Grid container spacing={3}>
                     <Grid item xs={10}>
                         <Card className={classes.card}> 
-                            <Grid item xs={8}>
-                                <Paper >
-                                    <Typography gutterBottom variant="h3" component="h2">
+                            <Grid>
+                                <Paper className={classes.paper}>  
+                                <Button 
+                                    href={`/createjournal`}
+                                    variant="primary"
+                                    type="submit">
+                                    <Typography gutterBottom variant="h4" component="h3" className={classes.font}>
                                         Create a New Journal Entry
                                     </Typography>
-                                    <Button
-                                        variant="primary"
-                                        type="submit">
-                                            Submit
                                     </Button>
                                 </Paper>
                             </Grid>

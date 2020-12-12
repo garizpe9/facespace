@@ -83,6 +83,7 @@ class Navbar extends Component {
                   <span className='text-secondary'>Login </span>
                 </Link>
                 </Button>
+                <br/>
                 <Button>
                 <Link to='/signup' className='btn btn-link'>
                   <span className='text-secondary'>Register </span>

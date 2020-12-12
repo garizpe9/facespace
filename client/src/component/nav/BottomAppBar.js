@@ -13,6 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
+import Navbar from '../../components/navbar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,10 +89,10 @@ export default function BottomAppBar() {
         open={isMenuOpen}
         onClose={handleMenuClose}
         >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={handleMenuClose}><Navbar/></MenuItem>
         </Menu>
     );
+    
     return (
     <React.Fragment>
         <ThemeProvider theme={theme}>
@@ -113,7 +114,6 @@ export default function BottomAppBar() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                 </IconButton>
-                <div className={classes.grow} />
                 <ThemeProvider theme={theme}>
                     <Typography className={classes.title} variant="h3">
                         Train of Thought
@@ -127,7 +127,7 @@ export default function BottomAppBar() {
                     color="inherit"
                     onClick={handleProfileMenuOpen}
                 >
-                <AccountCircle />
+                <AccountCircle/>
                 </IconButton>
                 <IconButton
                     aria-label="show more"

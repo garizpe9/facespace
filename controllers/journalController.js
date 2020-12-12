@@ -9,12 +9,20 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
        .catch(err => res.status(422).json(err));
  },
-//   findById: function(req, res) {
-//     db.Journal
-//       .findById(req.params.id)
-//       .then(dbModel => res.json(dbModel))
-//       .catch(err => res.status(422).json(err));
-//   },
+
+  findAllemo: function(req, res) {
+    db.EmotionJournal
+      .find(req.query)
+      .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+       .catch(err => res.status(422).json(err));
+ },
+  findById: function(req, res) {
+    db.Journal
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Journal
       .create(req.body)

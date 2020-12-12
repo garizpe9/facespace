@@ -9,6 +9,8 @@ import {
 } from '@material-ui/core';
 import theme from '../../theme'
 import JournalItems from './JournalItems';
+import EmotionJournalItems from './EmotionJournalItems';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -57,7 +59,7 @@ export default function JournalList() {
                                 <Grid item xs={12}>
                                     <Grid container justify="center" spacing={spacing}>
                                     <JournalItems/>
-                                    <JournalItems/>
+                                    <EmotionJournalItems/>
                                     <JournalItems/>
                                     </Grid>
                                 </Grid>

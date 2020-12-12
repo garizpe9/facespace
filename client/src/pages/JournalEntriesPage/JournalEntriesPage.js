@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Header from "../../component/HeaderComponent/Header";
 import JournalList from '../../component/journal/JournalList'
 import BottomAppBar from "../../component/nav/BottomAppBar";
 
-class JournalEntriesPage extends Component {
-  render() {
+
+function JournalEntriesPage(){
+
     return (
       <div>
         <Router>
@@ -16,6 +17,7 @@ class JournalEntriesPage extends Component {
       </div>
     );
   }
-}
+
+
 
 export default JournalEntriesPage;

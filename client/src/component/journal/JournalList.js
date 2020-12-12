@@ -1,10 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
-    CardContent, 
-    CardActionArea,
-    Card, 
-    CardMedia, 
     CssBaseline, 
     Grid, 
     Paper, 

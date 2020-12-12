@@ -5,6 +5,10 @@ export default {
   getEntries: function() {
     return axios.get("/api/entries");
   },
+  getEntriesEmo: function() {
+    return axios.get("/api/emo");
+  },
+
   // Gets an entry with the given id
   getEntry: function(id) {
     return axios.get("/api/entries/" + id);
@@ -13,9 +17,16 @@ export default {
   deleteEntry: function(id) {
     return axios.delete("/api/entries/" + id);
   },
+  deleteEntryEmo: function(id) {
+    return axios.delete("/api/emo/" + id);
+  },
   // Saves an entry to the database
   saveEntry: function(entryData) {
     return axios.post("/api/entries", entryData);
+  },
+
+  saveEntryEmo: function(entryData) {
+    return axios.post("/api/emo", entryData);
   },
 
   getPhotos: function(){

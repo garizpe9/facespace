@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, 
-    CardContent, 
-    CardActionArea,
     Card, 
-    CardMedia, 
     CssBaseline, 
     Grid, 
     Paper, 
@@ -56,7 +53,7 @@ function AngryJournalEntry( { desc, what, unpack, note } ) {
 
   // Loads all entries and sets them to entries
   function loadEntries() {
-    API.getEntries()
+    API.getEntriesEmo()
       .then(res => 
         setEntries(res.data)
       )
@@ -70,7 +67,7 @@ function AngryJournalEntry( { desc, what, unpack, note } ) {
 
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.saveEntry({
+          API.saveEntryEmo({
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note

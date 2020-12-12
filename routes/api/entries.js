@@ -5,6 +5,7 @@ const journalController = require("../../controllers/journalController");
 router.route("/")
   .get(journalController.findAll)
   .post(journalController.create);
+  
 
 // Matches with "/api/:id"
  router
@@ -13,4 +14,6 @@ router.route("/")
 //   .put(journalController.update)
    .delete(journalController.remove);
 
+
 module.exports = router;
+

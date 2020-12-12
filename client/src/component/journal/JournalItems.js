@@ -27,7 +27,7 @@ const useStyles = makeStyles({
 
 export default function JournalItems() {
     const [entries, setEntries] = useState([])  //how react defines components - initial state definition
-    const [formObject, setFormObject] = useState({}) 
+    
   
     // Load all books and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change

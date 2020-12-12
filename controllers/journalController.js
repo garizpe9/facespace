@@ -30,14 +30,14 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  create: function(req, res) {
-    db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
+  // create: function(req, res) {
+  //   db.User
+  //     .create(req.body)
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
 
-  create: function(req, res) {
+  createEmo: function(req, res) {
     db.EmotionJournal
       .create(req.body)
       .then(dbModel => res.json(dbModel))
@@ -56,7 +56,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-
+  removeEmo: function(req, res) {
+    db.EmotionJournal
+      .findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
 Userfind:function(req, res) {
     db.User
     .findOne(req.username)

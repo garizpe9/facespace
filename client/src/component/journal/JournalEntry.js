@@ -56,9 +56,9 @@ export default function JournalEntry() {
     })
 
 // Load all entries and store them with setEntries
-  useEffect(() => {
-    loadEntries()
-  }, [{}])
+//   useEffect(() => {
+//     loadEntries()
+//   }, [{}])
 
   // Loads all entries and sets them to entries
   function loadEntries() {

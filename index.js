@@ -12,6 +12,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 8000;
 // Route requires
 const user = require('./routes/user');
+const entries = require('./routes/api/entries');
 
 // MIDDLEWARE
 app.use(morgan('dev'));
@@ -46,6 +47,7 @@ mongoose
 
       // Routes
       app.use('/api/user', user);
+      app.use('/api/entries', entries)
 
       if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, 'client/build')));

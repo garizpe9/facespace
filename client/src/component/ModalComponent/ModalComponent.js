@@ -57,7 +57,23 @@ const  ModalComponent = ( {emotion} ) => {
           <div className={classes.paper}>
             <h2 id="transition-modal-title">It looks like you're feeling {emotion}</h2>
             <p id="transition-modal-description">Is that correct?</p>
-            <button>Yes, let's talk about it</button> <button onClick={() => reload()}>No, let me try again</button>
+            <button onClick={() => {
+              if (emotion === "neutral") {
+                window.location.href="/neutraljournal"
+              } else if (emotion === "surprised") {
+                window.location.href="/surprisejournal"
+              } else if (emotion === "disgusted") {
+                window.location.href="/disgustjournal"
+              } else if (emotion === "fearful") {
+                window.location.href="/fearjournal"
+              } else if (emotion === "sad") {
+                window.location.href="/sadjournal"
+              } else if (emotion === "angry") {
+                window.location.href="/angryjournal"
+              } else {
+                window.location.href="/happyjournal"
+              }
+            }}>Yes, let's talk about it</button> <button onClick={() => reload()}>No, let me try again</button>
           </div>
         </Fade>
       </Modal>

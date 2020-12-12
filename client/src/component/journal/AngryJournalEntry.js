@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function AngryJournalEntry( { desc, what, unpack, note } ) {
+function AngryJournalEntry( { desc, what, unpack, note }, props) {
 
     const [entries, setEntries] = useState({})
 

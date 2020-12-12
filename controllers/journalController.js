@@ -1,9 +1,9 @@
-const db = require("../database/models/user");
+const db = require("../database/models");
 
 // Defining methods for the journalController
 module.exports = {
   findAll: function(req, res) {
-    db
+    db.Journal
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
@@ -16,7 +16,7 @@ module.exports = {
 //       .catch(err => res.status(422).json(err));
 //   },
   create: function(req, res) {
-    db
+    db.Journal
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -36,7 +36,7 @@ module.exports = {
 //   }
 
 Userfind:function(req, res) {
-    db
+    db.User
     .findOne(req.username)
     .populate('header, entry, date') // multiple path names in one requires mongoose >= 3.6
     .exec(function(err, usersDocuments) {

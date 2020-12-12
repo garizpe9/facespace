@@ -14,7 +14,7 @@ class CreateJournalPage extends Component {
         <Header/>
           <Paper maxWidth="lg">
             <Grid container spacing={3}>
-              <Grid item xs>
+            <Grid item xs={3}>
                 <MediaCard/>
               </Grid>
               <Grid item xs={8}>

@@ -13,7 +13,7 @@ import { Button,
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../theme';
-import API from '../../utils/API'
+import API from '../../utils/API';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -90,91 +90,82 @@ function AngryJournalEntry( { desc, what, unpack, note } ) {
         <ThemeProvider theme={theme}>
         <CssBaseline />
             <div className={classes.root}>
-                    <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Grid item xs={12}>
-                                    <CardActionArea>
-                                    <CardMedia
-                                    className={classes.media}
-                                    image="https://images.unsplash.com/photo-1517570544249-a47a3b5d8a8d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=shrink&w=1200&q=50"
-                                    title="Uplifting quote in book"
-                                    />
-                                    </CardActionArea>
-                                </Grid>
-                            </CardContent>
+                <Grid item xs={12}>
+                    <Card>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography variant="h3" component="h2" className={classes.typography}>
+                                    So You're Angry...
+                                </Typography>
+                                <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
+                                {desc}
+                                </Typography>
+                            </Paper>
+                        </Grid>
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
-                                    <Typography variant="h3" component="h2" className={classes.typography}>
-                                        So You're Angry...
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    {what}
                                     </Typography>
-                                    <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
-                                    {desc}
-                                    </Typography>
+                                    <TextField
+                                        onChange={handleInputChange}
+                                        id="outlined-secondary"
+                                        label="Today I was angered by..."
+                                        variant="outlined"
+                                        color="primary"
+                                        name="what"
+                                        value={formObject.what}
+                                    />
                                 </Paper>
                             </Grid>
-                                    <Grid item xs={12}>
-                                        <Paper className={classes.paper}>
-                                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                            {what}
-                                            </Typography>
-                                            <TextField
-                                                onChange={handleInputChange}
-                                                id="outlined-secondary"
-                                                label="Today I was angered by..."
-                                                variant="outlined"
-                                                color="primary"
-                                                name="what"
-                                                value={formObject.what}
-                                            />
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
-                                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                            {unpack}
-                                            </Typography>
-                                            <TextField
-                                                onChange={handleInputChange}
-                                                id="outlined-secondary"
-                                                label="Actually, I also felt..."
-                                                variant="outlined"
-                                                color="primary"
-                                                name="unpack"
-                                                value={formObject.unpack}
-                                            />
-                                        </Paper>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Paper className={classes.paper}>
-                                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                            {note}
-                                            </Typography>
-                                            <TextField
-                                                onChange={handleInputChange}
-                                                id="outlined-secondary"
-                                                label="One more thing..."
-                                                variant="outlined"
-                                                color="primary"
-                                                name="note"
-                                                value={formObject.note}
-                                            />
-                                        </Paper>
-                                    </Grid>
-                                    <Grid container>
-                                    <Grid item xs={12}>
-                                        <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
-                                            <Button
-                                                onClick={handleFormSubmit}
-                                                variant="primary"
-                                                type="submit">
-                                                    Submit
-                                            </Button>
-                                        </Paper>
-                                    </Grid>
-                                </Grid>
-                        </Card>
-                    </Grid>
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    {unpack}
+                                    </Typography>
+                                    <TextField
+                                        onChange={handleInputChange}
+                                        id="outlined-secondary"
+                                        label="Actually, I also felt..."
+                                        variant="outlined"
+                                        color="primary"
+                                        name="unpack"
+                                        value={formObject.unpack}
+                                    />
+                                </Paper>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper}>
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    {note}
+                                    </Typography>
+                                    <TextField
+                                        onChange={handleInputChange}
+                                        id="outlined-secondary"
+                                        label="One more thing..."
+                                        variant="outlined"
+                                        color="primary"
+                                        name="note"
+                                        value={formObject.note}
+                                    />
+                                </Paper>
+                            </Grid>
+                            <Grid container>
+                            <Grid item xs={12}>
+                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
+                                    <Button
+                                        onClick={handleFormSubmit}
+                                        variant="primary"
+                                        type="submit">
+                                            Submit
+                                    </Button>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </Card>
+                    <br/>
+                    <br/>
+                </Grid>
             </div>  
         </ThemeProvider>
     )

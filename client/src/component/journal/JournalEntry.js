@@ -283,6 +283,8 @@ export default function JournalEntry() {
                                 </Grid>
                             </CardContent>
                         </Card>
+                        <br/>
+                        <br/>
                     </Grid>
                 </Grid>
             </Container>  

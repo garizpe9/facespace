@@ -56,13 +56,6 @@ export default function CarouselSlideComponent(props) {
                             <Typography gutterBottom variant="h4" component="h5">
                             Ready to start your mental health journey?
                             </Typography>
-                            <Button 
-                                href={`/login`}
-                                color="primary"
-                                size="large"
-                                type="submit">
-                                    Login Here!
-                            </Button>
                         </Paper>
                     </Card>
             </CardContent>

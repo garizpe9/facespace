@@ -47,26 +47,26 @@ export default function JournalList() {
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
+                                    Journal Entries
+                                </Typography>
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                        </Grid>
+                        <Paper className={classes.paper}>
+                            <Grid container className={classes.root} spacing={2}>
                                 <Grid item xs={12}>
-                                    <Paper className={classes.paper}>
-                                        <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
-                                            Journal Entries
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                                <Grid item xs={12}>
-                                </Grid>
-                                <Paper className={classes.paper}>
-                                    <Grid container className={classes.root} spacing={2}>
-                                        <Grid item xs={12}>
-                                            <Grid container justify="center" spacing={spacing}>
-                                            <JournalItems/>
-                                            <JournalItems/>
-                                            <JournalItems/>
-                                            </Grid>
-                                        </Grid>
+                                    <Grid container justify="center" spacing={spacing}>
+                                    <JournalItems/>
+                                    <JournalItems/>
+                                    <JournalItems/>
                                     </Grid>
-                                </Paper>
+                                </Grid>
+                            </Grid>
+                        </Paper>
                     </Grid>
                 </Grid>
             </div>

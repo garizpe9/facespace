@@ -55,6 +55,8 @@ export default function CreateJournal() {
                                 </Paper>
                             </Grid>
                         </Card>
+                        <br/>
+                        <br/>
                     </Grid>
                 </Grid>  
             </div>

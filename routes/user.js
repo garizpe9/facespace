@@ -66,5 +66,4 @@ router.post('/logout', (req, res) => {
 });
 
 //API Route
-router.use("/api", apiRoutes);
 module.exports = router;

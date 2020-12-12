@@ -9,6 +9,13 @@ import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
 import JournalEntries from './pages/JournalEntriesPage/JournalEntriesPage'
 import Home from './pages/Passport/home';
 import LandingPage from './component/LandingPage';
+import SurpriseJournalPage from './pages/SurpriseJournalPage/SurpriseJournalPage'
+import DisgustJournalPage from './pages/DisgustJournalPage/DisgustJournalPage.js'
+import FearJournalPage from './pages/FearJournalPage/FearJournalPage.js'
+import SadJournalPage from './pages/SadJournalPage/SadJournalPage.js'
+import AngryJournalPage from './pages/AngryJournalPage/AngryJournalPage.js'
+import HappyJournalPage from './pages/HappyJournalPage/HappyJournalPage.js'
+import NeutralJournalPage from './pages/NeutralJournalPage/NeutralJournalPage.js'
 
 class App extends Component {
   constructor() {
@@ -85,9 +92,27 @@ class App extends Component {
         <Route exact path={"/journalentries"}>
           <JournalEntries />
         </Route>
-        <Route exact path={"/createjournal"}>
-          <CreateJournalPage />
-            </Route>
+        <Route exact path={"/surprisejournal"}>
+          <SurpriseJournalPage />
+        </Route>
+        <Route exact path={"/disgustjournal"}>
+          <DisgustJournalPage />
+        </Route>
+        <Route exact path={"/fearjournal"}>
+          <FearJournalPage />
+        </Route>
+        <Route exact path={"/sadjournal"}>
+          <SadJournalPage />
+        </Route>
+        <Route exact path={"/angryjournal"}>
+          <AngryJournalPage />
+        </Route>
+        <Route exact path={"/happyjournal"}>
+          <HappyJournalPage />
+        </Route>
+        <Route exact path={"/neutraljournal"}>
+          <NeutralJournalPage />
+        </Route>
         </Switch>
       </div>
       </Router>

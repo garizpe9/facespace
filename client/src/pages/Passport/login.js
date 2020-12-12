@@ -9,8 +9,6 @@ import { Button, CardContent,
 } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
 import axios from 'axios'
-import Heal from '../../component/Healthruwords/Healthruwords'
-
 
 class LoginForm extends Component {
     constructor() {
@@ -25,11 +23,11 @@ class LoginForm extends Component {
         this.handleChange = this.handleChange.bind(this)
   
     }
+
     useStyles = makeStyles((theme) => ({
-
     }));
+    
     componentDidMount(){this.setState({classes:this.useStyles})}
-
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -39,7 +37,6 @@ class LoginForm extends Component {
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
-
         axios
             .post('/api/user/login', {
                 username: this.state.username,
@@ -61,8 +58,7 @@ class LoginForm extends Component {
                 }
             }).catch(error => {
                 console.log('login error: ')
-                console.log(error);
-                
+                console.log(error);              
             })
     }
 
@@ -119,7 +115,6 @@ class LoginForm extends Component {
                                                         type="submit">
                                                             Click here!
                                                     </Button>
-                                                   <Heal/>
                                                 </Paper>
                                                 </Grid>
                                         </CardContent>

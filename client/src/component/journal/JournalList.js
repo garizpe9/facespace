@@ -25,11 +25,10 @@ const useStyles = makeStyles((theme) => ({
         ], 
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.secondary,
+        boxShadow: '5px 5px 5px lightblue',
     },
     card: {
+        boxShadow: '5px 5px 5px green',
         maxWidth: 345,
         marginTop: '30%',
     },
@@ -48,19 +47,6 @@ export default function JournalList() {
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Card>
-                            <CardContent>
-                                <Grid item xs={12}>
-                                    <CardActionArea>
-                                    <CardMedia
-                                    className={classes.media}
-                                    image="https://images.unsplash.com/photo-1506784926709-22f1ec395907?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8&auto=format&fit=crop&w=1200&q=20"
-                                    title="Uplifting quote in book"
-                                    />
-                                    </CardActionArea>
-                                </Grid>
-                            </CardContent>
-                            <CardContent>
                                 <Grid item xs={12}>
                                     <Paper className={classes.paper}>
                                         <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
@@ -68,12 +54,8 @@ export default function JournalList() {
                                         </Typography>
                                     </Paper>
                                 </Grid>
-                            </CardContent>
-                            <CardContent>
                                 <Grid item xs={12}>
                                 </Grid>
-                            </CardContent>
-                            <CardContent>
                                 <Paper className={classes.paper}>
                                     <Grid container className={classes.root} spacing={2}>
                                         <Grid item xs={12}>
@@ -85,8 +67,6 @@ export default function JournalList() {
                                         </Grid>
                                     </Grid>
                                 </Paper>
-                            </CardContent>
-                        </Card>
                     </Grid>
                 </Grid>
             </div>

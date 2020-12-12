@@ -10,6 +10,8 @@ import {
 } from '@material-ui/core';
 import MediaControlCard from '../media/MediaControlCard';
 import RadioIcon from '@material-ui/icons/Radio';
+import Heal from '../../component/Healthruwords/Healthruwords';
+import PlayerApp from '../PlayerComponent/PlayerApp';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
     },
     cardStyle: {
         alignContent: 'center',
+        boxShadow: '5px 5px 5px lightblue',
+    },
+    paper: {
+        textAlign: 'center',
+        color: theme.palette.secondary,
     },
     radio: {
         height: 38,
@@ -40,12 +47,15 @@ export default function MediaCard() {
             <Grid container spacing={3}>
                 <Grid item xs>
                     <Card className={classes.cardStyle} >
-                        <Paper >
+                        <Paper className={classes.paper}>
                             <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
                                 <RadioIcon className={classes.radio}/>
+                                <PlayerApp/>
                             </Typography>
+
+                        <MediaControlCard theme={theme}/>
+                        <Heal/>                        
                         </Paper>
-                        <MediaControlCard/>
                     </Card>
                 </Grid>
             </Grid>

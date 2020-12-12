@@ -13,28 +13,6 @@ class Navbar extends Component {
     id: ""
   };
 
-  componentDidMount() {
-    this.getQuote();
-  }
-  getQuote = () =>{
-  const options = {
-    method: 'GET',
-    url: 'https://shazam.p.rapidapi.com/auto-complete',
-    params: {term: 'kiss the', locale: 'en-US'},
-    headers: {
-      'x-rapidapi-key': 'd2c174c9b0msh4dccfca97fa9159p1945e7jsna80b5e5ecc3f',
-      'x-rapidapi-host': 'shazam.p.rapidapi.com'
-    }
-  };
-
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
-
-  }
-
   logout(event) {
     event.preventDefault();
     console.log('logging out');

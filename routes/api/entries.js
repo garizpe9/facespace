@@ -11,7 +11,6 @@ router.route("/")
  router
    .route("/:id")
    .get(journalController.findById)
-//   .put(journalController.update)
    .delete(journalController.remove);
 
 

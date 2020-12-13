@@ -5,9 +5,7 @@ const passport = require('../passport');
 const apiRoutes = require("./api/entries");
 //Passport Routes
 router.post('/', (req, res) => {
-  console.log('user signup');
-
-  const { username, password } = req.body;
+    const { username, password } = req.body;
   // ADD VALIDATION
   User.findOne({ username: username }, (err, user) => {
     if (err) {
@@ -32,13 +30,10 @@ router.post('/', (req, res) => {
 router.post(
   '/login',
   function (req, res, next) {
-    console.log('routes/user.js, login, req.body: ');
-    console.log(req.body);
     next();
   },
   passport.authenticate('local'),
   (req, res) => {
-    console.log('logged in', req.user);
     var userInfo = {
       username: req.user.username,
     };
@@ -47,8 +42,6 @@ router.post(
 );
 
 router.get('/', (req, res, next) => {
-  console.log('===== user!!======');
-  console.log(req.user);
   if (req.user) {
     res.json({ user: req.user });
   } else {

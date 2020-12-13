@@ -31,7 +31,7 @@ mongoose
   .then(
     () => {
       /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
-      console.log('Connected to Mongo');
+      
 
       // Sessions
       app.use(
@@ -65,11 +65,7 @@ mongoose
         res.sendFile(path.join(__dirname + '/client/public/index.html'));
       });
 
-      // app.post('/api/user', (req, res) => {
-      //   console.log('THE ROUTE IS HIT');
-      // });
-
-      // Starting Server
+        // Starting Server
       app.listen(PORT, () => {
         console.log(`App listening on PORT: ${PORT}`);
       });

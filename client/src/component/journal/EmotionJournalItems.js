@@ -66,7 +66,7 @@ export default function JournalItems() {
                             <div>
                                 {entries.map(entries => (
                                 <div key={entries._id}>
-                                    <Link to={"/entries/" + entries._id}>
+                                    <Link to={"/emo/" + entries._id}>
                                     <p>
                                         {entries.date} by {entries.what}
                                     </p>

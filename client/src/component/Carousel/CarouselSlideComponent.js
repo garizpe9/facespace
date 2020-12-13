@@ -7,7 +7,6 @@ import {
     makeStyles,
     Paper,
     Typography,
-    Button,
 } from '@material-ui/core';
 export default function CarouselSlideComponent(props) {
     const { backgroundColor, title} = props.content;

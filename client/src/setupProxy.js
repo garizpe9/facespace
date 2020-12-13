@@ -8,5 +8,3 @@ module.exports = function (app) {
     })
   );
 };
-
-///test line 4 - if '/' does not work switch all routes to 'api' here and on the front end gi

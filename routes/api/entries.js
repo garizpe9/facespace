@@ -5,12 +5,14 @@ const journalController = require("../../controllers/journalController");
 router.route("/")
   .get(journalController.findAll)
   .post(journalController.create);
+  
 
 // Matches with "/api/:id"
-// router
-//   .route("/:id")
-//   .get(journalController.findById)
-//   .put(journalController.update)
-//   .delete(journalController.deleteOne);
+ router
+   .route("/:id")
+   .get(journalController.findById)
+   .delete(journalController.remove);
+
 
 module.exports = router;
+

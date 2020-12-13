@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 8000;
 // Route requires
 const user = require('./routes/user');
 const entries = require('./routes/api/entries');
+const emo = require('./routes/api/emo');
 
 // MIDDLEWARE
 app.use(morgan('dev'));
@@ -30,7 +31,7 @@ mongoose
   .then(
     () => {
       /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
-      console.log('Connected to Mongo');
+      
 
       // Sessions
       app.use(
@@ -49,6 +50,7 @@ mongoose
       // Routes
       app.use('/api/user', user);
       app.use('/api/entries', entries)
+      app.use('/api/emo', emo)
 
       if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, 'client/build')));
@@ -63,11 +65,7 @@ mongoose
         res.sendFile(path.join(__dirname + '/client/public/index.html'));
       });
 
-      // app.post('/api/user', (req, res) => {
-      //   console.log('THE ROUTE IS HIT');
-      // });
-
-      // Starting Server
+        // Starting Server
       app.listen(PORT, () => {
         console.log(`App listening on PORT: ${PORT}`);
       });

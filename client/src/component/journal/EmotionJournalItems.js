@@ -28,7 +28,6 @@ const useStyles = makeStyles({
 export default function JournalItems() {
     const [entries, setEntries] = useState([])  //how react defines components - initial state definition
     
-  
     // Load all books and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
       loadBooks()
@@ -36,7 +35,7 @@ export default function JournalItems() {
   
     // Loads all books and sets them to books
     function loadBooks() {
-      API.getEntries()
+      API.getEntriesEmo()
         .then(res => 
           setEntries(res.data)
         )
@@ -44,8 +43,8 @@ export default function JournalItems() {
     };
   
     // Deletes a book from the database with a given id, then reloads books from the db
-    function deleteEntry(id) {
-      API.deleteEntry(id)
+    function deleteEntryEmo(id) {
+      API.deleteEntryEmo(id)
         .then(res => loadBooks())
         .catch(err => console.log(err));
     }
@@ -60,19 +59,19 @@ export default function JournalItems() {
                         />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            Free Style Journals 
+                            Mood Journals 
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                         {entries.length ? (
                             <div>
                                 {entries.map(entries => (
                                 <div key={entries._id}>
-                                    <Link to={"/entries/" + entries._id}>
+                                    <Link to={"/emo/" + entries._id}>
                                     <p>
-                                        {entries.date} by {entries.intention}
+                                        {entries.date} by {entries.what}
                                     </p>
                                     </Link>
-                                    <button onClick={() => deleteEntry(entries._id)} > Delete </button>
+                                    <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
                                 </div>
                                 ))}
                             </div>

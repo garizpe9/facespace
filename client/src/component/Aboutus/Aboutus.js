@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     CssBaseline, 
@@ -41,8 +41,8 @@ function Aboutus(){
             <div className={classes.root}>
             
                 <Grid item xs={12}>
-                    <Grid item xs={4}/>
-                    <Grid item xs={8}>
+                    
+                    <Grid item xs={12}>
                         <Paper className={classes.paper}>
                             <Typography variant="h3" component="h2" className={classes.typography}>
                                About Us

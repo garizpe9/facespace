@@ -9,12 +9,7 @@ const userSchema = new Schema({
 	username: { type: String, unique: false, required: false },
 	password: { type: String, unique: false, required: false },
 	date: { type: Date, default: Date.now },
-	// journals: [
-	// 	{
-	// 	  type: Schema.Types.ObjectId,
-	// 	  ref: "Journal"
-	// 	}
-	//   ]
+
 })
 
 // Define schema methods
@@ -30,10 +25,10 @@ userSchema.methods = {
 // Define hooks for pre-saving
 userSchema.pre('save', function (next) {
 	if (!this.password) {
-		console.log('models/user.js =======NO PASSWORD PROVIDED=======')
+	
 		next()
 	} else {
-		console.log('models/user.js hashPassword in pre save');
+	
 		
 		this.password = this.hashPassword(this.password)
 		next()

@@ -41,6 +41,7 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
     const [entries, setEntries] = useState({})
 
     const [formObject, setFormObject] = useState({
+        mood: '',
         what: '',
         unpack: '',
         note: ''
@@ -68,6 +69,7 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
     function handleFormSubmit(event) {
         event.preventDefault();
           API.saveEntryEmo({
+            mood: "Angry",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note

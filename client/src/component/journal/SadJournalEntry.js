@@ -42,6 +42,7 @@ function SadJournalEntry( { desc, what, unpack, note } ) {
     const [entries, setEntries] = useState({})
 
     const [formObject, setFormObject] = useState({
+        mood: '',
         what: '',
         unpack: '',
         note: ''
@@ -52,7 +53,7 @@ function SadJournalEntry( { desc, what, unpack, note } ) {
   }, [])
   // Loads all entries and sets them to entries
     function loadEntries() {
-    API.getEntries()
+    API.getEntriesEmo()
         .then(res => 
         setEntries(res.data)
         )
@@ -64,7 +65,8 @@ function SadJournalEntry( { desc, what, unpack, note } ) {
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.saveEntry({
+          API.saveEntryEmo({
+            mood: "Sad",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note

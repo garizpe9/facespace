@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 function HappyJournalEntry( { desc, what, unpack, note } ) {
     const [entries, setEntries] = useState({})
     const [formObject, setFormObject] = useState({
+        mood: '',
         what: '',
         unpack: '',
         note: ''
@@ -51,7 +52,7 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
   }, [])
   // Loads all entries and sets them to entries
   function loadEntries() {
-    API.getEntries()
+    API.getEntriesEmo()
       .then(res => 
         setEntries(res.data)
       )
@@ -63,7 +64,8 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.saveEntry({
+          API.saveEntryEmo({
+            mood: "Happy",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note

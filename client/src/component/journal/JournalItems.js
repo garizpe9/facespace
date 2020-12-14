@@ -43,12 +43,14 @@ const useStyles = makeStyles({
 
 export default function JournalItems() {
     const [entries, setEntries] = useState([])  //how react defines components - initial state definition
-    // Load all books and store them with setEntries
+
+    // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
-      loadBooks()
+      loadEntries()
     }, [])
-    // Loads all books and sets them to books
-    function loadBooks() {
+
+    // Loads all entries and sets them to entries
+    function loadEntries() {
       API.getEntries()
         .then(res => 
           setEntries(res.data)
@@ -58,7 +60,7 @@ export default function JournalItems() {
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntry(id) {
       API.deleteEntry(id)
-        .then(res => loadBooks())
+        .then(res => loadEntries())
         .catch(err => console.log(err));
     }
     const classes = useStyles();
@@ -87,7 +89,7 @@ export default function JournalItems() {
                                         <AccordionDetails>
                                             {entries.map(entries => (
                                             <Card className={classes.card} key={entries._id}>
-                                                <Link to={"/entries/" + entries._id}>
+                                                <Link to={"/freestyle/" + entries._id}>
                                                 <Card className={classes.card}>
                                                     {entries.date} by {entries.intention}
                                                 </Card>

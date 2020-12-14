@@ -17,12 +17,14 @@ import API from '../../utils/API'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: "100vh",
     },
     typography: {
         fontFamily: [
           'Shrikhand',
           'cursive',
         ], 
+        color: 'darkblue',
     },
     paper: {
       padding: theme.spacing(2),
@@ -35,6 +37,15 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
+    },
+    p: {
+        fontSize: '100%',
+        fontWeight: 100,
+        fontFamily: [
+            'Roboto Condensed', 
+            'sans-serif',
+        ],
+        color: 'darkblue',
     },
 }));
 
@@ -91,7 +102,10 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Happy...
                                 </Typography>
-                                <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p classname={classes.p}>
+                                    What are you happy about today? How has that impacted your day?
+                                    </p>
                                 {desc}
                                 </Typography>
                             </Paper>
@@ -99,6 +113,10 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p classname={classes.p}>
+                                    What are some of the things you did to make yourself happy today? Was your overall emotion 
+                                    different from yesterday? How?
+                                    </p>
                                     {what}
                                     </Typography>
                                     <TextField
@@ -115,6 +133,10 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p classname={classes.p}>
+                                    Take a moment to unpack that reaction. Do you feel any other emotions that may lie 
+                                    underneath it?
+                                    </p>
                                     {unpack}
                                     </Typography>
                                     <TextField
@@ -131,6 +153,9 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p classname={classes.p}>
+                                    Feel free to type anything else here that you would like to note about today!
+                                    </p>
                                     {note}
                                     </Typography>
                                     <TextField
@@ -146,7 +171,7 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                             </Grid>
                             <Grid container>
                             <Grid item xs={12}>
-                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
+                                <Paper className={classes.paper}>
                                     <Button
                                         onClick={handleFormSubmit}
                                         variant="primary"
@@ -154,8 +179,6 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                                             Submit
                                     </Button>
                                 </Paper>
-                                <br/>
-                                <br/>
                             </Grid>
                         </Grid>
                     </Card>

@@ -15,12 +15,14 @@ import API from '../../utils/API';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: "100vh"
     },
     typography: {
         fontFamily: [
           'Shrikhand',
           'cursive',
         ], 
+        color: 'darkblue',
     },
     paper: {
       padding: theme.spacing(2),
@@ -34,24 +36,29 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    p: {
+        fontSize: '100%',
+        fontWeight: 100,
+        fontFamily: [
+            'Roboto Condensed', 
+            'sans-serif',
+        ],
+        color: 'darkblue',
+    },
 }));
 
 function AngryJournalEntry( { desc, what, unpack, note }, props) {
-
     const [entries, setEntries] = useState({})
-
     const [formObject, setFormObject] = useState({
         mood: '',
         what: '',
         unpack: '',
         note: ''
-      })
-
+    })
 // Load all entries and store them with setEntries
   useEffect(() => {
     loadEntries()
   }, [])
-
   // Loads all entries and sets them to entries
   function loadEntries() {
     API.getEntriesEmo()
@@ -59,13 +66,11 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
         setEntries(res.data)
       )
       .catch(err => console.log(err));
-  };
-
+    };
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
-
     function handleFormSubmit(event) {
         event.preventDefault();
           API.saveEntryEmo({
@@ -82,7 +87,6 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
             .then(() => loadEntries())
             .catch(err => console.log(err));
       };
-
     const classes = useStyles();
 
     return (
@@ -96,7 +100,10 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Angry...
                                 </Typography>
-                                <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                <p className={classes.p}>Psychological studies have identified three causes of anger:
+                                when our desires, goals or expectations are not met
+                                when we feel threatened, and/or when we are using anger to mask other emotions. </p>
                                 {desc}
                                 </Typography>
                             </Paper>
@@ -104,6 +111,9 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                        <p className={classes.p}>
+                                        What do you feel angry about today? How has that impacted your day?
+                                        </p>
                                     {what}
                                     </Typography>
                                     <TextField
@@ -118,8 +128,11 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                                 </Paper>
                             </Grid>
                             <Grid item xs={12}>
-                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
+                                <Paper className={classes.paper} >
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                        <p className={classes.p}>
+                                        Take a moment to unpack that reaction. Do you feel any other emotions that may lie underneath it?
+                                        </p>
                                     {unpack}
                                     </Typography>
                                     <TextField
@@ -136,6 +149,9 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                        <p className={classes.p}>
+                                        Feel free to type anything else here that you would like to note about today!
+                                        </p>
                                     {note}
                                     </Typography>
                                     <TextField
@@ -151,19 +167,19 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                             </Grid>
                             <Grid container>
                             <Grid item xs={12}>
-                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
-                                    <Button
+                                <Paper className={classes.paper}>
+                                    <Button 
+                                        size="large"
+                                        variant="outlined" 
+                                        color="success"
                                         onClick={handleFormSubmit}
-                                        variant="primary"
                                         type="submit">
                                             Submit
                                     </Button>
                                 </Paper>
                             </Grid>
                         </Grid>
-                    </Card>
-                    <br/>
-                    <br/>
+                    </Card>        
                 </Grid>
             </div>  
         </ThemeProvider>

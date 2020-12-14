@@ -2,10 +2,12 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import pink from '@material-ui/core/colors/pink';
 import grey from '@material-ui/core/colors/grey';
 import green from '@material-ui/core/colors/green';
+import { fade } from "@material-ui/core/styles/colorManipulator";
 
 const theme = createMuiTheme({
   root: {
     flexGrow: 1,
+    height: "100vh"
   },
   typography: {
     fontFamily: [
@@ -26,7 +28,9 @@ const theme = createMuiTheme({
     success: { main: green[400] },
     type: 'light',
   },
-
-})
+  font: {
+    color: 'darkblue',
+  },
+});
 
 export default theme

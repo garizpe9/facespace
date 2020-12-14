@@ -39,42 +39,34 @@ class Navbar extends Component {
 
     return (
       <div>
-        <header className='navbar App-header' id='nav-container'>
-          <div className='col-4'>
-            {loggedIn ? (
-              <section className='navbar-section'>
-                <Button>
-                <Link
-                  to='/'
-                  className='btn btn-link text-secondary'
-                  onClick={this.logout}
-                >
-                  <span className='text-secondary'>Logout</span>
-                </Link>
-                </Button>
-              </section>
-            ) : (
-              <section className='navbar-section'> 
+        {loggedIn ? (
+          <section className='navbar-section'>
+            <Button>
+            <Link
+              to='/'
+              className='btn btn-link text-secondary'
+              onClick={this.logout}
+            >
+              <span className='text-secondary'>Logout</span>
+            </Link>
+            </Button>
+          </section>
+          ) : (
+          <section className='navbar-section'> 
 
-                <Button>
-                <Link to='/login' className='btn btn-link text-secondary'>
-                  <span className='text-secondary'>Login </span>
-                </Link>
-                </Button>
-                <br/>
-                <Button>
-                <Link to='/signup' className='btn btn-link'>
-                  <span className='text-secondary'>Register </span>
-                </Link>
-                </Button>
-              </section>
-            )}
-          </div>
-          <div className='col-4 col-mr-auto'>
-            <div id='top-filler'></div>
-           
-          </div>
-        </header>
+            <Button>
+            <Link to='/login' className='btn btn-link text-secondary'>
+              <span className='text-secondary'>Login </span>
+            </Link>
+            </Button>
+            <br/>
+            <Button>
+            <Link to='/signup' className='btn btn-link'>
+              <span className='text-secondary'>Register </span>
+            </Link>
+            </Button>
+          </section>
+        )}
       </div>
     );
   }

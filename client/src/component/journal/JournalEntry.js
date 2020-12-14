@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, 
     Card,  
     CardContent,
-    Container,
     CssBaseline, 
     Grid, 
     Paper, 
@@ -17,12 +16,14 @@ import API from '../../utils/API'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: "100vh",
     },
     typography: {
         fontFamily: [
           'Shrikhand',
           'cursive',
         ], 
+        color: 'darkblue',
     },
     paper: {
       padding: theme.spacing(2),
@@ -36,12 +37,13 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    font: {
+        color: 'darkblue',
+    },
 }));
 
 export default function JournalEntry() {
-
     const [entries, setEntries] = useState({})
-
     const [formObject, setFormObject] = useState({
         intention: '',
         nurture: '',
@@ -59,7 +61,6 @@ export default function JournalEntry() {
 //   useEffect(() => {
 //     loadEntries()
 //   }, [{}])
-
   // Loads all entries and sets them to entries
   function loadEntries() {
     API.getEntries()
@@ -67,13 +68,11 @@ export default function JournalEntry() {
         setEntries(res.data)
       )
       .catch(err => console.log(err));
-  };
-
+    };
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
-
     function handleFormSubmit(event) {
     event.preventDefault();
         API.saveEntry({
@@ -103,13 +102,11 @@ export default function JournalEntry() {
         .then(() => loadEntries())
         .catch(err => console.log(err));
     };
-
     const classes = useStyles();
-
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-            <Container>
+            <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Card className={classes.card}>
@@ -268,18 +265,24 @@ export default function JournalEntry() {
                                                         value={formObject.vent}
                                                     />
                                                 </Paper>
-                                                <Paper>
-                                                    <Button
-                                                        onClick={handleFormSubmit}
-                                                        variant="primary"
-                                                        align="center"
-                                                        type="submit">
-                                                            Submit
-                                                    </Button>
-                                                </Paper>
                                             </Grid>
                                         </Grid>
                                     </Grid>
+                                    <Paper item xs={12} className={classes.paper}>
+                                        <Button
+                                            variant="primary"
+                                            alignContent="center"
+                                            type="submit">
+                                                Cancel
+                                        </Button>
+                                        <Button
+                                            onClick={handleFormSubmit}
+                                            variant="primary"
+                                            alignContent="center"
+                                            type="submit">
+                                                Submit
+                                        </Button>
+                                    </Paper>
                                 </Grid>
                             </CardContent>
                         </Card>
@@ -287,7 +290,7 @@ export default function JournalEntry() {
                         <br/>
                     </Grid>
                 </Grid>
-            </Container>  
+            </div>  
         </ThemeProvider>
     )
 }

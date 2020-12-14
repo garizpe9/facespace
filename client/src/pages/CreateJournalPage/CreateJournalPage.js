@@ -12,7 +12,7 @@ class CreateJournalPage extends Component {
       <div>
         <Router>
         <Header/>
-          <Paper maxWidth="lg">
+          <Paper >
             <Grid container spacing={3}>
             <Grid item xs={3}>
                 <MediaCard/>

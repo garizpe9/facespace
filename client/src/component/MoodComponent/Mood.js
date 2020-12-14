@@ -15,6 +15,9 @@ import theme from '../../theme';
 import scanImg from '../../Images/scan.jpg'
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
     card: {
         paddingBottom: 0,        
         boxShadow: '5px 5px 5px lightblue',
@@ -46,7 +49,7 @@ export default function Mood() {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-            <div>
+            <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={10}>
                         <Card className={classes.card}> 
@@ -61,9 +64,8 @@ export default function Mood() {
                                             className={classes.media}
                                             image={scanImg}
                                             title="Facial Recognition"
-                                        >/
+                                        >
                                         </CardMedia>
-                                        
                                     </CardActionArea>
                                 </CardContent>
                                 </Paper>

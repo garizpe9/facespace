@@ -13,7 +13,6 @@ export default function CarouselComponent() {
     const onArrowClick = (direction) => {
         const increment = direction === 'left' ? -1 : 1;
         const newIndex = (index + increment + numSlides) % numSlides;
-
         const oppDirection = direction === 'left' ? 'right' : 'left';
         setSlideDirection(direction);
         setSlideIn(false);
@@ -24,7 +23,6 @@ export default function CarouselComponent() {
             setSlideIn(true);
         }, 500);
     };
-
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.keyCode === 39) {
@@ -34,9 +32,7 @@ export default function CarouselComponent() {
                 onArrowClick('left');
             }
         };
-
         window.addEventListener('keydown', handleKeyDown);
-
         return () => {
             window.removeEventListener('keydown', handleKeyDown);
         };

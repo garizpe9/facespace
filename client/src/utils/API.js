@@ -17,6 +17,15 @@ export default {
   deleteEntry: function(id) {
     return axios.delete("/api/entries/" + id);
   },
+
+  deleteEntryEmo: function(id) {
+    return axios.delete("/api/emo/" + id);
+  },
+
+  getEntryEmo: function(id) {
+    return axios.get("/api/emo/" + id);
+  },
+
   deleteEntryEmo: function(id) {
     return axios.delete("/api/emo/" + id);
   },

@@ -13,18 +13,14 @@ class HappyJournalPage extends Component {
       <div>
         <Router>
           <Header/>
-          <Grid container spacing={3}>
-          <Grid item xs={3}>
-            <MediaCard>
-            <PlayerApp/>
-            </MediaCard>
-            </Grid>
-            <Grid item xs={8}>
-              <HappyJournalEntry
-              desc="What are you happy about today? How has that impacted your day?"
-              what="What are some of the things you did to make yourself happy today? Was your overall emotion different from yesterday? How?"
-              unpack="Take a moment to unpack that reaction. Do you feel any other emotions that may lie underneath it?"
-              note="Feel free to type anything else here that you would like to note about today."/>
+            <Grid container spacing={3}>
+              <Grid item xs={3}>
+                <MediaCard>
+                  <PlayerApp/>
+                </MediaCard>
+              </Grid>
+              <Grid item xs={8}>
+                <HappyJournalEntry/>
               </Grid>
             </Grid>
           <BottomAppBar/>

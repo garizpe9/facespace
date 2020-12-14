@@ -13,10 +13,15 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
 import Navbar from '../../components/navbar';
-
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        color: "white",
+        flexGrow: 1,
+    },
     text: {
     padding: theme.spacing(2, 2, 0),
     },
@@ -70,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BottomAppBar() {
     const classes = useStyles();
+    const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
     const handleProfileMenuOpen = (event) => {
@@ -115,10 +121,16 @@ export default function BottomAppBar() {
                         />
                 </IconButton>
                 <ThemeProvider theme={theme}>
-                    <Typography className={classes.title} variant="h3">
-                        Train of Thought
-                    </Typography>
-                </ThemeProvider>
+                    <Button 
+                        className={classes.root}
+                        href={`/home`}
+                        variant="primary"
+                        type="submit">
+                        <Typography className={classes.title} variant="h3">
+                            Train of Thought
+                        </Typography>
+                    </Button>
+                    </ThemeProvider>
                 <IconButton
                     edge="end"
                     aria-label="account of current user"
@@ -127,7 +139,7 @@ export default function BottomAppBar() {
                     color="inherit"
                     onClick={handleProfileMenuOpen}
                 >
-                <AccountCircle/>
+                <AccountCircle />
                 </IconButton>
                 <IconButton
                     aria-label="show more"
@@ -142,3 +154,4 @@ export default function BottomAppBar() {
     </React.Fragment>
     );
 }
+

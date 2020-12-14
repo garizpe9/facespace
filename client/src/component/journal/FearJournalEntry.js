@@ -15,6 +15,7 @@ import API from '../../utils/API'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: "100vh",
     },
     typography: {
         fontFamily: [

@@ -50,12 +50,12 @@ export default function Header() {
                             <Card className={classes.card}> 
                                 <Grid item xs={12}>
                                     <CardActionArea>
-                                    <CardMedia
-                                    className={classes.media}
-                                    image={headerImg}
-                                    title="Remember to take a big breath"
-                                    alt="flourescent sign spelling 'breathe'"
-                                    />
+                                        <CardMedia
+                                        className={classes.media}
+                                        image={headerImg}
+                                        title="Train of thought"
+                                        alt="subway train"
+                                        />
                                         <Typography    
                                             gutterBottom
                                             variant="h4"

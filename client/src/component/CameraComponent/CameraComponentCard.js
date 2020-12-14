@@ -1,12 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
-    Box,
     Card, 
     CardActionArea,
     CardContent, 
     CardMedia,
-    Container,
     CssBaseline, 
     Grid, 
     Paper,
@@ -16,13 +14,27 @@ import {
 import theme from '../../theme';
 import camGif from '../../Images/camera.gif';
 import FaceDetectionComponent from '../FaceDetectionComponent/FaceDetectionComponent';
+import bgImage from '../../Images/cam.jpg';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        height: "100vh",
+    },
+    paperContainer: {
+        backgroundImage: `url(${bgImage})`,
+        height: '100%',
+        width: '100%',
+    },
     card: {
-        paddingBottom: 0,  
         boxShadow: '5px 5px 5px  5px lightblue',
-        width: 900,
         alignItems: 'center',
+        width: '50%',
+        boxShadow: '5px 5px 5px lightblue',
+        gbcolor: 'grey.200',
+        position: 'absolute',
+        top: '1%',
+        left: '25%',
     },
     borderBottom: {
         borderColor: 'success.main' 
@@ -40,9 +52,12 @@ const useStyles = makeStyles((theme) => ({
         ], 
     },
     media: {
-        height: '75%',
-        width: '75%',
+        height: '25%',
+        width: '100%',
         paddingTop: '50.25%', 
+        justifyContent: 'center',
+        top: '1%',
+        left: '50%',
     },
     alignItemsAndJustifyContent: {
         display: 'flex',
@@ -56,40 +71,44 @@ export default function CameraComponentCard() {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Container>
-            <Box className={classes.alignItemsAndJustifyContent}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <Card className={classes.card}> 
-                            <Grid>
-                                <Paper className={classes.paper}> 
-                                <CardContent>
-                                <Grid item xs={12}>
-                                    <CardActionArea href={`/facerec`}>
-                                        <Typography gutterBottom variant="h4" component="h3" className={classes.font}>
-                                            Smile, you're on camera!
-                                        </Typography>
-                                        <CardMedia
-                                            className={classes.media}
-                                            image={camGif}
-                                            title="Facial Recognition"
-                                        >/
-                                        </CardMedia>
-                                        <Grid item xs={12}>
-                                        <CardMedia>
-                                        <FaceDetectionComponent />
-                                        </CardMedia>
-                                        </Grid>
-                                    </CardActionArea>
-                                    </Grid>
-                                </CardContent>
-                                </Paper>
-                            </Grid>
-                        </Card>
-                    </Grid>
-                </Grid>  
-            </Box>
-        </Container>
+            <div className={classes.root}>
+                <Paper className={classes.paperContainer}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <Card className={classes.card}> 
+                                <Grid>
+                                    <Paper className={classes.paper}> 
+                                        <CardContent>
+                                            <Grid item xs={12}>
+                                                <Typography gutterBottom variant="h4" component="h3" className={classes.font}>
+                                                    Smile, you're on camera!
+                                                </Typography>
+                                                <Grid item xs={12}>
+                                                    <CardActionArea href={`/facerec`}> 
+                                                        <CardMedia 
+                                                            className={classes.media}
+                                                            image={camGif}
+                                                            title="Facial Recognition"
+                                                        >
+                                                        </CardMedia>
+                                                    </CardActionArea>
+                                                </Grid>
+                                                <Grid item xs={12}>
+                                                    <CardActionArea>
+                                                    <CardMedia>
+                                                    <FaceDetectionComponent />
+                                                    </CardMedia>
+                                                    </CardActionArea>
+                                                </Grid>
+                                            </Grid>
+                                        </CardContent>
+                                    </Paper>
+                                </Grid>
+                            </Card>
+                        </Grid>
+                    </Grid>  
+                </Paper>
+            </div>
         </ThemeProvider>
     )
 }

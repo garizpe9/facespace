@@ -13,7 +13,8 @@ import BottomAppBar from '../../component/nav/BottomAppBar'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
+        flexGrow: 1,
+        height: "100vh",
     },
     typography: {
         fontFamily: [
@@ -40,7 +41,7 @@ function Home() {
     return(
         <ThemeProvider theme={theme}>        
             <CssBaseline />
-            <Container maxWidth="lg" align="center">
+            <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                     </Grid>
@@ -48,7 +49,7 @@ function Home() {
                 <Grid item xs={12}>
                     <CarouselComponent/>
                 </Grid>
-            </Container>
+                </div>
             <BottomAppBar/>
         </ThemeProvider>
     )

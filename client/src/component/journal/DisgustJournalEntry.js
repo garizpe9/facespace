@@ -18,12 +18,14 @@ import API from '../../utils/API'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: "100vh",
     },
     typography: {
         fontFamily: [
           'Shrikhand',
           'cursive',
         ], 
+        color: 'darkblue',
     },
     paper: {
       padding: theme.spacing(2),

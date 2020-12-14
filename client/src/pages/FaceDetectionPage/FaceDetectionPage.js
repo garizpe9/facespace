@@ -1,13 +1,8 @@
 import React from "react";
 import CameraComponentCard from '../../component/CameraComponent/CameraComponentCard';
-import emojiImg from '../../Images/emojis.jpg';
 import { makeStyles } from '@material-ui/core/styles';
-import { Dialog } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-    dialog: {
-        backgroundImage: {emojiImg}
-    },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
@@ -25,8 +20,7 @@ const FaceDetectionPage = () => {
     const classes = useStyles();
     return (
         <div>
-            <CameraComponentCard>
-            </CameraComponentCard>
+            <CameraComponentCard/>
         </div>
     );
 };

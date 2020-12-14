@@ -12,8 +12,11 @@ import {
 import theme from '../../theme';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        height: "100vh"
+    },
     card: {
-        paddingBottom: 0,        
         boxShadow: '5px 5px 5px lightblue',
     },
     borderBottom: {
@@ -55,8 +58,6 @@ export default function CreateJournal() {
                                 </Paper>
                             </Grid>
                         </Card>
-                        <br/>
-                        <br/>
                     </Grid>
                 </Grid>  
             </div>

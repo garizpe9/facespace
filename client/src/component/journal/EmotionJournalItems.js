@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import { 
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
     Button,
     CardContent, 
     CardActions,
@@ -8,21 +11,30 @@ import {
     Card, 
     CardMedia, 
     CssBaseline, 
+    Grid,
+    Paper,
     ThemeProvider,
     Typography,
 } from '@material-ui/core';
 import theme from '../../theme'
 import API from "../../../src/utils/API"
 import { Link } from "react-router-dom";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+        flexGrow: 1,
+    },
+    typography: {
+        color: 'darkblue',
     },
     card: {
         boxShadow: '5px 5px 5px lightblue',
-
-    }
+    },
+        font: {
+        color: 'darkblue',
+    },
 });
 
 export default function JournalItems() {
@@ -53,43 +65,55 @@ export default function JournalItems() {
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline/>
-            <Card className={classes.root}>
-                <CardActionArea>
-                    <CardMedia
-                        />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            Mood Journals 
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                        {entries.length ? (
-                            <div>
-                                {entries.map(entries => (
-                                <div key={entries._id}>
-                                    <Link to={"/emo/" + entries._id}>
-                                    <p>
-                                        {entries.date} by {entries.what}
-                                    </p>
-                                    </Link>
-                                    <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
-                                </div>
-                                ))}
-                            </div>
-                            ) : (
-                            <h3>No Results to Display</h3>
-                            )}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <Button size="small" color="primary">
-                        Share
-                    </Button>
-                    <Button size="small" color="primary">
-                        Learn More
-                    </Button>
-                </CardActions>
-            </Card>
+            <div className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Card className={classes.card}>
+                            <Accordion>
+                                <Grid item xs={12}>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >       
+                                        <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                            Mood Journals 
+                                        </Typography>
+                                    </AccordionSummary>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Grid item xs={6}>
+                                        <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
+                                        {entries.length ? (
+                                            <AccordionDetails>
+                                                {entries.map(entries => (
+                                                <Card className={classes.card} key={entries._id}>
+                                                    <Link to={"/emo/" + entries._id}>
+                                                    <AccordionDetails>
+                                                        {entries.date} by {entries.what}
+                                                    </AccordionDetails>
+                                                    </Link>
+                                                    <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
+                                                </Card>
+                                                ))}
+                                            </AccordionDetails>
+                                            ) : (
+                                            <h3 >No Results to Display</h3>
+                                            )}
+                                        </Typography>
+                                        <Button size="small" color="primary">
+                                            Share
+                                        </Button>
+                                        <Button size="small" color="primary">
+                                            Learn More
+                                        </Button>
+                                    </Grid>
+                                </Grid>
+                            </Accordion>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </div>
         </ThemeProvider>
     )
 }

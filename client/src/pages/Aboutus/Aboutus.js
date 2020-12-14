@@ -11,10 +11,11 @@ class Aboutuspage extends Component {
       <div>
         <Router>
           <Header/>
+          <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Aboutus/>
             </Grid>
-          
+          </Grid>
           <BottomAppBar/>
         </Router>
       </div>

@@ -7,6 +7,9 @@ import CreateJournal from "./journal/CreateJournal";
 import { Grid } from '@material-ui/core';
 import PlayerApp from './PlayerComponent/PlayerApp';
 import Mood from './MoodComponent/Mood';
+import JournalList from "./journal/JournalList";
+import JournalArchive from "./journal/JournalArchive";
+import CheckboxComponent from './CheckboxComponent/CheckboxComponent';
 
 class LandingPage extends Component {
   render() {
@@ -16,6 +19,7 @@ class LandingPage extends Component {
           <Header/>
           <Grid container spacing={3}>
             <Grid item xs>
+              <JournalArchive/>
               <MediaCard>
               <PlayerApp/>
               </MediaCard>
@@ -23,6 +27,7 @@ class LandingPage extends Component {
             <Grid item xs={8}>
               <CreateJournal/>
               <Mood/>
+              <CheckboxComponent/>
             </Grid>
           </Grid >
           <BottomAppBar/>

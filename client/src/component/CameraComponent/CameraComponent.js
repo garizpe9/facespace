@@ -5,7 +5,6 @@ const CAPTURE_OPTIONS = {
     audio: false,
     video: { facingMode: "environment" },
 };
-
 const cameraStyle = {
     borderRadius: "50%",
     objectFit: "cover",
@@ -16,7 +15,6 @@ const cameraStyle = {
 export const CameraComponent = (props) => {
     const { videoRef, onReady }= props;
     const mediaStream = useUserMedia(CAPTURE_OPTIONS);
-
     const handleCanPlay = () => {
         videoRef.current.play();
         onReady();

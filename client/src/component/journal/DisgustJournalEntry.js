@@ -100,6 +100,7 @@ function DisgustJournalEntry({ desc, what, unpack, note }) {
     };
 
     const classes = useStyles();
+    const reload = () => window.location.reload();
 
     return (
         <ThemeProvider theme={theme}>
@@ -184,7 +185,9 @@ function DisgustJournalEntry({ desc, what, unpack, note }) {
                     <Grid item xs={12}>
                         <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                             <Button
-                                onClick={handleFormSubmit}
+                                href= {`/home`}
+                                onClick={handleFormSubmit,() => reload()}
+                               
                                 color="primary"
                                 type="submit">
                                 Submit

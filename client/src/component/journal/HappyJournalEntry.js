@@ -94,6 +94,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
+    const reload = () => window.location.reload();
 
     return (
         <ThemeProvider theme={theme}>
@@ -180,7 +181,8 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Button
-                                        onClick={handleFormSubmit}
+                                        href= {`/home`}
+                                        onClick={handleFormSubmit,() => reload()}
                                         color="primary"
                                         type="submit">
                                         Submit

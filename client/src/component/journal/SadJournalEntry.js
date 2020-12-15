@@ -96,7 +96,7 @@ function SadJournalEntry({ desc, what, unpack, note }) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
-
+    const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -182,7 +182,8 @@ function SadJournalEntry({ desc, what, unpack, note }) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                     <Button
-                                        onClick={handleFormSubmit}
+                                       href= {`/home`}
+                                       onClick={handleFormSubmit,() => reload()}
                                         variant="primary"
                                         type="submit">
                                         Submit

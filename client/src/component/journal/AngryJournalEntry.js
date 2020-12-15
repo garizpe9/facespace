@@ -12,6 +12,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 import theme from '../../theme';
 import API from '../../utils/API';
+import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -88,13 +89,14 @@ function AngryJournalEntry({ desc, what, unpack, note }, props) {
             .then(() => setFormObject({
                 what: '',
                 unpack: '',
-                note: ''
+                note: '',
             }))
             .then(() => loadEntries())
+
             .catch(err => console.log(err));
     };
     const classes = useStyles();
-
+    const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -183,8 +185,12 @@ function AngryJournalEntry({ desc, what, unpack, note }, props) {
                                         size="large"
                                         variant="outlined"
                                         color="success"
-                                        onClick={handleFormSubmit}
-                                        type="submit">
+                                        href= {`/home`}
+                                        onClick={handleFormSubmit,() => reload()}
+                                        type="submit"
+                                        
+                                        >
+                                        
                                         Submit
                                     </Button>
                                 </Paper>

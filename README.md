@@ -18,7 +18,9 @@ Train of Thought includes a mood recognition page that detects a user's mood by 
 
 Everyone deserves a voice and a safe space for their Train of Thought.
 
-<img src=https://github.com/garizpe9/employeedirectory/blob/main/public/Capture.JPG>
+![Train of Thought Preview](client/src/Images/demo1.jpg)
+![Train of Thought Preview](client/src/Images/demo2.jpg)
+![Train of Thought Preview](client/src/Images/demo15.jpg)
 
 ## Functionality
 

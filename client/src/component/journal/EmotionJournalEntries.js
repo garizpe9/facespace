@@ -26,18 +26,19 @@ const useStyles = makeStyles({
 });
 
 function EmotionJournalEntries(props) {
-    const [entry, setEntry] = useState({})  //how react defines components - initial state definition
+    const [entryEmo, setEntryEmo] = useState({})  //how react defines components - initial state definition
 
     // Loads the entry and sets them to entry
     const {id} = useParams()
+    console.log(id)
     useEffect(() => {
       API.getEntryEmo(id)
-        .then(res => setEntry(res.data))
+        .then(res => setEntryEmo(res.data))
         .catch(err => console.log(err));
     }, [])
   
     // Deletes an entry from the database with a given id
-    function deleteEntry(id) {
+    function deleteEntryEmo(id) {
       API.deleteEntryEmo(id)
     }
 
@@ -51,16 +52,16 @@ function EmotionJournalEntries(props) {
                         />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
-                            Mood Journal from {entry.date} when you were {entry.mood}<br />
+                            Mood Journal from {entryEmo.date} when you were {entryEmo.mood}<br />
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
                             <div>
                                     <p>
-                                    What caused you to feel this emotion? {entry.what} <br />
-                                    Do you feel any other emotions that may lie underneath it? {entry.unpack} <br />
-                                    Feel free to type anything else here you would like to note about today.{entry.note}
+                                    What caused you to feel this emotion? {entryEmo.what} <br />
+                                    Do you feel any other emotions that may lie underneath it? {entryEmo.unpack} <br />
+                                    Feel free to type anything else here you would like to note about today {entryEmo.note}
                                     </p>
-                                    <button onClick={() => deleteEntry(entry._id)} > Delete </button>
+                                    <button onClick={() => deleteEntryEmo(entryEmo._id)} > Delete </button>
                                 </div>
                         </Typography>
                     </CardContent>

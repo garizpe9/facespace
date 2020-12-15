@@ -113,10 +113,10 @@ class App extends Component {
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
         </Route>
-        <Route exact path="/freestyle/:id">
+        <Route exact path={"/entries/:id"}>
           <FreestyleJournalEntries />
         </Route>
-        <Route exact path="/emo/:id">
+        <Route exact path={"/emo/:id"}>
           <EmotionJournalEntries />
         </Route>
         </Switch>

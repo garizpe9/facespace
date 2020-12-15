@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function JournalItems() {
+export default function EmotionJournalItems() {
     const [entries, setEntries] = useState([])  //how react defines components - initial state definition
     
     // Load all entries and store them with setEntries

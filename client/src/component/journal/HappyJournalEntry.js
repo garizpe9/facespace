@@ -106,7 +106,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Happy...
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography gutterBottom variant="h6" component="h2">
                                     <p className={classes.p}>
                                         {desc}
                                     </p>

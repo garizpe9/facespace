@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import theme from '../../theme'
 import API from "../../utils/API"
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {

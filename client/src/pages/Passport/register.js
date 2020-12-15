@@ -69,7 +69,7 @@ class Attempt extends Component {
             return(
                 <ThemeProvider theme={theme}>
                 <CssBaseline />
-                    <Container maxWidth="lg" align="center">
+                    <Card maxWidth="lg" align="center" >
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                             </Grid>
@@ -79,7 +79,7 @@ class Attempt extends Component {
                                 <Card color="secondary">
                                     <CardContent id="register">
                                         <Grid item xs={12}>
-                                            <Paper className={this.state.classes.paper}>
+                                            <Paper >
                                                 <Grid item xs={12}>
                                                     <Typography gutterBottom variant="h3" component="h2">
                                                         Register
@@ -100,13 +100,19 @@ class Attempt extends Component {
                                                     <br />
                                                 </Typography>
                                                 <Button
+                                                    variant="outlined"
+                                                    color="primary"
+                                                    size="large"
+                                                    type="submit"
                                                     disabled={!(this.state.password && this.state.username)}
-                                                    onClick={this.handleSubmit}>Submit
+                                                    onClick={this.handleSubmit}>
+                                                        Submit
                                                 </Button>
                                             </Paper>
-                                            <Paper className={this.state.classes.paper}>
+                                            <Paper>
                                                 Already registered?
                                                 <Button 
+                                                    size="large"
                                                     href={`/login`}
                                                     color="primary"
                                                     type="submit">
@@ -118,7 +124,7 @@ class Attempt extends Component {
                                 </Card>
                             </Grid>
                         </Grid>
-                    </Container>
+                    </Card>
                 </ThemeProvider>
             )}
             

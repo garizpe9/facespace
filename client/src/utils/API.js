@@ -26,9 +26,6 @@ export default {
     return axios.get("/api/emo/" + id);
   },
 
-  deleteEntryEmo: function(id) {
-    return axios.delete("/api/emo/" + id);
-  },
   // Saves an entry to the database
   saveEntry: function(entryData) {
     return axios.post("/api/entries", entryData);

@@ -49,7 +49,7 @@ export default function Header() {
                         <Grid item xs={12}>
                             <Card className={classes.card}> 
                                 <Grid item xs={12}>
-                                    <CardActionArea>
+                                    <CardActionArea href={`/home`}>
                                         <CardMedia
                                         className={classes.media}
                                         image={headerImg}

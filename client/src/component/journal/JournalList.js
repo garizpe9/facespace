@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function JournalList() {
     const classes = useStyles();
-    const [spacing] = React.useState(2);
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />

@@ -11,9 +11,9 @@ import {
     ThemeProvider,
     Typography,
 } from '@material-ui/core';
-import theme from '../../theme'
-import API from "../../../src/utils/API"
-import { Link, useParams } from "react-router-dom";
+import theme from '../../theme';
+import API from "../../../src/utils/API";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles({
     root: {

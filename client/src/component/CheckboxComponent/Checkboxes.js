@@ -107,11 +107,11 @@ function handleFormSubmit(event) {
           label="Happy"
         />
         <FormControlLabel
-          control={<oodCheckbox checked={state.checkedE} onChange={handleChange} name="checkFear" />}
+          control={<MoodCheckbox checked={state.checkedE} onChange={handleChange} name="checkFear" />}
           label="Fearful"
         />
         <FormControlLabel
-          control={<Checkbox checked={state.checkedF} onChange={handleChange} name="checkNeut" />}
+          control={<MoodCheckbox checked={state.checkedF} onChange={handleChange} name="checkNeut" />}
           label="Neutral"
         />
         <FormControlLabel

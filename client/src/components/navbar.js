@@ -34,6 +34,7 @@ class Navbar extends Component {
 
    render() {
     const loggedIn = this.props.loggedIn;
+    console.log(this.props.loggedIn)
 
     return (
       <div>
@@ -47,6 +48,11 @@ class Navbar extends Component {
               <span className='text-secondary'>Logout</span>
             </Link>
             </Button>
+            <Button color="primary">
+              <Link to='/home'>
+                <span className='text-secondary'>Home </span>
+              </Link>
+            </Button>
           </section>
           ) : (
           <section className='navbar-section'> 
@@ -59,6 +65,17 @@ class Navbar extends Component {
             <Button color="primary">
               <Link to='/signup'>
                 <span className='text-secondary'>Register </span>
+              </Link>
+            </Button>
+            <br/>
+            <Button color="primary">
+              <Link to='/aboutus'>
+                <span className='text-secondary'>About Us </span>
+              </Link>
+            </Button>
+            <Button color="primary">
+              <Link to='/home'>
+                <span className='text-secondary'>Home </span>
               </Link>
             </Button>
           </section>

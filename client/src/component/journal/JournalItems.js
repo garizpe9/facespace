@@ -51,7 +51,17 @@ const useStyles = makeStyles({
     },
     font: {
         color: 'darkblue',
+        
     },
+    p: {
+        fontSize: '100%',
+        fontWeight: 100,
+        color: 'darkblue',
+        fontFamily: [
+            'Roboto Condensed',
+            'sans-serif',
+        ],
+    }
 });
 
 function GridItem({ classes }) {
@@ -118,22 +128,22 @@ export default function JournalItems() {
                                                     <Paper className={classes.paper} key={entries._id}>
                                                         <CardContent>
                                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-
-                                                        
-                                                            {entries.date.slice(0,10)}
-                                                            <br/> My Intention:{entries.intention}
-                                                            <br/> What I did to  Nurture Myself: {entries.nuture}
-                                                            <br/> Things I love about myself:
-                                                            {entries.love1}, 
-                                                            {entries.love2},  
-                                                            {entries.love3}, 
-                                                            <br/> Things that went well: {entries.well1}, 
-                                                            {entries.well2}, 
-                                                            {entries.well3}
-                                                            <br/>Things that didn't go well and how to adjusts: {entries.notWell}
-                                                            <br/> Let's Vent: {entries.vent}
-                                                        
                                                         </Typography>
+                                                        <p className={classes.p}>
+                                                            {entries.date.slice(0,10)}
+                                                            <br/> My Intention: {entries.intention}
+                                                            <br/> What I did to Nurture Myself: {entries.nuture}
+                                                            <br/> Things I love about myself: <br/>
+                                                            {entries.love1}, <br/>
+                                                            {entries.love2}, <br/>
+                                                            {entries.love3}, 
+                                                            <br/> Things that went well: <br/>
+                                                            {entries.well1}, <br/>
+                                                            {entries.well2}, <br/>
+                                                            {entries.well3} 
+                                                            <br/>Things that didn't go well and how I adjusted: <br/>{entries.notWell}
+                                                            <br/> Let's Vent: <br/>{entries.vent}
+                                                            </p>
                                                         </CardContent>
                                                         <CardContent>
                                                             <Paper>

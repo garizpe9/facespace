@@ -1,134 +1,81 @@
 import React, { useState } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Button, Card, Grid, Paper  } from '@material-ui/core';
+import { Button, Card, Grid, Paper,Radio  } from '@material-ui/core';
 import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
 import pink from '@material-ui/core/colors/pink';
 import API from '../../utils/API';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
-const MoodCheckbox = withStyles({
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    color: pink[100],
-    '&$checked': {
-      color: pink[100],
-    },
+      flexGrow: 1,
+      height: "100vh",
   },
-  checked: {},
-})((props: CheckboxProps) => <Checkbox color="default" {...props} />);
+  paperContainer: {
+      height: '100%',
+      width: '100%',
+  },
+  button:{
+    fontSize: 25,
+  }
+
+}));
 
 export default function Checkboxes() {
-  const [checked, state, setState, setMood] = React.useState(true);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setState({ ...state, [event.target.name]: event.target.checked });
-  };
-  
-  const [formObject, setFormObject] = useState({
-    angry: '',
-    anxious: '',
-    disgusted: '',
-    depressed: '',
-    happy: '',
-    fearful: '',
-    neautral: '',
-    sad: '',
-  })
-
-  /*
-
-// Load all entries and store them with setEntries
-useEffect(() => {
-loadMood()
-}, [{}])
-// Loads all entries and sets them to entries
-function loadMood() {
-  API.getMood()
-    .then(res => 
-      setMood(res.data)
-    )
-    .catch(err => console.log(err));
-  };
-  */
-
-function handleInputChange(event) {
-  const { name, value } = event.target;
-  setFormObject({...formObject, [name]: value})
-};
-
-function handleFormSubmit(event) {
-  event.preventDefault();
-      API.saveMood({
-      checkAng: formObject.angry,
-      checkAnx: formObject.anxious,
-      checkDis: formObject.disgusted,
-      checkDep: formObject.depressed,
-      checkHap: formObject.happy,
-      checkfear: formObject.fearful,
-      checkNeut: formObject.neutral,
-      checkSad: formObject.sad,
-      })
-      .then(() => setFormObject({
-        angry: '',
-        anxious: '',
-        disgusted: '',
-        depressed: '',
-        happy: '',
-        fearful: '',
-        neautral: '',
-        sad: '',
-      }))
-      /*
-      .then(() => loadMood())
-      .catch(err => console.log(err));
-      */
-  };
-  
+  const classes = useStyles();
   return (
-    <Card>
-      <FormGroup row>
-        <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedA} onChange={handleChange} name="checkAng" />}
-          label="Angry"
-        />
-        <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedA} onChange={handleChange} name="checkAnx" />}
-          label="Anxious"
-        />
-        <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedB} onChange={handleChange} name="checkDis" />}
-          label="Disgusted"
-        />    
-        <FormControlLabel
-        control={<MoodCheckbox checked={state.checkedC} onChange={handleChange} name="checkDep" />}
-        label="Depressed"
-        />    
-        <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedD} onChange={handleChange} name="checkHap" />}
-          label="Happy"
-        />
-        <FormControlLabel
-          control={<oodCheckbox checked={state.checkedE} onChange={handleChange} name="checkFear" />}
-          label="Fearful"
-        />
-        <FormControlLabel
-          control={<Checkbox checked={state.checkedF} onChange={handleChange} name="checkNeut" />}
-          label="Neutral"
-        />
-        <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedG} onChange={handleChange} name="checkSad" />}
-          label="Sad"
-        />
-      </FormGroup>
-      <Grid item xs={12}>
-        <Paper>
-          <Button
-            onClick={handleFormSubmit}
-            variant="primary"
-            type="submit">
-            Submit
-          </Button>
-        </Paper>
-      </Grid>
-    </Card>
+    <section>
+      <div>
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/angryjournal">
+            Angry 👿
+        </Button>
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href='/disgustjournal'>
+            Disgusted 🤮
+        </Button>   
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/fearjournal">
+            Fearful 😱
+        </Button>
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/happyjournal">
+            Happy 😊
+        </Button>  
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/neutraljournal">
+            Neutral 😐
+        </Button>
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/neutraljournal">
+            Sad 😔
+        </Button>
+        <Button color="primary"
+          className={classes.button}
+          size="large"
+          href="/surprisejournal">
+            Surprised 😲
+        </Button>
+      </div>
+    </section>
   );
 }
+  
+

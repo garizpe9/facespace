@@ -22,7 +22,7 @@ export default function CarouselSlideComponent(props) {
         card: {
             backgroundColor,
             borderRadius: 15,
-            marginLeft: '20%',
+            marginLeft: '25%',
             marginTop: '5%',
             width: '60%',
             height: '80%',

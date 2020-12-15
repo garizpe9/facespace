@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SLIDE_INFO } from './constants';
 import Slide from '@material-ui/core/Slide';
-import { Container } from '@material-ui/core';
+import { Container, Grid } from '@material-ui/core';
 import CarouselSlideComponent from './CarouselSlideComponent';
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
@@ -50,7 +50,13 @@ export default function CarouselComponent() {
     });
 
     return (
-        <Container>
+
+        <div >
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                </Grid>
+            </Grid>
+            <Grid item xs={12}>
             <Arrow direction='left' clickFunction={() => onArrowClick('left')} />
                 <Slide in={slideIn} direction={slideDirection}>
                     <div>
@@ -58,7 +64,7 @@ export default function CarouselComponent() {
                     </div>
                 </Slide>
             <Arrow direction='right' clickFunction={() => onArrowClick('right')} />
-        </Container>
+            </Grid>
+        </div>
     );
 }
-

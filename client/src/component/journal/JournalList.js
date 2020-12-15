@@ -68,9 +68,6 @@ export default function JournalList() {
                                     <Grid item xs={12}>
                                         <EmotionJournalItems/>
                                     </Grid>
-                                    <Grid item xs={12}>
-                                        <JournalItems/>
-                                    </Grid>
                                 </Grid>
                             </CardContent>
                         </Card>

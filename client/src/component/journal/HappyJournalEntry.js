@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { 
-    Button, 
-    Card, 
-    CssBaseline, 
-    Grid, 
-    Paper, 
-    TextField, 
-    ThemeProvider 
+import {
+    Button,
+    Card,
+    CssBaseline,
+    Divider,
+    Grid,
+    Paper,
+    TextField,
+    ThemeProvider
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../theme';
@@ -15,20 +16,20 @@ import API from '../../utils/API'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      height: "100vh",
+        flexGrow: 1,
+        height: "100vh"
     },
     typography: {
         fontFamily: [
-          'Shrikhand',
-          'cursive',
-        ], 
+            'Shrikhand',
+            'cursive',
+        ],
         color: 'darkblue',
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.secondary,
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.secondary,
     },
     card: {
         maxWidth: 600,
@@ -41,58 +42,63 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '100%',
         fontWeight: 100,
         fontFamily: [
-            'Roboto Condensed', 
+            'Roboto Condensed',
             'sans-serif',
         ],
         color: 'darkblue',
     },
+    textfield: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '80%'
+    },
 }));
 
-function HappyJournalEntry( { desc, what, unpack, note } ) {
+function HappyJournalEntry({ desc, what, unpack, note }) {
     const [entries, setEntries] = useState({})
     const [formObject, setFormObject] = useState({
         mood: '',
         what: '',
         unpack: '',
         note: ''
-      })
-// Load all entries and store them with setEntries
-  useEffect(() => {
-    loadEntries()
-  }, [])
-  // Loads all entries and sets them to entries
-  function loadEntries() {
-    API.getEntriesEmo()
-      .then(res => 
-        setEntries(res.data)
-      )
-      .catch(err => console.log(err));
+    })
+    // Load all entries and store them with setEntries
+    useEffect(() => {
+        loadEntries()
+    }, [])
+    // Loads all entries and sets them to entries
+    function loadEntries() {
+        API.getEntriesEmo()
+            .then(res =>
+                setEntries(res.data)
+            )
+            .catch(err => console.log(err));
     };
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        setFormObject({ ...formObject, [name]: value })
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.saveEntryEmo({
+        API.saveEntryEmo({
             mood: "Happy",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note
-          })
+        })
             .then(() => setFormObject({
-        what: '',
-        unpack: '',
-        note: ''
+                what: '',
+                unpack: '',
+                note: ''
             }))
             .then(() => loadEntries())
             .catch(err => console.log(err));
-      };
+    };
     const classes = useStyles();
 
     return (
         <ThemeProvider theme={theme}>
-        <CssBaseline />
+            <CssBaseline />
             <div className={classes.root}>
                 <Grid item xs={12}>
                     <Card>
@@ -101,88 +107,91 @@ function HappyJournalEntry( { desc, what, unpack, note } ) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Happy...
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                <Typography gutterBottom variant="h5" component="h2">
                                     <p classname={classes.p}>
-                                    What are you happy about today? How has that impacted your day?
+                                        {desc}
                                     </p>
-                                {desc}
                                 </Typography>
                             </Paper>
                         </Grid>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}>
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography gutterBottom variant="h5" component="h2">
                                     <p classname={classes.p}>
-                                    What are some of the things you did to make yourself happy today? Was your overall emotion 
-                                    different from yesterday? How?
+                                        {what}
                                     </p>
-                                    {what}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="Today I'm happy because..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="what"
-                                        value={formObject.what}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Today I was happy because..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="what"
+                                    value={formObject.what}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
+                                <Typography gutterBottom variant="h5" component="h2">
                                     <p classname={classes.p}>
-                                    Take a moment to unpack that reaction. Do you feel any other emotions that may lie 
-                                    underneath it?
+                                        {unpack}
                                     </p>
-                                    {unpack}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="Actually, I also felt..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="unpack"
-                                        value={formObject.unpack}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}>
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Actually, I also felt..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="unpack"
+                                    value={formObject.unpack}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography gutterBottom variant="h5" component="h2">
                                     <p classname={classes.p}>
-                                    Feel free to type anything else here that you would like to note about today!
+                                        {note}
                                     </p>
-                                    {note}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="One more thing..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="note"
-                                        value={formObject.note}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid container>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Today I was fearful of..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="note"
+                                    value={formObject.note}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid container>
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Button
                                         onClick={handleFormSubmit}
                                         variant="primary"
                                         type="submit">
-                                            Submit
+                                        Submit
                                     </Button>
                                 </Paper>
                             </Grid>
                         </Grid>
                     </Card>
                 </Grid>
-            </div>  
+            </div>
         </ThemeProvider>
     )
 }

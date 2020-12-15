@@ -14,20 +14,20 @@ import API from '../../utils/API'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      height: "100vh",
+        flexGrow: 1,
+        height: "100vh"
     },
     typography: {
         fontFamily: [
-          'Shrikhand',
-          'cursive',
+            'Shrikhand',
+            'cursive',
         ],
-        color: 'darkblue', 
+        color: 'darkblue',
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.secondary,
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.secondary,
     },
     card: {
         maxWidth: 600,
@@ -35,6 +35,20 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
+    },
+    p: {
+        fontSize: '100%',
+        fontWeight: 100,
+        fontFamily: [
+            'Roboto Condensed',
+            'sans-serif',
+        ],
+        color: 'darkblue',
+    },
+    textfield: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '80%'
     },
 }));
 
@@ -90,20 +104,27 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
                             <Typography variant="h3" component="h2" className={classes.typography}>
                                 So You're Surprised...
                             </Typography>
-                            <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
-                            {desc}
+                            <Typography gutterBottom variant="h6" component="h2">
+                            <p classname={classes.p}>
+                                        {desc}
+                                    </p>
                             </Typography>
                         </Paper>
                     </Grid>
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                            {what}
+                            <Typography gutterBottom variant="h5" component="h2">
+                            <p classname={classes.p}>
+                                        {what}
+                                    </p>
                             </Typography>
                             <TextField
+                                multiline
+                                rowsMax="4"
+                                className={classes.textfield}
                                 onChange={handleInputChange}
                                 id="outlined-secondary"
-                                label="Today I was surprised by..."
+                                label="Today I feel surprised because..."
                                 variant="outlined"
                                 color="primary"
                                 name="what"
@@ -113,10 +134,15 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
                     </Grid>
                     <Grid item xs={12}>
                         <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
-                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                            {unpack}
+                            <Typography gutterBottom variant="h5" component="h2">
+                            <p classname={classes.p}>
+                                        {unpack}
+                                    </p>
                             </Typography>
                             <TextField
+                                multiline
+                                rowsMax="4"
+                                className={classes.textfield}
                                 onChange={handleInputChange}
                                 id="outlined-secondary"
                                 label="Actually, I also felt..."
@@ -129,10 +155,15 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
                     </Grid>
                     <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                            <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                            {note}
+                            <Typography gutterBottom variant="h5" component="h2">
+                            <p classname={classes.p}>
+                                        {note}
+                                    </p>
                             </Typography>
                             <TextField
+                                multiline
+                                rowsMax="4"
+                                className={classes.textfield}
                                 onChange={handleInputChange}
                                 id="outlined-secondary"
                                 label="One more thing..."

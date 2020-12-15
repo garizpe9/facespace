@@ -1,34 +1,57 @@
-# a template for mern projects to be deployed to heroku
+# Train of Thought
 
-To make it run locally you need to run <b>npm i</b> from the root folder.
+## Table of Contents
+* [Description](#description)
+* [Functionality](#functionality)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributors](#contributors)
+* [Questions](#questions)
 
-If you are using this as a starting point, then <b>cd client</b> and <b>npm i</b> again.
+## Description
+In these trying times, not everyone has access to needed resources. Train of Thought understands this limitation and has created this space with these users in mind.
 
-If you already have an app built, just rename your React app project folder "client" and replace the client folder with it. Import/use your express routes in index.js.
+Train of Thought implores users to sit down and elaborate on their thoughts and feelings on any subject. With our journal entry section, users have free reign to vent out any frustrations or highlight special parts of their day.
 
-## To deploy to Heroku, all of these commands must be run in a terminal <u>from the root folder of your project</u>:
+Train of Thought includes a mood recognition page that detects a user's mood by using their camera and curates prompts for those who need some guidance on how to externalize their temperament.
 
-<b>heroku login</b>
+Everyone deserves a voice and a safe space for their Train of Thought.
 
-<b>git init</b> Only run this one if you have not already initialized the git repository. If you already have your project hooked up to a GitHub repo do not run this one
+<img src=https://github.com/garizpe9/employeedirectory/blob/main/public/Capture.JPG>
 
-<b>git add .</b>
+## Functionality
 
-<b>git commit -m “initial commit”</b>
+This app uses the following technologies: MERN stack, passport.js, face-api.js, material-auto-rotating-carousel.js, material-ui.js, react-swipeable-views.js, styled-components.js, Healthroughwords API 
 
-<b>heroku create</b>  
-this gives two urls, use the second one for the next command
 
-<b>git remote add heroku </b>(url goes here)
-IGNORE FATAL ERROR MESSAGE
+## Installation
+Clone or fork the repo to your own device. Npm install at root and at client folder. To run development instance, run npm dev. 
 
-<b>git push heroku master</b>
+## Usage
 
-<b>heroku apps:rename</b> (new name goes here) <br/>
-Heroku gives you a random app name and you probably don't want to build a brand called 'Mysterious Meadow' or something so change the app name using this command
+To access site, go to https://this-face-space.herokuapp.com/
 
-<b>heroku open</b>
 
-Enter your author name and license info into the README
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Be sure to set your environment variables on Heroku, save the mongo connection string to the key MONGODB_URI
+## Contributors
+Amor Andal, Giovanna Arizpe, Angel Alexander, Bianca Martinez
+
+## Questions
+Contact us:
+
+Email: 
+Angel Alexander: [angale22@gmail.com](angale22@gmail.com)
+
+Amor Andal : [aandal77@gmail.com](aandal77@gmail.com)
+
+Giovanna Arizpe : [veliaarizpe@gmail.com](veliaarizpe@gmail.com)
+
+Bianca Martinez: 
+
+previous versions:
+https://github.com/garizpe9/trainofthought
+
+https://github.com/analexander/trainofthought

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
 import LoginForm from './pages/Passport/login';
 //import Navbar from './components/navbar';
 import Register from './pages/Passport/register'
@@ -18,6 +18,8 @@ import AngryJournalPage from './pages/AngryJournalPage/AngryJournalPage.js'
 import HappyJournalPage from './pages/HappyJournalPage/HappyJournalPage.js'
 import NeutralJournalPage from './pages/NeutralJournalPage/NeutralJournalPage.js'
 import Aboutuspage from './pages/Aboutus/Aboutus';
+import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries';
+import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
 
 class App extends Component {
   constructor() {
@@ -110,6 +112,12 @@ class App extends Component {
         </Route>
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
+        </Route>
+        <Route exact path={"/entries/:id"}>
+          <FreestyleJournalEntries />
+        </Route>
+        <Route exact path={"/emo/:id"}>
+          <EmotionJournalEntries />
         </Route>
         </Switch>
         <BottomAppBar/>

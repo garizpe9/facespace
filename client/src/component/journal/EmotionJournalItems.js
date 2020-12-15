@@ -40,13 +40,13 @@ const useStyles = makeStyles({
 export default function EmotionJournalItems() {
     const [entries, setEntries] = useState([])  //how react defines components - initial state definition
     
-    // Load all books and store them with setEntries
+    // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
-      loadBooks()
+      loadEntries()
     }, [])
   
-    // Loads all books and sets them to books
-    function loadBooks() {
+    // Loads all entries and sets them to entries
+    function loadEntries() {
       API.getEntriesEmo()
         .then(res => 
           setEntries(res.data)
@@ -57,7 +57,7 @@ export default function EmotionJournalItems() {
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntryEmo(id) {
       API.deleteEntryEmo(id)
-        .then(res => loadBooks())
+        .then(res => loadEntries())
         .catch(err => console.log(err));
     }
 
@@ -92,16 +92,20 @@ export default function EmotionJournalItems() {
                                                             <Paper className={classes.paper}>
                                                                 <CardContent>
                                                                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                                        <Link to={"/emo/" + entries._id}>
+                                                                        
                                                                             <AccordionDetails>
-                                                                                {entries.date} by {entries.what}
+                                                                                {entries.date.slice(0,10)}
+                                                                                <br/>Mood:{entries.mood}
+                                                                                <br/> Why you were {entries.mood}: {entries.what}
+                                                                                <br/> What you unpacked {entries.unpack}
+                                                                                <br/> What you said about your mood : {entries.note}
                                                                             </AccordionDetails>
-                                                                        </Link>
+                                                                        
                                                                     </Typography>
                                                                 </CardContent>
                                                                 <CardContent>
                                                                     <Paper>
-                                                                        <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
+                                                                        <Button onClick={() => deleteEntryEmo(entries._id)} > Delete </Button>
                                                                     </Paper>
                                                                     <br/>
                                                                     <Paper>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, 
-    Card, 
-    CssBaseline, 
-    Grid, 
-    Paper, 
-    TextField, 
-    ThemeProvider 
+import {
+    Button,
+    Card,
+    CssBaseline,
+    Grid,
+    Paper,
+    TextField,
+    ThemeProvider
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import theme from '../../theme';
@@ -14,20 +15,20 @@ import API from '../../utils/API';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      flexGrow: 1,
-      height: "100vh"
+        flexGrow: 1,
+        height: "100vh"
     },
     typography: {
         fontFamily: [
-          'Shrikhand',
-          'cursive',
-        ], 
+            'Shrikhand',
+            'cursive',
+        ],
         color: 'darkblue',
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.secondary,
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.secondary,
     },
     card: {
         maxWidth: 600,
@@ -40,14 +41,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '100%',
         fontWeight: 100,
         fontFamily: [
-            'Roboto Condensed', 
+            'Roboto Condensed',
             'sans-serif',
         ],
         color: 'darkblue',
     },
+    textfield: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '80%'
+    },
 }));
 
-function AngryJournalEntry( { desc, what, unpack, note }, props) {
+function AngryJournalEntry({ desc, what, unpack, note }, props) {
     const [entries, setEntries] = useState({})
     const [formObject, setFormObject] = useState({
         mood: '',
@@ -55,43 +61,43 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
         unpack: '',
         note: ''
     })
-// Load all entries and store them with setEntries
-  useEffect(() => {
-    loadEntries()
-  }, [])
-  // Loads all entries and sets them to entries
-  function loadEntries() {
-    API.getEntriesEmo()
-      .then(res => 
-        setEntries(res.data)
-      )
-      .catch(err => console.log(err));
+    // Load all entries and store them with setEntries
+    useEffect(() => {
+        loadEntries()
+    }, [])
+    // Loads all entries and sets them to entries
+    function loadEntries() {
+        API.getEntriesEmo()
+            .then(res =>
+                setEntries(res.data)
+            )
+            .catch(err => console.log(err));
     };
     function handleInputChange(event) {
         const { name, value } = event.target;
-        setFormObject({...formObject, [name]: value})
+        setFormObject({ ...formObject, [name]: value })
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-          API.saveEntryEmo({
+        API.saveEntryEmo({
             mood: "Angry",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note
-          })
+        })
             .then(() => setFormObject({
-        what: '',
-        unpack: '',
-        note: ''
+                what: '',
+                unpack: '',
+                note: ''
             }))
             .then(() => loadEntries())
             .catch(err => console.log(err));
-      };
+    };
     const classes = useStyles();
 
     return (
         <ThemeProvider theme={theme}>
-        <CssBaseline />
+            <CssBaseline />
             <div className={classes.root}>
                 <Grid item xs={12}>
                     <Card>
@@ -101,87 +107,92 @@ function AngryJournalEntry( { desc, what, unpack, note }, props) {
                                     So You're Angry...
                                 </Typography>
                                 <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                <p className={classes.p}>Psychological studies have identified three causes of anger:
-                                when our desires, goals or expectations are not met
-                                when we feel threatened, and/or when we are using anger to mask other emotions. </p>
-                                {desc}
+                                    <p className={classes.p}>
+                                        {desc}
+                                    </p>
                                 </Typography>
                             </Paper>
                         </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p className={classes.p}>
+                                        {what}
+                                    </p>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Today I was angry about..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="what"
+                                    value={formObject.what}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper} >
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p className={classes.p}>
+                                        {unpack}
+                                    </p>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Actually, I also felt..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="unpack"
+                                    value={formObject.unpack}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                    <p className={classes.p}>
+                                        {note}
+                                    </p>
+                                </Typography>
+                                <TextField
+                                    multiline
+                                    rowsMax="4"
+                                    className={classes.textfield}
+                                    onChange={handleInputChange}
+                                    id="outlined-secondary"
+                                    label="Today I was angry about..."
+                                    variant="outlined"
+                                    color="primary"
+                                    name="note"
+                                    value={formObject.note}
+                                />
+                            </Paper>
+                        </Grid>
+                        <Grid container>
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                        <p className={classes.p}>
-                                        What do you feel angry about today? How has that impacted your day?
-                                        </p>
-                                    {what}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="Today I was angered by..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="what"
-                                        value={formObject.what}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper} >
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                        <p className={classes.p}>
-                                        Take a moment to unpack that reaction. Do you feel any other emotions that may lie underneath it?
-                                        </p>
-                                    {unpack}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="Actually, I also felt..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="unpack"
-                                        value={formObject.unpack}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}>
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
-                                        <p className={classes.p}>
-                                        Feel free to type anything else here that you would like to note about today!
-                                        </p>
-                                    {note}
-                                    </Typography>
-                                    <TextField
-                                        onChange={handleInputChange}
-                                        id="outlined-secondary"
-                                        label="One more thing..."
-                                        variant="outlined"
-                                        color="primary"
-                                        name="note"
-                                        value={formObject.note}
-                                    />
-                                </Paper>
-                            </Grid>
-                            <Grid container>
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper}>
-                                    <Button 
+                                    <Button
                                         size="large"
-                                        variant="outlined" 
+                                        variant="outlined"
                                         color="success"
                                         onClick={handleFormSubmit}
                                         type="submit">
-                                            Submit
+                                        Submit
                                     </Button>
                                 </Paper>
                             </Grid>
                         </Grid>
-                    </Card>        
+                    </Card>
                 </Grid>
-            </div>  
+            </div>
         </ThemeProvider>
     )
 }

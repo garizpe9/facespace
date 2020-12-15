@@ -13,9 +13,8 @@ import {
     ThemeProvider,
     Typography,
 } from '@material-ui/core';
-import theme from '../../theme'
-import API from "../../../src/utils/API"
-import { Link } from "react-router-dom";
+import theme from '../../theme';
+import API from "../../../src/utils/API";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 

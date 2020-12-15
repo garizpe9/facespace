@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 const FaceDetectionPage = () => {
-    const classes = useStyles();
     return (
         <div>
             <CameraComponentCard/>

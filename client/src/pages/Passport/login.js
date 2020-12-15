@@ -21,19 +21,15 @@ class LoginForm extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
     }
-
     useStyles = makeStyles((theme) => ({
     }));
-    
     componentDidMount(){this.setState({classes:this.useStyles})}
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
@@ -76,7 +72,7 @@ class LoginForm extends Component {
                                     <Card color="secondary">
                                         <CardContent id="login">
                                             <Grid item xs={12}>
-                                                <Paper className={this.state.classes.paper}>
+                                                <Paper>
                                                     <Grid item xs={12}>
                                                         <Typography gutterBottom variant="h3" component="h2">
                                                             Login
@@ -101,15 +97,17 @@ class LoginForm extends Component {
                                                     <Button
                                                         controlId="loginBtn"
                                                         onClick={this.handleSubmit}
-                                                        variant="primary"
+                                                        variant="outlined"
+                                                        color="primary"
                                                         size="large"
                                                         type="submit">
                                                             Submit
                                                     </Button>
                                                 </Paper>
-                                                <Paper className={this.state.classes.paper}>
+                                                <Paper>
                                                     Not Registered?
-                                                    <Button 
+                                                    <Button  
+                                                        size="large"
                                                         href={`/signup`}
                                                         color="primary"
                                                         type="submit">

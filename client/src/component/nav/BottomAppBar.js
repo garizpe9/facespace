@@ -1,5 +1,5 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -39,12 +39,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'block',
         },
-        typography: {
-            fontFamily: [
-                'Shrikhand',
-                'cursive',
-            ]
-        },
+
         flexGrow: 1,
         alignSelf: 'flex-end',
     },
@@ -58,9 +53,9 @@ const useStyles = makeStyles((theme) => ({
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.common.white, 0.15),
+        backgroundColor: (theme.palette.common.white, 0.15),
         '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.25),
+            backgroundColor: (theme.palette.common.white, 0.25),
         },
         marginRight: theme.spacing(2),
         marginLeft: 0,
@@ -77,21 +72,23 @@ export default function BottomAppBar() {
     const classes = useStyles();
     const preventDefault = (event) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [anchorEl2, setAnchorEl2] = React.useState(null);
+    const [anchorel2, setAnchorel2] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
-    const isPageMenuOpen = Boolean(anchorEl2);
+    const isPageMenuOpen = Boolean(anchorel2);
 
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleMenuOpen = (event) => {
-        setAnchorEl2(event.currentTarget);
+        setAnchorel2(event.currentTarget);
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
-        setAnchorEl2(null);
+        setAnchorel2(null);
     };
     const menuId = 'primary-search-account-menu';
+    const menuPage = 'primary-page-menu';
+
     const renderMenu = (
         <Menu
             anchorEl={anchorEl}
@@ -112,30 +109,29 @@ export default function BottomAppBar() {
             <CssBaseline />
             <AppBar position="fixed" color="primary" className={classes.appBar}>
             <Toolbar>
-                <Button
-                    aria-controls="pageMenu"
+                <IconButton
+                    edge="end"
+                    aria-label="show more"
                     aria-haspopup="true"
-                    onClick={e => setAnchorEl2(e.currentTarget)}
+                    aria-controls={menuPage}
+                    color="inherit"
+                    onClick={handleMenuOpen}
                 >
                 <MenuIcon />
-                </Button>
+                </IconButton>
                 <Menu 
                     id="pageMenu"
-                    name="ell"
                     open={isPageMenuOpen}
-                    anchorEl2={anchorEl2}
+                    anchorel2={anchorel2}
                     keepMounted
-                    onClose={ () => setAnchorEl2(null)}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                      }}
-                      transformOrigin={{
-                        vertical: 'bttom',
-                        horizontal: 'left',
-                      }}
+                    onClose={handleMenuClose}
+                    anchorReference="anchorPosition"
+                    anchorPosition={{
+                        left: 0,
+                        top: 650,
+                    }}
                 >
-                <MenuItem onClick={handleMenuOpen}><Pagebar/></MenuItem>
+                <MenuItem onClick={handleMenuClose}><Pagebar/></MenuItem>
                 </Menu>
                 <IconButton color="inherit">
                     <div className={classes.searchIcon}></div>
@@ -157,7 +153,6 @@ export default function BottomAppBar() {
                         type="submit">
                         <Typography className={classes.title} variant="h3">
                             Train of Thought
-
                         </Typography>
                             </Button>
                         </ThemeProvider>
@@ -171,13 +166,7 @@ export default function BottomAppBar() {
                         >
                             <AccountCircle />
                         </IconButton>
-                        <IconButton
-                            aria-label="show more"
-                            aria-haspopup="true"
-                            color="inherit"
-                        >
-                        </IconButton>
-                    </Toolbar>
+                      </Toolbar>
                 </AppBar>
                 {renderMenu}
             </ThemeProvider>

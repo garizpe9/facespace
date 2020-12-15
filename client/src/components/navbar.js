@@ -50,16 +50,14 @@ class Navbar extends Component {
           </section>
           ) : (
           <section className='navbar-section'> 
-            <Button color="primary">
-              <Link to='/login'>
-                <span className='text-secondary'>Login </span>
-              </Link>
+            <Button color="primary"
+              href="/login">
+                Login
             </Button>
             <br/>
-            <Button color="primary">
-              <Link to='/signup'>
-                <span className='text-secondary'>Register </span>
-              </Link>
+            <Button color="primary"
+              href="/signup">
+                Register
             </Button>
           </section>
         )}

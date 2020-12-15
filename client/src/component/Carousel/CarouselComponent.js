@@ -2,9 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { SLIDE_INFO } from './constants';
 import Slide from '@material-ui/core/Slide';
 import { Container } from '@material-ui/core';
-import CarouselSlideComponent from './CarouselSlideComponent'
+import CarouselSlideComponent from './CarouselSlideComponent';
+import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
+import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
+import Fab from '@material-ui/core/Fab';
+
+function Arrow(props) {
+    const { direction, clickFunction } = props;
+    const icon = direction === 'left' ? 
+    <Fab color="primary"><ChevronRightRoundedIcon/></Fab> : <ChevronLeftRoundedIcon />;
+    return <div onClick={clickFunction}>{icon}</div>;
+}
 
 export default function CarouselComponent() {
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const [index, setIndex] = useState(0);
     const content = SLIDE_INFO[index];
     const numSlides = SLIDE_INFO.length;
@@ -40,11 +51,13 @@ export default function CarouselComponent() {
 
     return (
         <Container>
-            <Slide in={slideIn} direction={slideDirection}>
-                <div>
-                    <CarouselSlideComponent content={content} />
-                </div>
-            </Slide>
+            <Arrow direction='left' clickFunction={() => onArrowClick('left')} />
+                <Slide in={slideIn} direction={slideDirection}>
+                    <div>
+                        <CarouselSlideComponent content={content} />
+                    </div>
+                </Slide>
+            <Arrow direction='right' clickFunction={() => onArrowClick('right')} />
         </Container>
     );
 }

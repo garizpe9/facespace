@@ -13,7 +13,7 @@ import {
 import theme from '../../theme';
 
 export default function CarouselSlideComponent(props) {
-    const { backgroundColor, title} = props.content;
+    const { backgroundColor, image, title, subtitle } = props.content;
     const useStyles = makeStyles(() => ({
         root: {
             flexGrow: 1,
@@ -22,10 +22,11 @@ export default function CarouselSlideComponent(props) {
         card: {
             backgroundColor,
             borderRadius: 15,
-            margin: '30px',
-            width: '100%',
-            height: '900px',
-            boxShadow: '20px 20px 20px black',
+            marginLeft: '20%',
+            marginTop: '5%',
+            width: '60%',
+            height: '80%',
+            boxShadow: '20px 20px 20px grey',
             display: 'flex',
             justifyContent: 'center',
         },
@@ -43,30 +44,28 @@ export default function CarouselSlideComponent(props) {
         <CssBaseline />
             <div className={classes.root}>
                 <Card className={classes.card}>
-                    <h1>{title}</h1>
-                    <CardContent>
-                        <Card color="secondary">
+                        <Card >
                             <CardContent>
-                                    <CardActionArea> 
-                                    <CardMedia 
-                                    className={classes.media}
-                                    image="https://images.unsplash.com/photo-1547561090-e2c1104d363f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
-                                    title="Uplifting quote in book"
-                                    />
-                                    </CardActionArea>
+                                <CardActionArea> 
+                                <CardMedia 
+                                className={classes.media}
+                                image={image}
+                                />
+                                </CardActionArea>
                             </CardContent>
-                                <Paper className={classes.paper}>
+                            <CardContent>
+                                <Paper >
                                     <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
-                                        Welcome to Train of Thought
+                                        {title}
                                     </Typography>
                                 </Paper>
-                                <Paper className={classes.paper}>
+                                <Paper>
                                     <Typography gutterBottom variant="h4" component="h5">
-                                    Ready to start your mental health journey?
+                                        {subtitle}
                                     </Typography>
                                 </Paper>
-                            </Card>
-                    </CardContent>
+                            </CardContent>
+                        </Card>
                 </Card>
             </div>
         </ThemeProvider>

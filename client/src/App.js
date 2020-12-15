@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Switch, Link} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginForm from './pages/Passport/login';
 //import Navbar from './components/navbar';
 import Register from './pages/Passport/register'

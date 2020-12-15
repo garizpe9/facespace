@@ -62,11 +62,11 @@ export default function JournalEntry() {
         notWell: '',
         vent: ''
     })
+ 
+    useEffect(() => { //instead of mountring/rendering it's everytime there's a change
+      loadEntries()
+    }, [])
 
-// Load all entries and store them with setEntries
-//   useEffect(() => {
-//     loadEntries()
-//   }, [{}])
   // Loads all entries and sets them to entries
   function loadEntries() {
     API.getEntries()

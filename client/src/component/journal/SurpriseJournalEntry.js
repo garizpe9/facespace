@@ -179,7 +179,7 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
                             <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                 <Button
                                     onClick={handleFormSubmit}
-                                    variant="primary"
+                                    color="primary"
                                     type="submit">
                                         Submit
                                 </Button>

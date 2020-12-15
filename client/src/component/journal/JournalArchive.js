@@ -49,7 +49,7 @@ export default function JournalArchive() {
                                 <Paper className={classes.paper}>  
                                 <Button 
                                     href={`/journalentries`}
-                                    variant="primary"
+                                    color="primary"
                                     type="submit">
                                     <Typography gutterBottom variant="h4" component="h3" className={classes.font}>
                                         Past Journal Entries

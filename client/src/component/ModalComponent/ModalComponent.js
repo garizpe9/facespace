@@ -3,6 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { 
+  Button, 
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -92,7 +95,10 @@ const  ModalComponent = ( {emotion} ) => {
           <div className={classes.paper}>
             <h2 id="transition-modal-title">It looks like you're feeling {emotion}</h2>
             <p id="transition-modal-description">Is that correct?</p>
-            <button onClick={() => {
+            <Button 
+            color="primary"
+            variant="outlined"
+            onClick={() => {
               if (emotion === "neutral") {
                 window.location.href="/neutraljournal"
               } else if (emotion === "surprised") {
@@ -108,7 +114,7 @@ const  ModalComponent = ( {emotion} ) => {
               } else if (emotion === "happy") {
                 window.location.href="/happyjournal"
               }
-            }}>Yes, let's talk about it</button> <button onClick={() => reload()}>No, let me try again</button>
+            }}>Yes, let's talk about it</Button> <Button color="primary" variant="outlined" onClick={() => reload()}>No, let me try again</Button>
           </div>
         </Fade>
       </Modal>

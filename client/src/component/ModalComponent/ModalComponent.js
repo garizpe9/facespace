@@ -32,10 +32,44 @@ const  ModalComponent = ( {emotion} ) => {
 
   const reload = () => window.location.reload();
 
+  const noFaceDetected = () => {
+    return (
+      <div>
+        <Modal
+          disableBackdropClick
+          disableEscapeKeyDown
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="transition-modal-title">We couldn't detect your face!</h2>
+              <p id="transition-modal-description">Can you center it for us please?</p>
+              <button onClick={() => reload()}>Let me try again</button>
+            </div>
+          </Fade>
+        </Modal>
+      </div>
+    );
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => handleOpen(), 5000);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!emotion || null || undefined) {
+    noFaceDetected()
+  }
+
 
   return (
     <div>
@@ -70,8 +104,10 @@ const  ModalComponent = ( {emotion} ) => {
                 window.location.href="/sadjournal"
               } else if (emotion === "angry") {
                 window.location.href="/angryjournal"
-              } else {
+              } else if (emotion === "happy") {
                 window.location.href="/happyjournal"
+              } else if (!emotion) {
+                noFaceDetected()
               }
             }}>Yes, let's talk about it</button> <button onClick={() => reload()}>No, let me try again</button>
           </div>

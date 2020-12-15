@@ -108,6 +108,7 @@ export default function JournalEntry() {
         .catch(err => console.log(err));
     };
     const classes = useStyles();
+    const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -280,11 +281,15 @@ export default function JournalEntry() {
                                         <Button
                                             color="primary"
                                             alignContent="center"
-                                            type="submit">
+                                            type="submit"
+                                            href= {`/home`}
+                                        onClick={() => reload()}>
+                                                
                                                 Cancel
                                         </Button>
                                         <Button
-                                            onClick={handleFormSubmit}
+                                            href= {`/home`}
+                                            onClick={handleFormSubmit,() => reload()}
                                             color="primary"
                                             alignContent="center"
                                             type="submit">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
 import {
     Button,
     CssBaseline,
@@ -176,7 +175,7 @@ function DisgustJournalEntry({ desc, what, unpack, note }) {
                             label="One more thing..."
                             variant="outlined"
                             color="primary"
-                            name="unpack"
+                            name="note"
                             value={formObject.note}
                         />
                     </Paper>
@@ -186,7 +185,7 @@ function DisgustJournalEntry({ desc, what, unpack, note }) {
                         <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                             <Button
                                 onClick={handleFormSubmit}
-                                variant="primary"
+                                color="primary"
                                 type="submit">
                                 Submit
                             </Button>

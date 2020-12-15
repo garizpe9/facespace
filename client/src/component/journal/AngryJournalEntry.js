@@ -106,7 +106,7 @@ function AngryJournalEntry({ desc, what, unpack, note }, props) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Angry...
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                <Typography gutterBottom variant="h6" component="h2" className={classes.typography}>
                                     <p className={classes.p}>
                                         {desc}
                                     </p>

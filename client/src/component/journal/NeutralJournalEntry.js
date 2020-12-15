@@ -147,7 +147,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                             label="Actually, I also felt..."
                             variant="outlined"
                             color="primary"
-                            name="what"
+                            name="unpack"
                             value={formObject.unpack}
                         />
                     </Paper>
@@ -168,7 +168,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                             label="One more thing..."
                             variant="outlined"
                             color="primary"
-                            name="what"
+                            name="note"
                             value={formObject.note}
                         />
                     </Paper>

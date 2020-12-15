@@ -65,6 +65,7 @@ export default function Mood() {
                                             image={scanImg}
                                             title="Facial Recognition"
                                         >
+
                                         </CardMedia>
                                     </CardActionArea>
                                 </CardContent>

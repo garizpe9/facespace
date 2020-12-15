@@ -6,7 +6,8 @@ import { Button,
     CssBaseline, 
     Grid, 
     Paper, 
-    TextField, 
+    TextField,
+    TextareaAutosize, 
     ThemeProvider 
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
       height: "100vh",
+    },
+    textfield: {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        width: '80%',
     },
     typography: {
         fontFamily: [
@@ -126,6 +132,9 @@ export default function JournalEntry() {
                                                     My Daily Intention
                                                 </Typography>
                                                 <TextField
+                                                    multiline
+                                                    rowsMax="4"
+                                                    className={classes.textfield}
                                                     onChange={handleInputChange}
                                                     id="outlined-secondary"
                                                     label="Energy Flows Where Intention Goes"

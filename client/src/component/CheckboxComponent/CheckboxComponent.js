@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         height: "100vh",
-    
     },
     card: {
         boxShadow: '5px 5px 5px lightblue',
@@ -28,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.secondary,
+    },
+    p: {
+        fontSize: '25px',
     },
     font: {
         color: 'darkblue',
@@ -51,6 +53,8 @@ export default function CheckboxComponent() {
                                     <Paper className={classes.paper}>  
                                         <Typography gutterBottom variant="h4" component="h3" className={classes.font}>
                                             What's the mood?
+                                            <p className={classes.p}>Not feeling camera ready? Log your mood the 
+                                            old fashioned way!</p>
                                         </Typography>
                                         <Checkboxes/>
                                     </Paper>

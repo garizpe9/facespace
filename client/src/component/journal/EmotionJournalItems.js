@@ -28,11 +28,14 @@ const useStyles = makeStyles({
     },
     typography: {
         color: 'darkblue',
+        textAlign: 'center',
     },
     card: {
         boxShadow: '5px 5px 5px lightblue',
+        textAlign: 'center',
     },
-        font: {
+    font: {
+        textAlign: 'center',
         color: 'darkblue',
     },
 });
@@ -76,38 +79,53 @@ export default function JournalItems() {
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                     >       
-                                        <Typography gutterBottom variant="h5" component="h2" className={classes.typography}>
+                                        <Typography gutterBottom variant="h4" component="h2" className={classes.typography}>
                                             Mood Journals 
                                         </Typography>
                                     </AccordionSummary>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Grid item xs={6}>
+                                    <AccordionDetails>
                                         <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
                                         {entries.length ? (
                                             <AccordionDetails>
                                                 {entries.map(entries => (
-                                                <Card className={classes.card} key={entries._id}>
-                                                    <Link to={"/emo/" + entries._id}>
-                                                    <AccordionDetails>
-                                                        {entries.date} by {entries.what}
-                                                    </AccordionDetails>
-                                                    </Link>
-                                                    <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
-                                                </Card>
+                                                    <Grid container spacing={1}>
+                                                        <Card className={classes.card} key={entries._id}>
+                                                            <Paper className={classes.paper}>
+                                                                <CardContent>
+                                                                    <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                                                        <Link to={"/emo/" + entries._id}>
+                                                                            <AccordionDetails>
+                                                                                {entries.date} by {entries.what}
+                                                                            </AccordionDetails>
+                                                                        </Link>
+                                                                    </Typography>
+                                                                </CardContent>
+                                                                <CardContent>
+                                                                    <Paper>
+                                                                        <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
+                                                                    </Paper>
+                                                                    <br/>
+                                                                    <Paper>
+                                                                    <Button size="small" color="primary">
+                                                                        Share
+                                                                    </Button>
+                                                                    <Button size="small" color="primary">
+                                                                        Learn More
+                                                                    </Button>
+                                                                    </Paper>
+                                                                </CardContent>
+                                                            </Paper>
+                                                        </Card>
+                                                    </Grid>
                                                 ))}
                                             </AccordionDetails>
                                             ) : (
-                                            <h3 >No Results to Display</h3>
-                                            )}
+                                            <h2 >No Results to Display</h2>
+                                            )}                                                    
                                         </Typography>
-                                        <Button size="small" color="primary">
-                                            Share
-                                        </Button>
-                                        <Button size="small" color="primary">
-                                            Learn More
-                                        </Button>
-                                    </Grid>
+                                    </AccordionDetails>
                                 </Grid>
                             </Accordion>
                         </Card>

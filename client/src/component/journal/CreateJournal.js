@@ -14,7 +14,7 @@ import theme from '../../theme';
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        height: "100vh"
+        height: "100vh",
     },
     card: {
         boxShadow: '5px 5px 5px lightblue',

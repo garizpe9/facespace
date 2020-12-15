@@ -90,7 +90,11 @@ class LoginForm extends Component {
                                                         <TextField
                                                             controlid="passwordform"
                                                             onChange={this.handleChange}
-                                                            name="password"
+                                                            name="password"                                                           
+                                                            id="standard-password-input"                                                           
+                                                            type="password"
+                                                            autoComplete="current-password"
+                                                          
                                                         />
                                                         <br />
                                                     </Typography>

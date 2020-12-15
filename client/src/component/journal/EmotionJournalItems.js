@@ -95,16 +95,20 @@ export default function JournalItems() {
                                                             <Paper className={classes.paper}>
                                                                 <CardContent>
                                                                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                                        <Link to={"/emo/" + entries._id}>
+                                                                        
                                                                             <AccordionDetails>
-                                                                                {entries.date} by {entries.what}
+                                                                                {entries.date.slice(0,10)}
+                                                                                <br/>Mood:{entries.mood}
+                                                                                <br/> Why you were {entries.mood}: {entries.what}
+                                                                                <br/> What you unpacked {entries.unpack}
+                                                                                <br/> What you said about your mood : {entries.note}
                                                                             </AccordionDetails>
-                                                                        </Link>
+                                                                        
                                                                     </Typography>
                                                                 </CardContent>
                                                                 <CardContent>
                                                                     <Paper>
-                                                                        <button onClick={() => deleteEntryEmo(entries._id)} > Delete </button>
+                                                                        <Button onClick={() => deleteEntryEmo(entries._id)} > Delete </Button>
                                                                     </Paper>
                                                                     <br/>
                                                                     <Paper>

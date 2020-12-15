@@ -122,9 +122,20 @@ export default function JournalItems() {
                                                     <Paper className={classes.paper} key={entries._id}>
                                                         <CardContent>
                                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                        <Link to={"/entries/" + entries._id}>
-                                                            {entries.date} by {entries.intention}
-                                                        </Link>
+                                                        
+                                                            {entries.date.slice(0,10)}
+                                                            <br/> My Intention:{entries.intention}
+                                                            <br/> What I did to  Nurture Myself: {entries.nuture}
+                                                            <br/> Things I love about myself:
+                                                            {entries.love1}, 
+                                                            {entries.love2},  
+                                                            {entries.love3}, 
+                                                            <br/> Things that went well: {entries.well1}, 
+                                                            {entries.well2}, 
+                                                            {entries.well3}
+                                                            <br/>Things that didn't go well and how to adjusts: {entries.notWell}
+                                                            <br/> Let's Vent: {entries.vent}
+                                                        
                                                         </Typography>
                                                         </CardContent>
                                                         <CardContent>

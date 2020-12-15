@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 
 class Navbar extends Component {
   constructor() {
@@ -28,23 +29,19 @@ class Navbar extends Component {
         }
       })
       .catch((error) => {
-        console.log('Logout error');
       });
   };
 
    render() {
     const loggedIn = this.props.loggedIn;
-    console.log('navbar render, props: ');
-    console.log(this.props);
 
     return (
       <div>
         {loggedIn ? (
           <section className='navbar-section'>
-            <Button>
+            <Button color="primary">
             <Link
               to='/'
-              className='btn btn-link text-secondary'
               onClick={this.logout}
             >
               <span className='text-secondary'>Logout</span>
@@ -53,17 +50,16 @@ class Navbar extends Component {
           </section>
           ) : (
           <section className='navbar-section'> 
-
-            <Button>
-            <Link to='/login' className='btn btn-link text-secondary'>
-              <span className='text-secondary'>Login </span>
-            </Link>
+            <Button color="primary">
+              <Link to='/login'>
+                <span className='text-secondary'>Login </span>
+              </Link>
             </Button>
             <br/>
-            <Button>
-            <Link to='/signup' className='btn btn-link'>
-              <span className='text-secondary'>Register </span>
-            </Link>
+            <Button color="primary">
+              <Link to='/signup'>
+                <span className='text-secondary'>Register </span>
+              </Link>
             </Button>
           </section>
         )}

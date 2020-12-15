@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary,
     },
     font: {
-        textAlign: 'center',
         color: 'darkblue',
         fontFamily: [
           'Shrikhand',

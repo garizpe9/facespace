@@ -29,6 +29,7 @@ class AngryJournalPage extends Component {
               note="Feel free to type anything else here that you would like to note about today."/>
             </Grid>
           </Grid>
+          <BottomAppBar/>
         </Router>
       </div>
     );

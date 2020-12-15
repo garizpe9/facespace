@@ -6,16 +6,12 @@ import {
     AccordionDetails,
     Button,
     CardContent, 
-    CardActions,
-    CardActionArea,
     Card, 
-    CardMedia, 
     CssBaseline, 
     Grid,
     Paper,
     ThemeProvider,
     Typography,
-    AccordionActions,
 } from '@material-ui/core';
 import theme from '../../theme'
 import API from "../../../src/utils/API"
@@ -122,6 +118,7 @@ export default function JournalItems() {
                                                     <Paper className={classes.paper} key={entries._id}>
                                                         <CardContent>
                                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
+
                                                         
                                                             {entries.date.slice(0,10)}
                                                             <br/> My Intention:{entries.intention}

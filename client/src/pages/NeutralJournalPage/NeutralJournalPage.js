@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import NeutralJournalEntry from "../../component/journal/NeutralJournalEntry";
 import BottomAppBar from "../../component/nav/BottomAppBar";
-import MediaControlCard from "../../component/media/MediaControlCard";
 import MediaCard from "../../component/media/MediaCard";
 import PlayerApp from '../../component/PlayerComponent/Player';
 import Header from "../../component/HeaderComponent/Header";

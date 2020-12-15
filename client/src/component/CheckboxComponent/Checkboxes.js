@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button, Card, Grid, Paper  } from '@material-ui/core';
 import Checkbox, { CheckboxProps } from '@material-ui/core/Checkbox';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import pink from '@material-ui/core/colors/pink';
-import theme from '../../theme';
 import API from '../../utils/API';
 
 const MoodCheckbox = withStyles({

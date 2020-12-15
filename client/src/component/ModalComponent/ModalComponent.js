@@ -33,6 +33,7 @@ const  ModalComponent = ( {emotion} ) => {
   const reload = () => window.location.reload();
 
   const noFaceDetected = () => {
+    if (emotion == undefined)
     return (
       <div>
         <Modal
@@ -62,13 +63,13 @@ const  ModalComponent = ( {emotion} ) => {
   }
 
   useEffect(() => {
+      noFaceDetected()
+  }, [emotion]);
+
+      useEffect(() => {
     const timer = setTimeout(() => handleOpen(), 5000);
     return () => clearTimeout(timer);
   }, []);
-
-  if (!emotion || null || undefined) {
-    noFaceDetected()
-  }
 
 
   return (
@@ -106,8 +107,6 @@ const  ModalComponent = ( {emotion} ) => {
                 window.location.href="/angryjournal"
               } else if (emotion === "happy") {
                 window.location.href="/happyjournal"
-              } else if (!emotion) {
-                noFaceDetected()
               }
             }}>Yes, let's talk about it</button> <button onClick={() => reload()}>No, let me try again</button>
           </div>

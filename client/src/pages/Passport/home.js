@@ -7,7 +7,6 @@ import {
     Grid, 
     makeStyles, 
 } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
 import CarouselComponent from '../../component/Carousel/CarouselComponent'
 import BottomAppBar from '../../component/nav/BottomAppBar'
 

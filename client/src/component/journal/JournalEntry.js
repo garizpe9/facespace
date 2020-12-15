@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, 
     Card,  
@@ -7,7 +7,6 @@ import { Button,
     Grid, 
     Paper, 
     TextField,
-    TextareaAutosize, 
     ThemeProvider 
 } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';

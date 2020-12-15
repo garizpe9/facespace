@@ -13,9 +13,9 @@ import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
 import Navbar from '../../components/navbar';
 import { Button } from '@material-ui/core';
+import Pagebar from '../../components/pagebar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -77,12 +77,19 @@ export default function BottomAppBar() {
     const classes = useStyles();
     const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl2, setAnchorEl2] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
+    const isPageMenuOpen = Boolean(anchorEl2);
+
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
+    const handleMenuOpen = (event) => {
+        setAnchorEl2(event.currentTarget);
+    };
     const handleMenuClose = () => {
         setAnchorEl(null);
+        setAnchorEl2(null);
     };
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -105,9 +112,31 @@ export default function BottomAppBar() {
             <CssBaseline />
             <AppBar position="fixed" color="primary" className={classes.appBar}>
             <Toolbar>
-                <IconButton edge="start" color="inherit" aria-label="open drawer">
-                    <MenuIcon />
-                </IconButton>
+                <Button
+                    aria-controls="pageMenu"
+                    aria-haspopup="true"
+                    onClick={e => setAnchorEl2(e.currentTarget)}
+                >
+                <MenuIcon />
+                </Button>
+                <Menu 
+                    id="pageMenu"
+                    name="ell"
+                    open={isPageMenuOpen}
+                    anchorEl2={anchorEl2}
+                    keepMounted
+                    onClose={ () => setAnchorEl2(null)}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      transformOrigin={{
+                        vertical: 'bttom',
+                        horizontal: 'left',
+                      }}
+                >
+                <MenuItem onClick={handleMenuOpen}><Pagebar/></MenuItem>
+                </Menu>
                 <IconButton color="inherit">
                     <div className={classes.searchIcon}></div>
                         <SearchIcon />

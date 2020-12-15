@@ -23,6 +23,7 @@ class AngryJournalPage extends Component {
               <AngryJournalEntry/>
             </Grid>
           </Grid>
+          <BottomAppBar/>
         </Router>
       </div>
     );

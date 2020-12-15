@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     card: {
-        boxShadow: '5px 5px 5px lightblue',
         alignItems: 'center',
         width: '100%',
         boxShadow: '5px 5px 5px lightblue',

@@ -7,7 +7,6 @@ import CreateJournal from "./journal/CreateJournal";
 import { Grid } from '@material-ui/core';
 import PlayerApp from './PlayerComponent/PlayerApp';
 import Mood from './MoodComponent/Mood';
-import JournalList from "./journal/JournalList";
 import JournalArchive from "./journal/JournalArchive";
 import CheckboxComponent from './CheckboxComponent/CheckboxComponent';
 

@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card: {
         boxShadow: '5px 5px 5px lightblue',
+        height: '100%',
     },
     borderBottom: {
         borderColor: 'success.main' 
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.secondary,
     },
     p: {
-        fontSize: '25px',
+        fontSize: '30px',
     },
     font: {
         color: 'darkblue',

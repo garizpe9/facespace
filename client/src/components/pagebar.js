@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { 
-    Button,
+    Button, Radio
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -43,10 +43,10 @@ class Pagebar extends Component {
                         Face Space: Mood Reader
                 </Button>
                 <br/>
-                <Button color="primary"
+                <Radio color="primary"
                     href="/journalentries">
                         Previous Entries
-                </Button>
+                </Radio>
                 <br/>
                 <Button color="primary"
                     href="/angryjournal">

@@ -96,6 +96,10 @@ class Attempt extends Component {
                                                     <TextField
                                                         onChange={this.handleChange}
                                                         name="password"
+                                                        id="standard-password-input"                                                    
+                                                        type="password"
+                                                        autoComplete="current-password"
+                                                    
                                                     />
                                                     <br />
                                                 </Typography>

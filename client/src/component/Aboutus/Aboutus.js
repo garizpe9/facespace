@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
+    p: {
+        fontFamily: [
+        'Roboto Condensed',
+            'sans-serif',
+        ]
+    },
 }));
 function Aboutus(){
     const classes = useStyles();
@@ -56,7 +62,7 @@ function Aboutus(){
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                 About Us
                                 </Typography>
-                                <Typography gutterBottom variant="h6" component="h4" className={classes.typography}>
+                                <Typography gutterBottom variant="h6" component="h4" className={classes.p}>
                                 <a href = 'https://www.cnbc.com/2020/03/20/coronavirus-wake-up-millennials-prioritize-your-mental-health-right-now-says-psychotherapist.html'>
                                 "According to a 2019 report from the Blue Cross Blue Shield Association, major depression diagnoses are rising at a faster rate for millennials 
                                 — a 47% increase since 2013 — compared to any other age group. And a 2018 survey from the American Psychiatry Association found that they are by 

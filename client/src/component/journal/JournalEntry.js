@@ -278,14 +278,14 @@ export default function JournalEntry() {
                                     </Grid>
                                     <Paper item xs={12} className={classes.paper}>
                                         <Button
-                                            variant="primary"
+                                            color="primary"
                                             alignContent="center"
                                             type="submit">
                                                 Cancel
                                         </Button>
                                         <Button
                                             onClick={handleFormSubmit}
-                                            variant="primary"
+                                            color="primary"
                                             alignContent="center"
                                             type="submit">
                                                 Submit

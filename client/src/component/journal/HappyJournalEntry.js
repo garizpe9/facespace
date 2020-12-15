@@ -181,7 +181,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                                 <Paper className={classes.paper}>
                                     <Button
                                         onClick={handleFormSubmit}
-                                        variant="primary"
+                                        color="primary"
                                         type="submit">
                                         Submit
                                     </Button>

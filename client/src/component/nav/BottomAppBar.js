@@ -135,15 +135,8 @@ export default function BottomAppBar() {
                 </Menu>
                 <IconButton color="inherit">
                     <div className={classes.searchIcon}></div>
-                        <SearchIcon />
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
+                     
+
                 </IconButton>
                 <ThemeProvider theme={theme}>
                     <Button 
@@ -165,6 +158,7 @@ export default function BottomAppBar() {
                             onClick={handleProfileMenuOpen}
                         >
                             <AccountCircle />
+                            Account
                         </IconButton>
                       </Toolbar>
                 </AppBar>

@@ -20,6 +20,7 @@ import NeutralJournalPage from './pages/NeutralJournalPage/NeutralJournalPage.js
 import Aboutuspage from './pages/Aboutus/Aboutus';
 import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries';
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
+import FaceDetectionComponent from './component/FaceDetectionComponent/FaceDetectionComponent';
 
 class App extends Component {
   constructor() {

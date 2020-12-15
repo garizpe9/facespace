@@ -24,11 +24,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 25,
   }
 
-}));
-
-export default function Checkboxes() {
-  const classes = useStyles();
-  return (
     <section>
       <div>
         <Button color="primary"

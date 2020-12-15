@@ -18,9 +18,9 @@ const MoodCheckbox = withStyles({
 })((props: CheckboxProps) => <Checkbox color="default" {...props} />);
 
 export default function Checkboxes() {
-  const [checked, state, setState, setMood] = React.useState(true);
+  const [checked, setState] = React.useState(true);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setState({ ...state, [event.target.name]: event.target.checked });
+      setState({ ...checked, [event.target.name]: event.target.checked });
   };
   
   const [formObject, setFormObject] = useState({
@@ -87,35 +87,35 @@ function handleFormSubmit(event) {
     <Card>
       <FormGroup row>
         <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedA} onChange={handleChange} name="checkAng" />}
+          control={<MoodCheckbox checked={checked.checkedA} onChange={handleChange} name="checkAng" />}
           label="Angry"
         />
         <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedA} onChange={handleChange} name="checkAnx" />}
+          control={<MoodCheckbox checked={checked.checkedA} onChange={handleChange} name="checkAnx" />}
           label="Anxious"
         />
         <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedB} onChange={handleChange} name="checkDis" />}
+          control={<MoodCheckbox checked={checked.checkedB} onChange={handleChange} name="checkDis" />}
           label="Disgusted"
         />    
         <FormControlLabel
-        control={<MoodCheckbox checked={state.checkedC} onChange={handleChange} name="checkDep" />}
+        control={<MoodCheckbox checked={checked.checkedC} onChange={handleChange} name="checkDep" />}
         label="Depressed"
         />    
         <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedD} onChange={handleChange} name="checkHap" />}
+          control={<MoodCheckbox checked={checked.checkedD} onChange={handleChange} name="checkHap" />}
           label="Happy"
         />
         <FormControlLabel
-          control={<oodCheckbox checked={state.checkedE} onChange={handleChange} name="checkFear" />}
+          control={<MoodCheckbox checked={checked.checkedE} onChange={handleChange} name="checkFear" />}
           label="Fearful"
         />
         <FormControlLabel
-          control={<Checkbox checked={state.checkedF} onChange={handleChange} name="checkNeut" />}
+          control={<MoodCheckbox checked={checked.checkedF} onChange={handleChange} name="checkNeut" />}
           label="Neutral"
         />
         <FormControlLabel
-          control={<MoodCheckbox checked={state.checkedG} onChange={handleChange} name="checkSad" />}
+          control={<MoodCheckbox checked={checked.checkedG} onChange={handleChange} name="checkSad" />}
           label="Sad"
         />
       </FormGroup>

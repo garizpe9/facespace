@@ -23,14 +23,15 @@ const useStyles = makeStyles((theme) => ({
   button:{
     fontSize: 25,
   }
-
 }));
 
 export default function Checkboxes() {
-  const classes = useStyles();
-  return (
-    <section>
-      <div>
+    const classes = useStyles();
+
+    return (   
+
+    <div>
+      <section>
         <Button color="primary"
           className={classes.button}
           size="large"
@@ -64,7 +65,7 @@ export default function Checkboxes() {
         <Button color="primary"
           className={classes.button}
           size="large"
-          href="/neutraljournal">
+          href="/sadjournal">
             Sad 😔
         </Button>
         <Button color="primary"
@@ -73,8 +74,8 @@ export default function Checkboxes() {
           href="/surprisejournal">
             Surprised 😲
         </Button>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
   

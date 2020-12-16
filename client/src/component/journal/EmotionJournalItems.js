@@ -35,6 +35,16 @@ const useStyles = makeStyles({
         textAlign: 'center',
         color: 'darkblue',
     },
+    p: {
+        fontSize: '100%',
+        fontWeight: 100,
+        color: 'darkblue',
+        fontFamily: [
+            'Roboto Condensed',
+            'sans-serif',
+        ],
+    }
+    
 });
 
 export default function EmotionJournalItems() {
@@ -94,11 +104,13 @@ export default function EmotionJournalItems() {
                                                                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                                                                         
                                                                             <AccordionDetails>
+                                                                            <p className={classes.p}>
                                                                                 {entries.date.slice(0,10)}
-                                                                                <br/>Mood:{entries.mood}
-                                                                                <br/> Why you were {entries.mood}: {entries.what}
-                                                                                <br/> What you unpacked {entries.unpack}
-                                                                                <br/> What you said about your mood : {entries.note}
+                                                                                <br/>Mood: {entries.mood}
+                                                                                <br/> Why you were {entries.mood}: <br/>{entries.what}
+                                                                                <br/> What you unpacked: <br/>{entries.unpack}
+                                                                                <br/> What you said about your mood: <br/>{entries.note}
+                                                                            </p>
                                                                             </AccordionDetails>
                                                                         
                                                                     </Typography>

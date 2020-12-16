@@ -108,6 +108,7 @@ export default function JournalEntry() {
         .catch(err => console.log(err));
     };
     const classes = useStyles();
+    const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -278,14 +279,18 @@ export default function JournalEntry() {
                                     </Grid>
                                     <Paper item xs={12} className={classes.paper}>
                                         <Button
-                                            variant="primary"
+                                            color="primary"
                                             alignContent="center"
-                                            type="submit">
+                                            type="submit"
+                                            href= {`/home`}
+                                        onClick={() => reload()}>
+                                                
                                                 Cancel
                                         </Button>
                                         <Button
-                                            onClick={handleFormSubmit}
-                                            variant="primary"
+                                            href= {`/home`}
+                                            onClick={handleFormSubmit,() => reload()}
+                                            color="primary"
                                             alignContent="center"
                                             type="submit">
                                                 Submit

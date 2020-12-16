@@ -94,6 +94,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
+    const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -104,7 +105,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                             So You're Neutral...
                         </Typography>
                         <Typography gutterBottom variant="h6" component="h2">
-                            <p classname={classes.p}>
+                            <p className={classes.p}>
                                 {desc}
                             </p>
                         </Typography>
@@ -113,7 +114,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
                         <Typography gutterBottom variant="h5" component="h2">
-                            <p classname={classes.p}>
+                            <p className={classes.p}>
                                 {what}
                             </p>
                         </Typography>
@@ -134,7 +135,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                 <Grid item xs={12}>
                     <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                         <Typography gutterBottom variant="h5" component="h2">
-                            <p classname={classes.p}>
+                            <p className={classes.p}>
                                 {unpack}
                             </p>
                         </Typography>
@@ -147,7 +148,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                             label="Actually, I also felt..."
                             variant="outlined"
                             color="primary"
-                            name="what"
+                            name="unpack"
                             value={formObject.unpack}
                         />
                     </Paper>
@@ -155,7 +156,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
                         <Typography gutterBottom variant="h5" component="h2">
-                            <p classname={classes.p}>
+                            <p className={classes.p}>
                                 {note}
                             </p>
                         </Typography>
@@ -168,7 +169,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                             label="One more thing..."
                             variant="outlined"
                             color="primary"
-                            name="what"
+                            name="note"
                             value={formObject.note}
                         />
                     </Paper>
@@ -177,8 +178,9 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                     <Grid item xs={12}>
                         <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                             <Button
-                                onClick={handleFormSubmit}
-                                variant="primary"
+                               href= {`/home`}
+                               onClick={handleFormSubmit,() => reload()}
+                                color="primary"
                                 type="submit">
                                 Submit
                             </Button>

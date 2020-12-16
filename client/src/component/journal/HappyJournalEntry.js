@@ -94,6 +94,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
+    const reload = () => window.location.reload();
 
     return (
         <ThemeProvider theme={theme}>
@@ -106,8 +107,8 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                                 <Typography variant="h3" component="h2" className={classes.typography}>
                                     So You're Happy...
                                 </Typography>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    <p classname={classes.p}>
+                                <Typography gutterBottom variant="h6" component="h2">
+                                    <p className={classes.p}>
                                         {desc}
                                     </p>
                                 </Typography>
@@ -116,7 +117,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    <p classname={classes.p}>
+                                    <p className={classes.p}>
                                         {what}
                                     </p>
                                 </Typography>
@@ -137,7 +138,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                         <Grid item xs={12}>
                             <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    <p classname={classes.p}>
+                                    <p className={classes.p}>
                                         {unpack}
                                     </p>
                                 </Typography>
@@ -158,7 +159,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <Typography gutterBottom variant="h5" component="h2">
-                                    <p classname={classes.p}>
+                                    <p className={classes.p}>
                                         {note}
                                     </p>
                                 </Typography>
@@ -180,8 +181,9 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Button
-                                        onClick={handleFormSubmit}
-                                        variant="primary"
+                                        href= {`/home`}
+                                        onClick={handleFormSubmit,() => reload()}
+                                        color="primary"
                                         type="submit">
                                         Submit
                                     </Button>

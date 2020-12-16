@@ -25,6 +25,7 @@ Everyone deserves a voice and a safe space for their Train of Thought.
 ![Train of Thought Preview](client/src/Images/demo5.jpg)
 
 
+
 ## Functionality
 
 This app uses the following technologies: MERN stack, passport.js, face-api.js, material-auto-rotating-carousel.js, material-ui.js, react-swipeable-views.js, styled-components.js, Healthroughwords API 

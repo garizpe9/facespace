@@ -182,7 +182,7 @@ function HappyJournalEntry({ desc, what, unpack, note }) {
                                 <Paper className={classes.paper}>
                                     <Button
                                         href= {`/home`}
-                                        onClick={handleFormSubmit,() => reload()}
+                                        onClick={handleFormSubmit}
                                         color="primary"
                                         type="submit">
                                         Submit

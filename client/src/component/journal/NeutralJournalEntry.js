@@ -94,7 +94,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
-    const reload = () => window.location.reload();
+    //const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -179,7 +179,7 @@ function NeutralJournalEntry({ desc, what, unpack, note }) {
                         <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                             <Button
                                href= {`/home`}
-                               onClick={handleFormSubmit,() => reload()}
+                               onClick={handleFormSubmit}
                                 color="primary"
                                 type="submit">
                                 Submit

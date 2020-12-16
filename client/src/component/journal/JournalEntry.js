@@ -283,13 +283,13 @@ export default function JournalEntry() {
                                             alignContent="center"
                                             type="submit"
                                             href= {`/home`}
-                                        onClick={() => reload()}>
+                                            onClick={() => reload()}>
                                                 
                                                 Cancel
                                         </Button>
                                         <Button
                                             href= {`/home`}
-                                            onClick={handleFormSubmit,() => reload()}
+                                            onClick={handleFormSubmit}
                                             color="primary"
                                             alignContent="center"
                                             type="submit">

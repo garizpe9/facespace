@@ -12,7 +12,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 import theme from '../../theme';
 import API from '../../utils/API';
-import { Redirect } from 'react-router-dom'
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -96,7 +96,7 @@ function AngryJournalEntry({ desc, what, unpack, note }, props) {
             .catch(err => console.log(err));
     };
     const classes = useStyles();
-    const reload = () => window.location.reload();
+    //const reload = () => window.location.reload();
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -186,7 +186,7 @@ function AngryJournalEntry({ desc, what, unpack, note }, props) {
                                         variant="outlined"
                                         color="success"
                                         href= {`/home`}
-                                        onClick={handleFormSubmit,() => reload()}
+                                        onClick={handleFormSubmit}
                                         type="submit"
                                         
                                         >

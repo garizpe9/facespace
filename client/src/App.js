@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginForm from './pages/Passport/login';
-//import Navbar from './components/navbar';
 import Register from './pages/Passport/register'
 import FaceDetectionPage from './pages/FaceDetectionPage/FaceDetectionPage';
 import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
@@ -20,11 +19,12 @@ import NeutralJournalPage from './pages/NeutralJournalPage/NeutralJournalPage.js
 import Aboutuspage from './pages/Aboutus/Aboutus';
 import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries';
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
-import FaceDetectionComponent from './component/FaceDetectionComponent/FaceDetectionComponent';
+import Navbar from './components/navbar';
+
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loggedIn: false,
       username: null,
@@ -71,6 +71,7 @@ class App extends Component {
     return (
       <Router>
       <div className='App'>
+       <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route
           path='/login'

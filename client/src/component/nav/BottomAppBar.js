@@ -6,14 +6,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
 import Navbar from '../../components/navbar';
+import Navbars from '../../components/navbars';
 import { Button } from '@material-ui/core';
 import Pagebar from '../../components/pagebar';
 
@@ -99,7 +98,7 @@ export default function BottomAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}><Navbar /></MenuItem>
+            <MenuItem onClick={handleMenuClose}><Navbars/></MenuItem>
         </Menu>
     );
 

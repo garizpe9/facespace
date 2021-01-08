@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,7 +15,6 @@ import Navbars from '../../components/navbars';
 import { Button } from '@material-ui/core';
 import Pagebar from '../../components/pagebar';
 import axios from 'axios';
-import { useState } from 'react';
 const useStyles = makeStyles((theme) => ({
     root: {
         color: "white",
@@ -66,7 +65,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }),
 )
-
 export default function BottomAppBar() {
 
     const classes = useStyles();
@@ -82,20 +80,21 @@ export default function BottomAppBar() {
         .get('/api/user/')
         .then((response) => { 
             if (response.data.user._id){
-            setUser(response.data.user._id)
-                console.log ("user",user)
+            setUser(true)
             }
-        }
-        )
+        })
     }
-    getUser()
+    useEffect(() => {getUser()},[])
 
     const handleProfileMenuOpen = (event) => {
-        //{constantforuserget  !==null ? setAnchor:setAnchor(null)}
+
         setAnchorEl(event.currentTarget);
+
     };
     const handleMenuOpen = (event) => {
+        if (user === true) {
         setAnchorel2(event.currentTarget);
+        }else{setAnchorel2(null)}
     };
     const handleMenuClose = () => {
         setAnchorEl(null);

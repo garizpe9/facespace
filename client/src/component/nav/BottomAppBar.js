@@ -11,11 +11,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Navbar from '../../components/navbar';
 import Navbars from '../../components/navbars';
 import { Button } from '@material-ui/core';
 import Pagebar from '../../components/pagebar';
-
+import axios from 'axios';
+import { useState } from 'react';
 const useStyles = makeStyles((theme) => ({
     root: {
         color: "white",
@@ -68,14 +68,30 @@ const useStyles = makeStyles((theme) => ({
 )
 
 export default function BottomAppBar() {
+
     const classes = useStyles();
     const preventDefault = (event) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorel2, setAnchorel2] = React.useState(null);
+    const [user, setUser] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
     const isPageMenuOpen = Boolean(anchorel2);
+    //this constant for user get
+    var getUser=() => {
+    axios
+        .get('/api/user/')
+        .then((response) => { 
+            if (response.data.user._id){
+            setUser(response.data.user._id)
+                console.log ("user",user)
+            }
+        }
+        )
+    }
+    getUser()
 
     const handleProfileMenuOpen = (event) => {
+        //{constantforuserget  !==null ? setAnchor:setAnchor(null)}
         setAnchorEl(event.currentTarget);
     };
     const handleMenuOpen = (event) => {

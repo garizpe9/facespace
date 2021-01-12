@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 
@@ -30,12 +30,14 @@ class Navbar extends Component {
       .catch((error) => {
         console.log(error)
       });
+      window.location.replace("/");
+      
+      
   };
 
    render() {
     var loggedIn = this.props.loggedIn;
     console.log("props",this.props)
-
 
     return (
       <div>
@@ -43,8 +45,8 @@ class Navbar extends Component {
           <section className='navbar-section'>
             <Button color="primary">
             <Link
-              to='/'
               onClick={this.logout}
+              
             >
               <span className='text-secondary'>Logout</span>
             </Link>

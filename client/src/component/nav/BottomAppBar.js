@@ -79,9 +79,9 @@ export default function BottomAppBar() {
     axios
         .get('/api/user/')
         .then((response) => { 
-            if (response.data.user._id){
-            setUser(true)
-            }
+            if (response.data.user !== null){console.log(response.data.user);
+            setUser(true)}else{ console.log(response.data.user)
+                setUser(false)}
         })
     }
     useEffect(() => {getUser()},[])
@@ -92,7 +92,7 @@ export default function BottomAppBar() {
 
     };
     const handleMenuOpen = (event) => {
-        if (user === true) {
+        if (user !== false) {
         setAnchorel2(event.currentTarget);
         }else{setAnchorel2(null)}
     };

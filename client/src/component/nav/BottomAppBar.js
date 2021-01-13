@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -6,17 +6,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import InputBase from '@material-ui/core/InputBase';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import theme from '../../theme';
 import { ThemeProvider } from '@material-ui/core/styles';
-import Navbar from '../../components/navbar';
+import Navbars from '../../components/navbars';
 import { Button } from '@material-ui/core';
 import Pagebar from '../../components/pagebar';
-
+import axios from 'axios';
 const useStyles = makeStyles((theme) => ({
     root: {
         color: "white",
@@ -67,20 +65,36 @@ const useStyles = makeStyles((theme) => ({
     },
 }),
 )
-
 export default function BottomAppBar() {
+
     const classes = useStyles();
     const preventDefault = (event) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [anchorel2, setAnchorel2] = React.useState(null);
+    const [user, setUser] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
     const isPageMenuOpen = Boolean(anchorel2);
+    //this constant for user get
+    var getUser=() => {
+    axios
+        .get('/api/user/')
+        .then((response) => { 
+            if (response.data.user !== null){console.log(response.data.user);
+            setUser(true)}else{ console.log(response.data.user)
+                setUser(false)}
+        })
+    }
+    useEffect(() => {getUser()},[])
 
     const handleProfileMenuOpen = (event) => {
+
         setAnchorEl(event.currentTarget);
+
     };
     const handleMenuOpen = (event) => {
+        if (user !== false) {
         setAnchorel2(event.currentTarget);
+        }else{setAnchorel2(null)}
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
@@ -99,7 +113,7 @@ export default function BottomAppBar() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}><Navbar /></MenuItem>
+            <MenuItem onClick={handleMenuClose}><Navbars/></MenuItem>
         </Menu>
     );
 
@@ -158,7 +172,7 @@ export default function BottomAppBar() {
                             onClick={handleProfileMenuOpen}
                         >
                             <AccountCircle />
-                            Account
+                            Home
                         </IconButton>
                       </Toolbar>
                 </AppBar>

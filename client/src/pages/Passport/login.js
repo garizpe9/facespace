@@ -51,11 +51,13 @@ class LoginForm extends Component {
                     this.setState({
                         redirectTo: '/home'
                     })
+                    window.location.reload(false)
                 }
             }).catch(error => {
                 console.log('login error: ')
                 console.log(error);              
             })
+            
     }
 
     render() {

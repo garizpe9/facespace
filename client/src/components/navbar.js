@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+
+
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.logout = this.logout.bind(this);
   };
-  state={
-    quote: "",
-    id: ""
-  };
+
+
 
   logout(event) {
     event.preventDefault();
@@ -29,12 +28,16 @@ class Navbar extends Component {
         }
       })
       .catch((error) => {
+        console.log(error)
       });
+      window.location.replace("/");
+      
+      
   };
 
    render() {
-    const loggedIn = this.props.loggedIn;
-    console.log(this.props.loggedIn)
+    var loggedIn = this.props.loggedIn;
+    console.log("props",this.props)
 
     return (
       <div>
@@ -42,17 +45,13 @@ class Navbar extends Component {
           <section className='navbar-section'>
             <Button color="primary">
             <Link
-              to='/'
               onClick={this.logout}
+              
             >
               <span className='text-secondary'>Logout</span>
             </Link>
             </Button>
-            <Button color="primary">
-              <Link to='/home'>
-                <span className='text-secondary'>Home </span>
-              </Link>
-            </Button>
+
           </section>
           ) : (
           <section className='text-secondary'> 
@@ -60,22 +59,22 @@ class Navbar extends Component {
               href="/login">
                 Login
             </Button>
-            <br/>
+            
             <Button color="primary"
               href="/signup">
                 Register
             </Button>
-            <br/>
+            
             <Button color="primary" href='/aboutus'>
                 <span className='text-secondary'>About Us </span>
              
             </Button>
-            <Button color="primary" href='/home'>
+            <Button color="primary" href='/'>
                 <span className='text-secondary'>Home </span>
             
             </Button>
           </section>
-        )}
+        )} 
       </div>
     );
   }

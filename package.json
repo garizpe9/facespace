@@ -23,6 +23,7 @@
     "@restart/hooks": "^0.3.25",
     "auto-bind": "^4.0.0",
     "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.5.3",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -44,7 +45,10 @@
     "react": "^16.14.0",
     "react-bootstrap-carousel": "^4.1.0",
     "react-dom": "^16.14.0",
+    "react-fade-in": "^2.0.0",
     "react-icons": "^4.1.0",
+    "react-loading": "^2.0.3",
+    "react-lottie": "^1.2.3",
     "react-swipeable-views": "^0.13.9",
     "styled-components": "^5.2.1"
   },

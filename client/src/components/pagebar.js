@@ -1,40 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { 
     Button
 } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class Pagebar extends Component {
   constructor() {
     super();
-    this.logout = this.logout.bind(this);
-  };
-  state={
-    quote: "",
-    id: ""
-  };
-
-  logout(event) {
-    event.preventDefault();
-    axios
-      .post('/api/user/logout')
-      .then((response) => {
-        if (response.status === 200) {
-          this.props.updateUser({
-            loggedIn: false,
-            username: null,
-          });
-        }
-      })
-      .catch((error) => {
-      });
-  };
-
+    };
    render() {
-    const loggedIn = this.props.loggedIn;
-
+  
     return (
       <div>
           <section>

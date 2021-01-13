@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LoginForm from './pages/Passport/login';
-//import Navbar from './components/navbar';
 import Register from './pages/Passport/register'
 import FaceDetectionPage from './pages/FaceDetectionPage/FaceDetectionPage';
 import CreateJournalPage from './pages/CreateJournalPage/CreateJournalPage';
@@ -20,14 +19,17 @@ import NeutralJournalPage from './pages/NeutralJournalPage/NeutralJournalPage.js
 import Aboutuspage from './pages/Aboutus/Aboutus';
 import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries';
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
-import FaceDetectionComponent from './component/FaceDetectionComponent/FaceDetectionComponent';
+import Navbar from './components/navbar';
+import ReactLoading from "react-loading";
+
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       loggedIn: false,
       username: null,
+      done: undefined
     };
 
     this.getUser = this.getUser.bind(this);
@@ -36,6 +38,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then(response => response.json())
+        .then(json => this.setState({ done: true }));
+    }, 1200);
     this.getUser();
   }
 
@@ -69,8 +76,15 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+        {!this.state.done ? (
+           <ReactLoading type={"bars"} color={"pink"} id="loading" />
+        ) :(
+      
       <Router>
       <div className='App'>
+
+       <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route
           path='/login'
@@ -123,7 +137,8 @@ class App extends Component {
         </Switch>
         <BottomAppBar/>
       </div>
-      </Router>
+      </Router>)}
+      </div>
     );
   }
 }

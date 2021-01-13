@@ -172,7 +172,7 @@ export default function BottomAppBar() {
                             onClick={handleProfileMenuOpen}
                         >
                             <AccountCircle />
-                            Account
+                            Home
                         </IconButton>
                       </Toolbar>
                 </AppBar>

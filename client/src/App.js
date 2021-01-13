@@ -20,6 +20,7 @@ import Aboutuspage from './pages/Aboutus/Aboutus';
 import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries';
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
 import Navbar from './components/navbar';
+import ReactLoading from "react-loading";
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       username: null,
+      done: undefined
     };
 
     this.getUser = this.getUser.bind(this);
@@ -36,6 +38,11 @@ class App extends Component {
   }
 
   componentDidMount() {
+    setTimeout(() => {
+      fetch("https://jsonplaceholder.typicode.com/posts")
+        .then(response => response.json())
+        .then(json => this.setState({ done: true }));
+    }, 1200);
     this.getUser();
   }
 
@@ -69,8 +76,14 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+        {!this.state.done ? (
+           <ReactLoading type={"bars"} color={"pink"} id="loading" />
+        ) :(
+      
       <Router>
       <div className='App'>
+
        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route
@@ -124,7 +137,8 @@ class App extends Component {
         </Switch>
         <BottomAppBar/>
       </div>
-      </Router>
+      </Router>)}
+      </div>
     );
   }
 }

@@ -37,7 +37,6 @@ const FaceDetectionComponent = () => {
     }
 
     const redirectToPage = (emotion) => {
-        console.log(emotion)
         setEmotion(emotion)
         // TODO: Redirect Emotion
     }
@@ -45,6 +44,11 @@ const FaceDetectionComponent = () => {
     const startFaceDetection = async () => {
         const options = new TinyFaceDetectorOptions({ inputSize: 512, scoreThreshold: 0.5 });
         const result = await detectSingleFace(videoRef.current, options).withFaceExpressions();
+
+        if(!result) {
+            redirectToPage(undefined);
+        }
+
         if (result) {
 
             /////// expression capture ////////

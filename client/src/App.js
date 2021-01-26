@@ -141,7 +141,6 @@ class App extends Component {
         :(
         <div className='App'>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
-
         <Route exact path='/' component={Home} />
         <Route
           exact path='/login' render={() => <LoginForm updateUser={this.updateUser} />}
@@ -153,9 +152,6 @@ class App extends Component {
         </Route>
         <Route exact path = {"/*"}>
           <Home/>         
-        </Route>
-        <Route exact path={["/home"]}>
-        <LandingPage />
         </Route>
         </Switch>
         

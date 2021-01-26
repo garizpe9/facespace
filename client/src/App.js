@@ -79,12 +79,13 @@ class App extends Component {
       <div>
         {!this.state.done ? (
            <ReactLoading type={"bars"} color={"pink"} id="loading" />
+      
         ) :(
       
       <Router>
-      <div className='App'>
-
-       <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        {this.state.loggedIn ? (
+        <div className='App'>
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route
           path='/login'
@@ -135,8 +136,28 @@ class App extends Component {
           <EmotionJournalEntries />
         </Route>
         </Switch>
+        </div>
+        )
+        :(
+        <div className='App'>
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Route exact path='/' component={Home} />
+        <Route
+          path='/login'
+          render={() => <LoginForm updateUser={this.updateUser} />}
+        />
+        <Route path='/signup' render={() => <Register />} />
+        <Route exact path={"/aboutus"}>
+          <Aboutuspage />
+        </Route>
+        
+        <Route path = {"/*"}>
+          <LoginForm/>         
+        </Route>
         <BottomAppBar/>
       </div>
+      )
+      }
       </Router>)}
       </div>
     );

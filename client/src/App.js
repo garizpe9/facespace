@@ -141,23 +141,28 @@ class App extends Component {
         :(
         <div className='App'>
         <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+
         <Route exact path='/' component={Home} />
         <Route
-          path='/login'
-          render={() => <LoginForm updateUser={this.updateUser} />}
+          exact path='/login' render={() => <LoginForm updateUser={this.updateUser} />}
         />
-        <Route path='/signup' render={() => <Register />} />
+        <Switch>
+        <Route exact path='/signup' render={() => <Register />} />
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
         </Route>
-        
-        <Route path = {"/*"}>
-          <LoginForm/>         
+        <Route exact path = {"/*"}>
+          <Home/>         
         </Route>
-        <BottomAppBar/>
+        <Route exact path={["/home"]}>
+        <LandingPage />
+        </Route>
+        </Switch>
+        
       </div>
       )
       }
+      <BottomAppBar/>
       </Router>)}
       </div>
     );

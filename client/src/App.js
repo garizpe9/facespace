@@ -21,7 +21,7 @@ import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
 import Navbar from './components/navbar';
 import ReactLoading from "react-loading";
-import User from './components/rename';
+
 
 
 class App extends Component {
@@ -151,16 +151,13 @@ class App extends Component {
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
         </Route>
-        <Route exact path = {"/*"}>
-          <Home/>         
-        </Route>
+
         </Switch>
         
       </div>
       )
       }
       <BottomAppBar/>
-      <User username={this.state.username} />
       </Router>)}
       </div>
     );

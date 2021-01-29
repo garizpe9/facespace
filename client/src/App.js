@@ -21,6 +21,7 @@ import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
 import Navbar from './components/navbar';
 import ReactLoading from "react-loading";
+import User from './components/rename';
 
 
 class App extends Component {
@@ -62,7 +63,7 @@ class App extends Component {
 
           this.setState({
             loggedIn: true,
-            username: response.data.user.username,
+            username: response.data.user._id,
           });
         } else {
           this.setState({
@@ -159,6 +160,7 @@ class App extends Component {
       )
       }
       <BottomAppBar/>
+      <User username={this.state.username} />
       </Router>)}
       </div>
     );

@@ -79,8 +79,8 @@ export default function BottomAppBar() {
     axios
         .get('/api/user/')
         .then((response) => { 
-            if (response.data.user !== null){console.log(response.data.user);
-            setUser(true)}else{ console.log(response.data.user)
+            if (response.data.user !== null){
+            setUser(true)}else{ 
                 setUser(false)}
         })
     }

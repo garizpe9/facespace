@@ -4,7 +4,7 @@ const checkboxController = require("../../controllers/checkboxController");
 // Matches with "/api/"
 router.route("/")
   .get(checkboxController.findAll)
-  .post(checkboxController).create);
+  .post(checkboxController.create);
 
 // Matches with "/api/:id"
 // router

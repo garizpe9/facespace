@@ -21,6 +21,7 @@ import FreestyleJournalEntries from './component/journal/FreestyleJournalEntries
 import EmotionJournalEntries from './component/journal/EmotionJournalEntries';
 import Navbar from './components/navbar';
 import ReactLoading from "react-loading";
+import User from './components/rename';
 
 
 class App extends Component {
@@ -62,7 +63,7 @@ class App extends Component {
 
           this.setState({
             loggedIn: true,
-            username: response.data.user.username,
+            username: response.data.user._id,
           });
         } else {
           this.setState({
@@ -79,12 +80,13 @@ class App extends Component {
       <div>
         {!this.state.done ? (
            <ReactLoading type={"bars"} color={"pink"} id="loading" />
+      
         ) :(
       
       <Router>
-      <div className='App'>
-
-       <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        {this.state.loggedIn ? (
+        <div className='App'>
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
         <Route exact path='/' component={Home} />
         <Route
           path='/login'
@@ -99,44 +101,66 @@ class App extends Component {
         <LandingPage />
         </Route>
         <Route exact path={"/createjournal"}>
-        <CreateJournalPage />
+        <CreateJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/journalentries"}>
-          <JournalEntries />
+          <JournalEntries username={this.state.username}/>
         </Route>
         <Route exact path={"/surprisejournal"}>
-          <SurpriseJournalPage />
+          <SurpriseJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/disgustjournal"}>
-          <DisgustJournalPage />
+          <DisgustJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/fearjournal"}>
-          <FearJournalPage />
+          <FearJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/sadjournal"}>
-          <SadJournalPage />
+          <SadJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/angryjournal"}>
-          <AngryJournalPage />
+          <AngryJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/happyjournal"}>
-          <HappyJournalPage />
+          <HappyJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/neutraljournal"}>
-          <NeutralJournalPage />
+          <NeutralJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
         </Route>
         <Route exact path={"/entries/:id"}>
-          <FreestyleJournalEntries />
-        </Route>
+          <FreestyleJournalEntries username={this.state.username}/>
+        </Route> 
         <Route exact path={"/emo/:id"}>
-          <EmotionJournalEntries />
+          <EmotionJournalEntries username={this.state.username} />
         </Route>
         </Switch>
-        <BottomAppBar/>
+        </div>
+        )
+        :(
+        <div className='App'>
+        <Navbar updateUser={this.updateUser} loggedIn={this.state.loggedIn} />
+        <Route exact path='/' component={Home} />
+        <Route
+          exact path='/login' render={() => <LoginForm updateUser={this.updateUser} />}
+        />
+        <Switch>
+        <Route exact path='/signup' render={() => <Register />} />
+        <Route exact path={"/aboutus"}>
+          <Aboutuspage />
+        </Route>
+        <Route exact path = {"/*"}>
+          <Home/>         
+        </Route>
+        </Switch>
+        
       </div>
+      )
+      }
+      <BottomAppBar/>
+      <User username={this.state.username} />
       </Router>)}
       </div>
     );

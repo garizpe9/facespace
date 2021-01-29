@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Paper, Grid } from '@material-ui/core';
 import Header from "../../component/HeaderComponent/Header";
@@ -7,8 +7,10 @@ import BottomAppBar from "../../component/nav/BottomAppBar";
 import MediaCard from '../../component/media/MediaCard';
 
 
-function JournalEntriesPage(){
-
+class JournalEntriesPage extends Component{
+  constructor(props) {
+    super(props);}
+  render() {
     return (
       <div>
         <Router>
@@ -19,7 +21,7 @@ function JournalEntriesPage(){
                     <MediaCard/>
                   </Grid>
                   <Grid item xs={8}>
-                    <JournalList/>
+                    <JournalList username={this.props.username}/>
                   </Grid>
                 </Grid>
               </Paper>
@@ -30,5 +32,5 @@ function JournalEntriesPage(){
   }
 
 
-
+}
 export default JournalEntriesPage;

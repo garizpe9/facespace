@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const JournalSchema = new Schema({
+  userid: String,
   intention: String,
   nurture: String,
   love1: String,

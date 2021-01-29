@@ -8,6 +8,8 @@ import Header from "../../component/HeaderComponent/Header";
 import { Grid } from '@material-ui/core';
  
 class NeutralJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class NeutralJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <NeutralJournalEntry
+              username={this.props.username}
               desc="Although neutral feelings do not have a valence—positive or negative—
               some say that neutral feelings can be counted as positive feelings,
               since they are characterized by the absence of pain and suffering."

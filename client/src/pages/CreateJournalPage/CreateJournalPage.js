@@ -7,6 +7,8 @@ import Header from "../../component/HeaderComponent/Header"
 import MediaCard from "../../component/media/MediaCard";
  
 class CreateJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -18,7 +20,7 @@ class CreateJournalPage extends Component {
                 <MediaCard/>
               </Grid>
               <Grid item xs={8}>
-                <JournalEntry/>
+                <JournalEntry username={this.props.username} />
               </Grid>
             </Grid>
           </Paper>

@@ -8,6 +8,8 @@ import Header from "../../component/HeaderComponent/Header";
 import { Grid } from '@material-ui/core';
  
 class SurpriseJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class SurpriseJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <SurpriseJournalEntry
+                username={this.props.username}
                 desc="Neurologists have discovered that surprise stimulates 
                 the hippocampus, the part of the brain that stores and processes memories. 
                 Psychologists believe that this is most likely a survival instinct 

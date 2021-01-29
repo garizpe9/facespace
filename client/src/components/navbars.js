@@ -17,8 +17,8 @@ class Navbar extends Component {
 
             <Button color="primary" href='/aboutus'>
                 <span className='text-secondary'>About Us </span>
-             
             </Button>
+            <br/>
             <Button color="primary" href='/'>
                 <span className='text-secondary'>Home </span>
             

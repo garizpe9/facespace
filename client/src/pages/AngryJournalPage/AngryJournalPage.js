@@ -8,6 +8,8 @@ import PlayerApp from '../../component/PlayerComponent/Player';
 import { Grid } from '@material-ui/core';
 
 class AngryJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class AngryJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <AngryJournalEntry
+              username={this.props.username}
               desc="Psychological studies have identified three causes of anger:
                when our desires, goals or expectations are not met, 
                when we feel threatened, and/or when we are using anger to mask other emotions."

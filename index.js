@@ -31,8 +31,6 @@ mongoose
   .then(
     () => {
       /** ready to use. The `mongoose.connect()` promise resolves to undefined. */
-      
-
       // Sessions
       app.use(
         session({

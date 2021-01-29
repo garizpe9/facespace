@@ -47,9 +47,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function JournalEntry() {
+export default function JournalEntry(...props) {
     const [entries, setEntries] = useState({})
     const [formObject, setFormObject] = useState({
+        user: '',
         intention: '',
         nurture: '',
         love1: '',
@@ -81,6 +82,7 @@ export default function JournalEntry() {
     function handleFormSubmit(event) {
     event.preventDefault();
         API.saveEntry({
+        user: props.username,
         intention: formObject.intention,
         nurture: formObject.nurture,
         love1: formObject.love1,
@@ -93,6 +95,7 @@ export default function JournalEntry() {
         vent: formObject.vent
         })
         .then(() => setFormObject({
+            user: '',
             intention: '',
             nurture: '',
             love1: '',
@@ -106,6 +109,7 @@ export default function JournalEntry() {
         }))
         .then(() => loadEntries())
         .catch(err => console.log(err));
+        window.location.assign("/home")
     };
     const classes = useStyles();
     const reload = () => window.location.reload();

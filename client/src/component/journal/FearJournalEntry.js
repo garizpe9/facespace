@@ -51,22 +51,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function FearJournalEntry({ desc, what, unpack, note }) {
-
+function FearJournalEntry({ desc, what, unpack, note, ...props }) {
     const [entries, setEntries] = useState({})
-
     const [formObject, setFormObject] = useState({
+        user: '',
         mood: '',
         what: '',
         unpack: '',
         note: ''
     })
-
     // Load all entries and store them with setEntries
     useEffect(() => {
         loadEntries()
     }, [])
-
     // Loads all entries and sets them to entries
     function loadEntries() {
         API.getEntriesEmo()
@@ -75,31 +72,32 @@ function FearJournalEntry({ desc, what, unpack, note }) {
             )
             .catch(err => console.log(err));
     };
-
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
-
     function handleFormSubmit(event) {
         event.preventDefault();
         API.saveEntryEmo({
+            user: props.username,
             mood: "Fear",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note
         })
             .then(() => setFormObject({
+                user: '',
                 what: '',
                 unpack: '',
                 note: ''
             }))
             .then(() => loadEntries())
             .catch(err => console.log(err));
+            window.location.assign("/home")
     };
 
     const classes = useStyles();
-    //const reload = () => window.location.reload();
+
 
     return (
         <ThemeProvider theme={theme}>

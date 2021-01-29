@@ -51,10 +51,10 @@ const useStyles = makeStyles((theme) => ({
         width: '80%'
     },
 }));
-
-function SurpriseJournalEntry( { desc, what, unpack, note } ) {
+function SurpriseJournalEntry( { desc, what, unpack, note, ...props } ) {
     const [entries, setEntries] = useState({})
     const [formObject, setFormObject] = useState({
+        user: '',
         mood: '',
         what: '',
         unpack: '',
@@ -64,7 +64,6 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
   useEffect(() => {
     loadEntries()
   }, [])
-
   // Loads all entries and sets them to entries
   function loadEntries() {
     API.getEntriesEmo()
@@ -80,21 +79,24 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
     function handleFormSubmit(event) {
         event.preventDefault();
           API.saveEntryEmo({
+            user: props.username,
             mood: 'Surprised',
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note
           })
             .then(() => setFormObject({
+        user: '',
         what: '',
         unpack: '',
         note: ''
             }))
             .then(() => loadEntries())
             .catch(err => console.log(err));
+            window.location.assign("/home")
     };
     const classes = useStyles();
-    const reload = () => window.location.reload();
+    
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
@@ -180,7 +182,7 @@ function SurpriseJournalEntry( { desc, what, unpack, note } ) {
                             <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                 <Button
                                    href= {`/home`}
-                                   onClick={handleFormSubmit,() => reload()}
+                                   onClick={handleFormSubmit}
                                     color="primary"
                                     type="submit">
                                         Submit

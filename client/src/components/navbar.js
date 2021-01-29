@@ -36,7 +36,6 @@ class Navbar extends Component {
 
    render() {
     var loggedIn = this.props.loggedIn;
-    console.log("props",this.props)
 
     return (
       <div>

@@ -53,11 +53,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function SadJournalEntry({ desc, what, unpack, note }) {
-
+function SadJournalEntry({ desc, what, unpack, note, ...props }) {
     const [entries, setEntries] = useState({})
-
     const [formObject, setFormObject] = useState({
+        user: '',
         mood: '',
         what: '',
         unpack: '',
@@ -82,21 +81,24 @@ function SadJournalEntry({ desc, what, unpack, note }) {
     function handleFormSubmit(event) {
         event.preventDefault();
         API.saveEntryEmo({
+            user: props.username,
             mood: "Sad",
             what: formObject.what,
             unpack: formObject.unpack,
             note: formObject.note
         })
             .then(() => setFormObject({
+                user: '',
                 what: '',
                 unpack: '',
                 note: ''
             }))
             .then(() => loadEntries())
             .catch(err => console.log(err));
+            window.location.assign("/home")
     };
     const classes = useStyles();
-    //const reload = () => window.location.reload();
+ 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />

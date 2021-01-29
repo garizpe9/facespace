@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const EmotionJournalSchema = new Schema({
-    userid: String,
+    user: String,
     mood: String,
     what: String,
     unpack: String,

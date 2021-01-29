@@ -8,6 +8,8 @@ import Header from "../../component/HeaderComponent/Header";
 import { Grid } from '@material-ui/core';
  
 class DisgustJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class DisgustJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <DisgustJournalEntry
+                username={this.props.username}
                 desc="We’re disgusted by things we think are bad, 
                 whether it is rotting food or cockroaches in the bathroom. 
                 In pre-modern civilizations, this was a great trait because it prevented people 

@@ -8,6 +8,8 @@ import PlayerApp from '../../component/PlayerComponent/Player';
 import { Grid } from '@material-ui/core';
  
 class FearJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class FearJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <FearJournalEntry
+                username={this.props.username}
                 desc="We become afraid when we encounter things and situations that we don’t understand, 
                 we can’t control, and/or we suspect will cause harm to us. 
                 Like all of your emotions, fear has developed to keep you safe. 

@@ -101,40 +101,40 @@ class App extends Component {
         <LandingPage />
         </Route>
         <Route exact path={"/createjournal"}>
-        <CreateJournalPage />
+        <CreateJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/journalentries"}>
-          <JournalEntries />
+          <JournalEntries username={this.state.username}/>
         </Route>
         <Route exact path={"/surprisejournal"}>
-          <SurpriseJournalPage />
+          <SurpriseJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/disgustjournal"}>
-          <DisgustJournalPage />
+          <DisgustJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/fearjournal"}>
-          <FearJournalPage />
+          <FearJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/sadjournal"}>
-          <SadJournalPage />
+          <SadJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/angryjournal"}>
-          <AngryJournalPage />
+          <AngryJournalPage username={this.state.username} />
         </Route>
         <Route exact path={"/happyjournal"}>
-          <HappyJournalPage />
+          <HappyJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/neutraljournal"}>
-          <NeutralJournalPage />
+          <NeutralJournalPage username={this.state.username}/>
         </Route>
         <Route exact path={"/aboutus"}>
           <Aboutuspage />
         </Route>
         <Route exact path={"/entries/:id"}>
-          <FreestyleJournalEntries />
-        </Route>
+          <FreestyleJournalEntries username={this.state.username}/>
+        </Route> 
         <Route exact path={"/emo/:id"}>
-          <EmotionJournalEntries />
+          <EmotionJournalEntries username={this.state.username} />
         </Route>
         </Switch>
         </div>

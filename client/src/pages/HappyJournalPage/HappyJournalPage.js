@@ -8,6 +8,8 @@ import Header from "../../component/HeaderComponent/Header";
 import { Grid } from '@material-ui/core';
 
 class HappyJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -21,6 +23,7 @@ class HappyJournalPage extends Component {
             </Grid>
             <Grid item xs={8}>
               <HappyJournalEntry
+                username={this.props.username}
                 desc="Happiness is our brain’s way of telling us that 
                 something is good for us and encourages us to seek it out.  
                 We feel joy when the neurotransmitters dopamine and serotonin are released into our bodies."

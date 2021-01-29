@@ -8,6 +8,8 @@ import Header from "../../component/HeaderComponent/Header";
 import { Grid } from '@material-ui/core';
 
 class SadJournalPage extends Component {
+  constructor(props) {
+    super(props);}
   render() {
     return (
       <div>
@@ -20,7 +22,8 @@ class SadJournalPage extends Component {
                 </MediaCard>
               </Grid>
               <Grid item xs={8}>
-                <SadJournalEntry
+                <SadJournalEntry 
+                  username={this.props.username}
                   desc="Humans depend on each other to survive. 
                   Sadness is the emotion that makes us remember that fact. 
                   As painful as sadness is, it’s not all bad. 

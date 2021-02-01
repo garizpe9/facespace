@@ -29,7 +29,7 @@ module.exports = {
 //   },
 //   remove: function(req, res) {
 //     db.Journal
-//       .findById({ _id: req.params.id })
+//       .findById({ user: req.params.user })
 //       .then(dbModel => dbModel.remove())
 //       .then(dbModel => res.json(dbModel))
 //       .catch(err => res.status(422).json(err));

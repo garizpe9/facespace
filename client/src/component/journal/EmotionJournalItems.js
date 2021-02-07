@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     Accordion,
@@ -15,7 +16,6 @@ import {
 } from '@material-ui/core';
 import theme from '../../theme'
 import API from "../../../src/utils/API"
-import { Link } from "react-router-dom";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
@@ -47,27 +47,26 @@ const useStyles = makeStyles({
     
 });
 
-export default function EmotionJournalItems() {
-    const [entries, setEntries] = useState([])  //how react defines components - initial state definition
-    
+export default function EmotionJournalItems(...props) {
+    const [entries, setEntries] = useState([]);  
+    //const [filtering, setFiltering] = useState([]);//how react defines components - initial state definition
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
-      loadEntries()
-    }, [])
-  
-    // Loads all entries and sets them to entries
-    function loadEntries() {
-      API.getEntriesEmo()
-        .then(res => 
-          setEntries(res.data)
-        )
-        .catch(err => console.log(err));
-    };
-  
+      filterEntries()
+    }, []);
+
+   // Loads all entries and sets them to entries
+    
+    function filterEntries() {
+        API.getEntriesEmo()
+          .then(res =>setEntries(res.data))
+          .catch(err => console.log(err));
+      };
+
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntryEmo(id) {
       API.deleteEntryEmo(id)
-        .then(res => loadEntries())
+        .then(res => filterEntries())
         .catch(err => console.log(err));
     }
 
@@ -95,24 +94,23 @@ export default function EmotionJournalItems() {
                                     <AccordionDetails>
                                         <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
                                         {entries.length ? (
-                                            <AccordionDetails>
+                                            <AccordionDetails> 
                                                 {entries.map(entries => (
                                                     <Grid container spacing={1}>
                                                         <Card className={classes.card} key={entries._id}>
                                                             <Paper className={classes.paper}>
                                                                 <CardContent>
                                                                     <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                                        
                                                                             <AccordionDetails>
                                                                             <p className={classes.p}>
                                                                                 {entries.date.slice(0,10)}
+                                                                                <br/>User: {entries.user}
                                                                                 <br/>Mood: {entries.mood}
                                                                                 <br/> Why you were {entries.mood}: <br/>{entries.what}
                                                                                 <br/> What you unpacked: <br/>{entries.unpack}
                                                                                 <br/> What you said about your mood: <br/>{entries.note}
                                                                             </p>
                                                                             </AccordionDetails>
-                                                                        
                                                                     </Typography>
                                                                 </CardContent>
                                                                 <CardContent>

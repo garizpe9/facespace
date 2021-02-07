@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     }
 });
 
-function EmotionJournalEntries(props) {
+function EmotionJournalEntries() {
     const [entryEmo, setEntryEmo] = useState({})  //how react defines components - initial state definition
 
     // Loads the entry and sets them to entry

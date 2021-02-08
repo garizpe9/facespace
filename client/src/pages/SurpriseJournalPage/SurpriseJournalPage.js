@@ -24,6 +24,7 @@ class SurpriseJournalPage extends Component {
             <Grid item xs={8}>
               <SurpriseJournalEntry
                 username={this.props.username}
+               
                 desc="Neurologists have discovered that surprise stimulates 
                 the hippocampus, the part of the brain that stores and processes memories. 
                 Psychologists believe that this is most likely a survival instinct 

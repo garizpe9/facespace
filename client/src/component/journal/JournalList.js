@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     Card,
@@ -13,7 +13,7 @@ import theme from '../../theme'
 import JournalItems from './JournalItems';
 import EmotionJournalItems from './EmotionJournalItems';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme,...props) => ({
     root: {
       flexGrow: 1,
       height: "100vh",
@@ -44,28 +44,32 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function JournalList() {
-    const classes = useStyles();
+//export default function JournalList(...props) {
+    class JournalList extends Component{
+        constructor(props) {
+            super(props);}
+    //const classes = useStyles();
+    render(){
     return (
         <ThemeProvider theme={theme}>
         <CssBaseline />
-            <div className={classes.root}>
+            <div>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Paper className={classes.paper}>
-                            <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
+                        <Paper>
+                            <Typography gutterBottom variant="h3" component="h2">
                                 Journal Entries
                             </Typography>
                         </Paper>
                         <br/>
-                        <Card className={classes.card}>
+                        <Card >
                             <CardContent>
                                 <Grid item xs={12}>
                                     <Grid item xs={12}>
-                                        <JournalItems/>
+                                        <JournalItems username={this.props.username} />
                                     </Grid>
                                     <Grid item xs={12}>
-                                        <EmotionJournalItems/>
+                                        <EmotionJournalItems username={this.props.username}/>
                                     </Grid>
                                 </Grid>
                             </CardContent>
@@ -76,3 +80,37 @@ export default function JournalList() {
         </ThemeProvider>
     );
 }
+    }
+
+
+
+//     <ThemeProvider theme={theme}>
+//     <CssBaseline />
+//         <div className={classes.root}>
+//             <Grid container spacing={3}>
+//                 <Grid item xs={12}>
+//                     <Paper className={classes.paper}>
+//                         <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
+//                             Journal Entries
+//                         </Typography>
+//                     </Paper>
+//                     <br/>
+//                     <Card className={classes.card}>
+//                         <CardContent>
+//                             <Grid item xs={12}>
+//                                 <Grid item xs={12}>
+//                                     <JournalItems username={this.props.username} />
+//                                 </Grid>
+//                                 <Grid item xs={12}>
+//                                     <EmotionJournalItems username={this.props.username}/>
+//                                 </Grid>
+//                             </Grid>
+//                         </CardContent>
+//                     </Card>
+//                 </Grid>
+//             </Grid>
+//         </div>
+//     </ThemeProvider>
+// );
+
+export default JournalList;

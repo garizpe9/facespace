@@ -48,10 +48,12 @@ const useStyles = makeStyles({
 
 export default function EmotionJournalItems({...props}) {
     const [entries, setEntries] = useState([]);  
+    const [separate, setSeparateEntries] = useState([]);  
   
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
       filterEntries()
+      getUserEntries()
     }, [{...props}]);
 
    // Loads all entries and sets them to entries
@@ -62,13 +64,16 @@ export default function EmotionJournalItems({...props}) {
         
     };
 
+    function getUserEntries(){
+        setSeparateEntries(entries)
+    }
+
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntryEmo(id) {
       API.deleteEntryEmo(id)
         .then(res => filterEntries())
         .catch(err => console.log(err));
     }
-
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>

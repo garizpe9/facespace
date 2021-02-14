@@ -84,12 +84,15 @@ export default function JournalItems() {
 
     // Loads all entries and sets them to entries
     function loadEntries() {
+        
       API.getEntries()
         .then(res => 
           setEntries(res.data)
         )
         .catch(err => console.log(err));
+
     };
+
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntry(id) {
       API.deleteEntry(id)
@@ -122,6 +125,7 @@ export default function JournalItems() {
                                     <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
                                     {entries.length ? (
                                         <AccordionDetails>
+                                            
                                             {entries.map(entries => (
                                                 <Grid container spacing={1}>
                                                     <Paper className={classes.paper} key={entries._id}>
@@ -129,6 +133,7 @@ export default function JournalItems() {
                                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                                                         </Typography>
                                                         <p className={classes.p}>
+                                                            
                                                             {entries.date.slice(0,10)}
                                                             <br/> My Intention: {entries.intention}
                                                             <br/> What I did to Nurture Myself: {entries.nuture}

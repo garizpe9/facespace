@@ -53,19 +53,24 @@ export default function EmotionJournalItems({...props}) {
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
       filterEntries()
-      getUserEntries()
+      
+      
     }, [{...props}]);
 
    // Loads all entries and sets them to entries
     function filterEntries() {
         API.getEntriesEmo()
-          .then(res =>setEntries(res.data))
+          .then(res =>setEntries(res.data),setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
+          //.then(setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
           .catch(err => console.log(err));
+          //getUserEntries({...props})
+          
         
     };
 
-    function getUserEntries(){
-        setSeparateEntries(entries)
+    function getUserEntries({...props}){
+        const getuserprop = props.username
+        //setSeparateEntries(entries.filter(username => props.username.includes(username.user)))
     }
 
     // Deletes a book from the database with a given id, then reloads books from the db
@@ -90,16 +95,16 @@ export default function EmotionJournalItems({...props}) {
                                         id="panel1a-header"
                                     >       
                                         <Typography gutterBottom variant="h4" component="h2" className={classes.typography}>
-                                            {props.username} Mood Journals 
+                                            Mood Journals 
                                         </Typography>
                                     </AccordionSummary>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <AccordionDetails>
                                         <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}> 
-                                        {entries.length ? (
+                                        {separate.length ? (
                                             <AccordionDetails> 
-                                                {entries.map(entries => (
+                                                {separate.map(entries => (
                                                     <Grid container spacing={1}>
                                                         <Card className={classes.card} key={entries._id}>
                                                             <Paper className={classes.paper}>

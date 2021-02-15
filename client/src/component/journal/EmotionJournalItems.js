@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import { 
     Accordion,
@@ -47,21 +46,32 @@ const useStyles = makeStyles({
     
 });
 
-export default function EmotionJournalItems(...props) {
+export default function EmotionJournalItems({...props}) {
     const [entries, setEntries] = useState([]);  
-    //const [filtering, setFiltering] = useState([]);//how react defines components - initial state definition
+    const [separate, setSeparateEntries] = useState([]);  
+  
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
       filterEntries()
-    }, []);
+      
+      
+    }, [{...props}]);
 
    // Loads all entries and sets them to entries
-    
     function filterEntries() {
         API.getEntriesEmo()
-          .then(res =>setEntries(res.data))
+          .then(res =>setEntries(res.data),setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
+          //.then(setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
           .catch(err => console.log(err));
-      };
+          //getUserEntries({...props})
+          
+        
+    };
+
+    function getUserEntries({...props}){
+        const getuserprop = props.username
+        //setSeparateEntries(entries.filter(username => props.username.includes(username.user)))
+    }
 
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntryEmo(id) {
@@ -69,7 +79,6 @@ export default function EmotionJournalItems(...props) {
         .then(res => filterEntries())
         .catch(err => console.log(err));
     }
-
     const classes = useStyles();
     return (
         <ThemeProvider theme={theme}>
@@ -92,10 +101,10 @@ export default function EmotionJournalItems(...props) {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <AccordionDetails>
-                                        <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
-                                        {entries.length ? (
+                                        <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}> 
+                                        {separate.length ? (
                                             <AccordionDetails> 
-                                                {entries.map(entries => (
+                                                {separate.map(entries => (
                                                     <Grid container spacing={1}>
                                                         <Card className={classes.card} key={entries._id}>
                                                             <Paper className={classes.paper}>

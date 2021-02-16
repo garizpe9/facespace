@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         width: '80%'
     },
+    button: {
+        marginBottom: theme.spacing(7),
+    }
 }));
 
 function SadJournalEntry({ desc, what, unpack, note, ...props }) {
@@ -184,8 +187,9 @@ function SadJournalEntry({ desc, what, unpack, note, ...props }) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper} controlId="exampleForm.ControlTextarea1">
                                     <Button
-                                       href= {`/home`}
-                                       onClick={handleFormSubmit}
+                                        className={classes.button}
+                                        href= {`/home`}
+                                        onClick={handleFormSubmit}
                                         variant="primary"
                                         type="submit">
                                         Submit

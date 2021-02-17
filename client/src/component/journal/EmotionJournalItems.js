@@ -52,13 +52,13 @@ export default function EmotionJournalItems({...props}) {
   
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
-      filterEntries()
+      filterEntries({...props})
       
       
-    }, [{...props}]);
+    }, []);
 
    // Loads all entries and sets them to entries
-    function filterEntries() {
+    function filterEntries({...props}) {
         API.getEntriesEmo()
           .then(res =>setEntries(res.data),setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
           //.then(setSeparateEntries(entries.filter(username => props.username.includes(username.user))))

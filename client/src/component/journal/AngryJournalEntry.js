@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         width: '80%'
     },
+    button: {
+        marginBottom: theme.spacing(7),
+    }
 }));
 
 function AngryJournalEntry({ desc, what, unpack, note, ...props }, ) {
@@ -185,6 +188,7 @@ function AngryJournalEntry({ desc, what, unpack, note, ...props }, ) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Button
+                                        className={classes.button}
                                         size="large"
                                         variant="outlined"
                                         color="success"

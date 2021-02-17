@@ -51,6 +51,9 @@ const useStyles = makeStyles((theme) => ({
         marginRight: theme.spacing(1),
         width: '80%'
     },
+    button: {
+        marginBottom: theme.spacing(7),
+    }
 }));
 
 function HappyJournalEntry({ desc, what, unpack, note, ...props }) {
@@ -173,7 +176,7 @@ function HappyJournalEntry({ desc, what, unpack, note, ...props }) {
                                     className={classes.textfield}
                                     onChange={handleInputChange}
                                     id="outlined-secondary"
-                                    label="Today I was fearful of..."
+                                    label="Today I was happy because..."
                                     variant="outlined"
                                     color="primary"
                                     name="note"
@@ -185,6 +188,7 @@ function HappyJournalEntry({ desc, what, unpack, note, ...props }) {
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}>
                                     <Button
+                                        className={classes.button}
                                         href= {`/home`}
                                         onClick={handleFormSubmit}
                                         color="primary"

@@ -27,6 +27,7 @@ router.post('/', (req, res) => {
   });
 });
 
+
 router.post(
   '/login',
   function (req, res, next) {
@@ -40,6 +41,17 @@ router.post(
     res.send(userInfo);
   }
 );
+
+router.get('/user', (req, res, next) => {
+	console.log('===== user!!======')
+	console.log(req.user)
+	if (req.user) {
+		return res.json({ user: req.user })
+	} else {
+		return res.json({ user: null })
+	}
+})
+
 
 router.get('/', (req, res, next) => {
   if (req.user) {

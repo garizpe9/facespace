@@ -33,7 +33,6 @@ class Attempt extends Component {
     handleSubmit(event) {
         event.preventDefault()
 		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
 		event.preventDefault()
 
 		//request to server to add a new username/password
@@ -44,7 +43,6 @@ class Attempt extends Component {
 			.then(response => {
 				console.log(response)
 				if (!response.data.error) {
-					console.log('successful signup')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
 					})
@@ -52,7 +50,6 @@ class Attempt extends Component {
 					alert('Username already taken. Please try again')
 				}
 			}).catch(error => {
-				console.log('signup error: ')
 				console.log(error)
 			})
 	

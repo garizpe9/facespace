@@ -39,8 +39,6 @@ class LoginForm extends Component {
                 password: this.state.password
             })
             .then(response => {
-                console.log('login response: ')
-                console.log(response)
                 if (response.status === 200) {
                     // update App.js state
                     this.props.updateUser({
@@ -52,10 +50,10 @@ class LoginForm extends Component {
                         redirectTo: '/home'
                     })
                     window.location.reload(false)
-                }
+                } 
             }).catch(error => {
                 console.log('login error: ')
-                console.log(error);              
+                alert("Incorrect username or password");              
             })
             
     }

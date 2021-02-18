@@ -54,7 +54,6 @@ export default function EmotionJournalItems({...props}) {
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
       filterEntries({...props})
       
-      
     }, []);
 
    // Loads all entries and sets them to entries
@@ -63,16 +62,10 @@ export default function EmotionJournalItems({...props}) {
           .then(res =>setEntries(res.data),setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
           //.then(setSeparateEntries(entries.filter(username => props.username.includes(username.user))))
           .catch(err => console.log(err));
-          //getUserEntries({...props})
+          console.log(entries)
           
         
     };
-
-    function getUserEntries({...props}){
-        const getuserprop = props.username
-        //setSeparateEntries(entries.filter(username => props.username.includes(username.user)))
-    }
-
     // Deletes a book from the database with a given id, then reloads books from the db
     function deleteEntryEmo(id) {
       API.deleteEntryEmo(id)

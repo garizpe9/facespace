@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { Button, CardContent, 
     Card, Grid, Paper, TextField 
 } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
 import axios from 'axios'
 class Attempt extends Component {
     constructor() { 
@@ -20,10 +19,8 @@ class Attempt extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
     }
     useStyles = makeStyles((theme) => ({
-
     }));
     componentDidMount(){this.setState({classes:this.useStyles})}
 
@@ -36,8 +33,17 @@ class Attempt extends Component {
     handleSubmit(event) {
         event.preventDefault()
 		console.log('sign-up handleSubmit, username: ')
-		console.log(this.state.username)
 		event.preventDefault()
+
+        if (this.state.username.length < 6){
+            alert("Make username 6 characters minimum")} 
+            else if(this.state.username.length < 8) {
+            alert("Make password 8 characters minimum")
+            }
+            else{
+
+
+
 
 		//request to server to add a new username/password
 		axios.post('/api/user/', {
@@ -46,22 +52,19 @@ class Attempt extends Component {
 		})
 			.then(response => {
 				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful signup')
+				if (!response.data.error) {
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
 					})
 				} else {
-					console.log('username already taken')
+					alert('Username already taken. Please try again')
 				}
 			}).catch(error => {
-				console.log('signup error: ')
 				console.log(error)
-
 			})
 	
     }
-
+}
     render() {
         if (this.state.redirectTo) {
             return <Redirect to={{ pathname: this.state.redirectTo }} />

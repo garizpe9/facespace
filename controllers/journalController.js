@@ -20,8 +20,7 @@ module.exports = {
 
   findAllemo: function(req, res) {
     db.EmotionJournal
-    .find(req.query)// {user: "601482e3f027070a108aa7ae"})
-      //.findById({user: req.params.props })
+    .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
        .catch(err => res.status(422).json(err));

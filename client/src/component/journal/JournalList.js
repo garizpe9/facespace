@@ -82,35 +82,4 @@ const useStyles = makeStyles((theme,...props) => ({
 }
     }
 
-
-
-//     <ThemeProvider theme={theme}>
-//     <CssBaseline />
-//         <div className={classes.root}>
-//             <Grid container spacing={3}>
-//                 <Grid item xs={12}>
-//                     <Paper className={classes.paper}>
-//                         <Typography gutterBottom variant="h3" component="h2" className={classes.typography}>
-//                             Journal Entries
-//                         </Typography>
-//                     </Paper>
-//                     <br/>
-//                     <Card className={classes.card}>
-//                         <CardContent>
-//                             <Grid item xs={12}>
-//                                 <Grid item xs={12}>
-//                                     <JournalItems username={this.props.username} />
-//                                 </Grid>
-//                                 <Grid item xs={12}>
-//                                     <EmotionJournalItems username={this.props.username}/>
-//                                 </Grid>
-//                             </Grid>
-//                         </CardContent>
-//                     </Card>
-//                 </Grid>
-//             </Grid>
-//         </div>
-//     </ThemeProvider>
-// );
-
 export default JournalList;

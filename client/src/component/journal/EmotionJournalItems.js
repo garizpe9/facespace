@@ -104,7 +104,6 @@ export default function EmotionJournalItems({...props}) {
                                                                             <AccordionDetails>
                                                                             <p className={classes.p}>
                                                                                 {entries.date.slice(0,10)}
-                                                                                <br/>User: {entries.user}
                                                                                 <br/>Mood: {entries.mood}
                                                                                 <br/> Why you were {entries.mood}: <br/>{entries.what}
                                                                                 <br/> What you unpacked: <br/>{entries.unpack}

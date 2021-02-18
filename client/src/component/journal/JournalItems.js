@@ -74,12 +74,13 @@ function GridItem({ classes }) {
     );
 }
 
-export default function JournalItems() {
-    const [entries, setEntries] = useState([])  //how react defines components - initial state definition
+export default function JournalItems({...props}) {
+    const [entries, setEntries] = useState([])
+    const [separate, setSeparateEntries] = useState([]);   //how react defines components - initial state definition
 
     // Load all entries and store them with setEntries
     useEffect(() => { //instead of mountring/rendering it's everytime there's a change
-      loadEntries()
+      loadEntries({...props})
     }, [])
 
     // Loads all entries and sets them to entries
@@ -87,7 +88,7 @@ export default function JournalItems() {
         
       API.getEntries()
         .then(res => 
-          setEntries(res.data)
+            (setEntries(res.data),setSeparateEntries(res.data.filter(username => props.username.includes(username.user))))
         )
         .catch(err => console.log(err));
 
@@ -123,10 +124,10 @@ export default function JournalItems() {
                             <Grid item xs={12}>
                                 <AccordionDetails>
                                     <Typography variant="body2" color="textSecondary" component="p" className={classes.typography}>
-                                    {entries.length ? (
+                                    {separate.length ? (
                                         <AccordionDetails>
                                             
-                                            {entries.map(entries => (
+                                            {separate.map(entries => (
                                                 <Grid container spacing={1}>
                                                     <Paper className={classes.paper} key={entries._id}>
                                                         <CardContent>

@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 
-
-
 class Navbar extends Component {
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this);
   };
-
-
 
   logout(event) {
     event.preventDefault();
@@ -30,8 +26,7 @@ class Navbar extends Component {
         console.log(error)
       });
       window.location.replace("/");
-      
-      
+     
   };
 
    render() {
@@ -44,9 +39,15 @@ class Navbar extends Component {
             <Button color="primary">
             <Link
               onClick={this.logout}
-              
             >
               <span className='text-secondary'>Logout</span>
+            </Link>
+            </Button>
+
+            <Button color="primary"
+            href="/journalentries">
+            <Link>
+              <span className='text-secondary'>Journal Home</span>
             </Link>
             </Button>
 

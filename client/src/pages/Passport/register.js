@@ -37,7 +37,7 @@ class Attempt extends Component {
 
         if (this.state.username.length < 6){
             alert("Make username 6 characters minimum")} 
-            else if(this.state.username.length < 8) {
+            else if(this.state.password.length < 8) {
             alert("Make password 8 characters minimum")
             }
             else{

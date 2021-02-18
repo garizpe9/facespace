@@ -35,6 +35,16 @@ class Attempt extends Component {
 		console.log('sign-up handleSubmit, username: ')
 		event.preventDefault()
 
+        if (this.state.username.length < 6){
+            alert("Make username 6 characters minimum")} 
+            else if(this.state.username.length < 8) {
+            alert("Make password 8 characters minimum")
+            }
+            else{
+
+
+
+
 		//request to server to add a new username/password
 		axios.post('/api/user/', {
 			username: this.state.username,
@@ -54,7 +64,7 @@ class Attempt extends Component {
 			})
 	
     }
-
+}
     render() {
         if (this.state.redirectTo) {
             return <Redirect to={{ pathname: this.state.redirectTo }} />

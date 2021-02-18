@@ -33,6 +33,7 @@ class LoginForm extends Component {
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
+        
         axios
             .post('/api/user/login', {
                 username: this.state.username,

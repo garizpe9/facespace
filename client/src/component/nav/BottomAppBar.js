@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
 }),
 )
 export default function BottomAppBar() {
-
     const classes = useStyles();
     const preventDefault = (event) => event.preventDefault();
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -87,9 +86,7 @@ export default function BottomAppBar() {
     useEffect(() => {getUser()},[])
 
     const handleProfileMenuOpen = (event) => {
-
         setAnchorEl(event.currentTarget);
-
     };
     const handleMenuOpen = (event) => {
         if (user !== false) {

@@ -103,7 +103,6 @@ function DisgustJournalEntry({ desc, what, unpack, note, ...props }) {
     };
 
     const classes = useStyles();
-    //const reload = () => window.location.reload();
 
     return (
         <ThemeProvider theme={theme}>

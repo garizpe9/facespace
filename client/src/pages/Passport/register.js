@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { Button, CardContent, 
     Card, Grid, Paper, TextField 
 } from '@material-ui/core';
-import Container from '@material-ui/core/Container';
 import axios from 'axios'
 class Attempt extends Component {
     constructor() { 
@@ -20,10 +19,8 @@ class Attempt extends Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
-  
     }
     useStyles = makeStyles((theme) => ({
-
     }));
     componentDidMount(){this.setState({classes:this.useStyles})}
 
@@ -46,18 +43,17 @@ class Attempt extends Component {
 		})
 			.then(response => {
 				console.log(response)
-				if (!response.data.errmsg) {
+				if (!response.data.error) {
 					console.log('successful signup')
 					this.setState({ //redirect to login page
 						redirectTo: '/login'
 					})
 				} else {
-					console.log('username already taken')
+					alert('Username already taken. Please try again')
 				}
 			}).catch(error => {
 				console.log('signup error: ')
 				console.log(error)
-
 			})
 	
     }
